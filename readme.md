@@ -10,6 +10,13 @@ curl https://raw.githubusercontent.com/JynxZz/ruy-forcement-learning/master/setu
 
 Normally all the directory is set up for the ruy-forcement-learning.
 
+Now Run this following command in the project directory:
+
+```bash
+cd ~/code/ruy-forcement-learning/
+make env && make install
+```
+
 ## Lectures
 
 [DIAMBRA](https://docs.diambra.ai/)
