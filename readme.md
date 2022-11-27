@@ -17,6 +17,12 @@ cd ~/code/ruy-forcement-learning/
 make env && make install
 ```
 
+Now we add the rom of the game to the path.
+The vitrtual env is setup and the requirements are install in the repo.
+
+New alias is setup :
+. rl : to go directly to the repo
+
 ## Lectures
 
 [DIAMBRA](https://docs.diambra.ai/)
