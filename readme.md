@@ -15,6 +15,7 @@ Normally all the directory is set up for the ruy-forcement-learning.
 [DIAMBRA](https://docs.diambra.ai/)
 
 [Alpha Go](https://youtu.be/wxuk6geku1y)
+
 [Artificial Gamer](https://youtu.be/j0kpnpro2j8)
 
 ## BaseLine
