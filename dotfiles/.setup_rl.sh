@@ -36,7 +36,7 @@ echo 'alias rl="cd ~/code/ryu-forcement-learning"' >> ~/.aliases
 echo '# Add Rom Path to DIAMBRA ARENA' >> ~/.zshrc
 echo 'export DIAMBRAROMSPATH="$HOME/code/ryu-forcement-learning"' >> ~/.zshrc
 
-cd ~/code/ryu-forcement-learnin
+cd ~/code/ryu-forcement-learning
 
 echo 'I am ready to fight ...'
 echo 'Start Training'
