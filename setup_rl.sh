@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ ! -d ~/code/ruy-forcement-learning]; then
+if [ ! -d ~/code/ruy-forcement-learning ]; then
   mkdir ~/code/ruy-forcement-learning
 fi
 
