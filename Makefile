@@ -6,6 +6,9 @@ default: tree
 tree:
 	@tree
 	@echo 'Go Train ... !!'
+	@echo 'make env - to setup up virtual env '
+	@echo 'make install - to install packages & dependances'
+	@echo 'make fight - to fight !!'
 
 #-------------------------------------
 # 		  	SETUP ENV & PACKAGE	
