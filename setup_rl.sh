@@ -1,16 +1,16 @@
 #!/bin/bash
 
-if [ ! -d ~/code/ruy-forcement-learning ]; then
-  mkdir ~/code/ruy-forcement-learning
+if [ ! -d ~/code/project]; then
+  mkdir ~/code/project
 fi
 
-git clone git@github.com:JynxZz/ruy-forcement-learning.git ~/code/ruy-forcement-learning
+git clone git@github.com:JynxZz/ruy-forcement-learning.git ~/code/project
 
-echo 'alias rl="cd ~/code/ruy-forcement-learning"' >> ~/.aliases
+echo 'alias rl="cd ~/code/project/ruy-forcement-learning"' >> ~/.aliases
 echo '# Add Rom Path to DIAMBRA ARENA' >> ~/.zshrc
 echo 'export DIAMBRAROMSPATH="$HOME/code/ruy-forcement-learning"' >> ~/.zshrc
 
-cd ~/code/ruy-forcement-learning
+cd ~/code/project/ruy-forcement-learning
 make env 
 make install
 
