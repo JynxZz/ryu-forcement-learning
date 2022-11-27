@@ -25,7 +25,8 @@ printf '
                                 \/__/         \/__/         \/__/         \/__/         \/__/         \/__/       \/__/         \/__/                                                        
 
 '
-if [ ! -d ~/code/ryu-forcement-learning]; then
+
+if [ ! -d ~/code/ryu-forcement-learning ]; then
   mkdir ~/code/ryu-forcement-learning
 fi
 
