@@ -21,7 +21,8 @@ Now we add the rom of the game to the path.
 The vitrtual env is setup and the requirements are install in the repo.
 
 New alias is setup :
-. rl : to go directly to the repo
+
+- rl : to go directly to the repo
 
 Don't forget to use this :
 
