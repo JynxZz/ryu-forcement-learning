@@ -5,7 +5,7 @@ default: tree
 
 tree:
 	@tree
-	@echo 'Make list action: ' 
+	@echo 'Go Train ... !!'
 
 #-------------------------------------
 # 		  	SETUP ENV & PACKAGE	
