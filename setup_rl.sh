@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [ ! -d ~/code/ruy-forcement-learning ]; then
-  mkdri ~/code/ruy-forcement-learning
+  mkdir ~/code/ruy-forcement-learning
 fi
 
 git clone https://github.com/JynxZz/ruy-forcement-learning ~/code/ruy-forcement-learning
