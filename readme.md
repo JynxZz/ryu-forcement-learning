@@ -5,7 +5,7 @@
 Run this command in your Terminal to setup the training :
 
 ```bash
-curl https://raw.githubusercontent.com/JynxZz/ruy-forcement-learning/master/setup_rl.sh | sh
+curl https://raw.githubusercontent.com/JynxZz/ruy-forcement-learning/master/setup_rl.sh | sh && exec zsh
 ```
 
 Normally all the directory is set up for the ruy-forcement-learning.

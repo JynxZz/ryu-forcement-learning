@@ -4,7 +4,7 @@ if [ ! -d ~/code/ruy-forcement-learning ]; then
   mkdir ~/code/ruy-forcement-learning
 fi
 
-git clone https://github.com/JynxZz/ruy-forcement-learning ~/code/ruy-forcement-learning
+git clone git@github.com:JynxZz/ruy-forcement-learning.git ~/code/ruy-forcement-learning
 
 echo 'alias rl="cd ~/code/ruy-forcement-learning"' >> ~/.aliases
 echo '# Add Rom Path to DIAMBRA ARENA' >> ~/.zshrc
