@@ -6,7 +6,7 @@ fi
 
 git clone https://github.com/JynxZz/ruy-forcement-learning ~/code/ruy-forcement-learning
 
-echo 'alias sf3="cd ~/code/ruy-forcement-learning"' >> ~/.aliases
+echo 'alias rl="cd ~/code/ruy-forcement-learning"' >> ~/.aliases
 echo '# Add Rom Path to DIAMBRA ARENA' >> ~/.zshrc
 echo 'export DIAMBRAROMSPATH="$HOME/code/ruy-forcement-learning"' >> ~/.zshrc
 
