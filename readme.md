@@ -16,7 +16,7 @@ Normally all the directory is set up for the ruy-forcement-learning.
 
 [Alpha Go](https://youtu.be/wxuk6geku1y)
 
-[Artificial Gamer](https://youtu.be/j0kpnpro2j8)
+[Artificial Gamer](https://youtu.be/J0KPNpro2J8)
 
 ## BaseLine
 
