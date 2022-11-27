@@ -4,11 +4,11 @@
 default: tree 
 
 tree:
-	@tree
 	@echo 'Go Train ... !!'
 	@echo 'make env - to setup up virtual env '
 	@echo 'make install - to install packages & dependances'
 	@echo 'make fight - to fight !!'
+
 
 #-------------------------------------
 # 		  	SETUP ENV & PACKAGE	
@@ -28,3 +28,12 @@ install:
 
 fight:
 	@diambra run python script.py
+
+
+#-------------------------------------
+# 		 				KEEP PUSHING 
+#--------------------------------------
+
+push:
+	@sh .push.sh
+	
