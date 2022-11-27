@@ -35,5 +35,5 @@ fight:
 #--------------------------------------
 
 push:
-	@sh .push.sh
+	@sh dotfiles/.push.sh
 	
