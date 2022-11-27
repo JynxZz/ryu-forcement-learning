@@ -15,8 +15,8 @@ tree:
 #--------------------------------------
 
 env:
-	@pyenv virtualenv 3.10.6 ruy-forcement-learning
-	@pyenv local ruy-forcement-learning
+	@pyenv virtualenv 3.10.6 ryu-forcement-learning
+	@pyenv local ryu-forcement-learning
 
 install:
 	@python -m pip install --upgrade pip
