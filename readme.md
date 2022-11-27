@@ -22,7 +22,7 @@ The vitrtual env is setup and the requirements are install in the repo.
 
 New alias is setup :
 
-- rl : to go directly to the repo
+- rl => to go directly to the repo and work !!
 
 Don't forget to use this :
 
