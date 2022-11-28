@@ -33,7 +33,7 @@ git clone git@github.com:JynxZz/ryu-forcement-learning.git ~/code/ryu-forcement-
 
 echo 'alias rl="cd ~/code/ryu-forcement-learning"' >> ~/.aliases
 echo '# Add Rom Path to DIAMBRA ARENA' >> ~/.zshrc
-echo 'export DIAMBRAROMSPATH="$HOME/code/ryu-forcement-learning"' >> ~/.zshrc
+echo 'export DIAMBRAROMSPATH="$HOME/code/ryu-forcement-learning/rom/"' >> ~/.zshrc
 
 cd ~/code/ryu-forcement-learning
 
