@@ -2,3 +2,4 @@ matplotlib
 seaborn
 diambra
 diambra-arena
+"ray[rllib]" torch

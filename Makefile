@@ -26,8 +26,11 @@ install:
 # 		  				DIAMBRA
 #--------------------------------------
 
-fight:
-	@diambra run python script.py
+fight_classic:
+	@diambra run python scripts/script.py
+
+fight_raylib:
+	@diambra run python scripts/basic_raylib.py
 
 
 #-------------------------------------
