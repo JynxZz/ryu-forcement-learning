@@ -1,9 +1,10 @@
-import random
-from turtle import shape
-import torch
+# import random
+# import torch
+# from turtle import shape
 import json
 import numpy as np
-#changer dict clement en json sur settings.json
+import mmap
+# Environment settings
 env_settings = {
   'player': 'P1',
   'continue_game': 1.0,
@@ -38,40 +39,11 @@ wrappers_settings = {
   #"filter_keys": ["stage", "P1_ownSide", "P1_oppSide","P1_ownHealth", "P1_oppChar", "P1_actions_move", "P1_actions_attack"] # a sub-set of the RAM states
   }
 
+# array to list : arr_1.tolist()
 
+#agent settings
 # obs= {
-#     'observations': {
-#     'P1_actions_attack': torch.tensor([[0.],[8.],[2.],[7.],[5.]]),
-#     'P1_actions_move': torch.tensor([[0.],[6.],[1.],[1.],[4.]]),
-#     'P1_oppChar': torch.tensor([[9.],[9.],[9.],[9.],[9.]]),
-#     'P1_oppChar1': torch.tensor([[9.],[9.],[9.],[9.],[9.]]),
-#     'P1_oppHealth': torch.tensor([[160.],[160.],[160.],[160.],[160.]]),
-#     'P1_oppSide': torch.tensor([[1.],[1.],[1.],[1.],[1.]]),
-#     'P1_oppStunBar': torch.tensor([[0.],[0.],[0.],[0.],[0.]]),
-#     'P1_oppStunned': torch.tensor([[0.],[0.],[0.],[0.],[0.]]),
-#     'P1_oppSuperBar': torch.tensor([[0.],[0.],[0.],[0.],[0.]]),
-#     'P1_oppSuperCount': torch.tensor([[0.],[0.],[0.],[0.],[0.]]),
-#     'P1_oppSuperMaxCount': torch.tensor([[1.],[1.],[1.],[1.],[1.]]),
-#     'P1_oppSuperType': torch.tensor([[1.],[1.],[1.],[1.],[1.]]),
-#     'P1_oppWins': torch.tensor([[0.],[0.],[0.],[0.],[0.]]),
-#     'P1_ownChar': torch.tensor([[7.],[7.],[7.],[7.],[7.]]),
-#     'P1_ownChar1': torch.tensor([[7.],[7.],[7.],[7.],[7.]]),
-#     'P1_ownHealth': torch.tensor([[160.],[160.],[160.],[160.],[160.]]),
-#     'P1_ownSide': torch.tensor([[0.],[0.],[0.],[0.],[0.]]),
-#     'P1_ownStunBar': torch.tensor([[0.],[0.],[0.],[0.],[0.]]),
-#     'P1_ownStunned': torch.tensor([[0.],[0.],[0.],[0.],[0.]]),
-#     'P1_ownSuperBar': torch.tensor([[0.],[0.],[2.],[2.],[2.]]),
-#     'P1_ownSuperCount': torch.tensor([[0.],[0.],[0.],[0.],[0.]]),
-#     'P1_ownSuperMaxCount': torch.tensor([[3.],[3.],[3.],[3.],[3.]]),
-#     'P1_ownSuperType': torch.tensor([[2.],[2.],[2.],[2.],[2.]]),
-#     'P1_ownWins': torch.tensor([[0.],[0.],[0.],[0.],[0.]]),
-#     'frame': torch.tensor(([random.uniform(0.,255.) for _ in range(3*244*384)])),
-#     'stage': torch.tensor([[1.],[1.],[1.],[1.],[1.]])},
-#     'actions':torch.tensor([[6., 8.],[1., 2.],[1., 7.],[4., 5.],[1., 7.]]),
-#     'old_values':torch.tensor([-0.1244, -0.0768, -0.0817, -0.1098, -0.0945]),
-#     'old_log_prob':torch.tensor([-4.5106, -4.5129, -4.5209, -4.4947, -4.5208]),
-#     'advantages':torch.tensor([ 0.0357, -0.0128, -0.0088,  0.0184,  0.0021]),
-#     'returns':torch.tensor([-0.0887, -0.0896, -0.0905, -0.0914, -0.0923])}
+
 
 # reward = float
 
@@ -89,9 +61,9 @@ with open("settings.json", "w") as jsonfile:
 
 print("Write successful")
 
-# #changer .json en .py
+#changer .json en .py
 
-def json_to_py_start(filename):
+def json_to_py_start():
     with open("settings.json", "r") as jsonfile:
 
         data = json.load(jsonfile)
@@ -102,11 +74,13 @@ def json_to_py_start(filename):
     return env_settings,wrapper_settings
 
 
-# def json_to_py_agent(filename):
+# def json_to_py_agent()):
 #     with open("settings.json", "r") as jsonfile:
 
 #         data = json.load(jsonfile)
-#         observation = data["observations"]
+#         observations = data["observations"]
 
 #     # dernier dict observations
-#     return observation
+#     return observations
+
+# variable "serveur" = true or flase
