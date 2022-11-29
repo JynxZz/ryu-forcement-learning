@@ -1,4 +1,4 @@
-# DIAMBRA Arena module import
+# Import
 import diambra.arena
 import pandas as pd
 from random import randrange
@@ -8,17 +8,20 @@ from settings import start_settings
 env_settings, wrappers_settings=start_settings()
 env = diambra.arena.make("sfiii3n", env_settings=env_settings,wrappers_settings=wrappers_settings)
 observation = env.reset()
-observation_all=[], reward_all=[], done_all=[], info_all=[]
+observation_all=[]
+reward_all=[]
+done_all=[]
+info_all=[]
 
 # Agent-Environment interaction loop
-while  len(reward_all) <= 10000:
+while  len(reward_all) <= 100:
 
     # Environment rendering --> mode = "human","rgb_array"
     env.render(mode="human")
 
     # Action random sampling
-    actions= randrange(0,2)
-    """ actions = 0 """
+    actions= randrange(9,11)
+    """ actions = 9 """
 
     # Environment stepping
     observation, reward, done, info = env.step(actions)
