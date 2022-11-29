@@ -104,7 +104,7 @@ if __name__ == "__main__":
     env, _ = make_sb3_env("sfiii3n", settings, wrappers_settings)
     agent = A2C("MultiInputPolicy", env , n_steps=1024)
     agent.learn(agent.n_steps)
-    print(agent.rollout_buffer.observations)
+    print(agent.get_parameters())
     exit()
 
 
