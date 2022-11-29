@@ -3,9 +3,11 @@ import diambra.arena
 import pandas as pd
 from random import randrange
 from settings import start_settings
+from config_CG import json_to_py_start
+
 
 # Environment set and observation reset
-env_settings, wrappers_settings=start_settings()
+env_settings, wrappers_settings=json_to_py_start()
 env = diambra.arena.make("sfiii3n", env_settings=env_settings,wrappers_settings=wrappers_settings)
 observation = env.reset()
 observation_all=[]
