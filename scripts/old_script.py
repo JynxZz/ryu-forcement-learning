@@ -1,7 +1,7 @@
 import diambra.arena
 from datetime import datetime
 from diambra.arena.utils.gym_utils import show_gym_obs, show_wrap_obs, env_spaces_summary
-
+from IPython import display
 import numpy as np
 import sys
 from helper import plot
@@ -18,13 +18,14 @@ settings = {
     'player': 'P1',
     'step_ratio': 6,
     'frame_shape': [RATIO, RATIO, 0],
-    'continue_game': 1.0,
+    'continue_game': 0.0,
     'show_final': False,
     'hardcore': False,
     'difficulty': 8,
-    'characters': [["Ryu"], ["Random"]],
+    'characters': [["Chun-Li"], ["Random"]],
     'action_space': 'multi_discrete',
     'attack_but_combination': True,
+    'env_address':'127.0.0.1:49182',
 }
 
 ##########################
@@ -107,6 +108,5 @@ while True:
             print('=' * 30)
 
             break
-
 env.close()
 sys.stdout.close()
