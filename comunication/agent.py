@@ -17,31 +17,11 @@ class Agent():
         self.is_serv = is_serv
 
     def run(self, is_serv= True):
-
         if is_serv:
-            while True:
-                sleep(server_wait_time)
-                print("coucou")
-
-                if client_done:
-                    data = load_weights()
-                    new_weights = self.train(data)
-                    print("salut")
-                    bucket_save(new_weights)
-
+            pass
         else:
-            while True:
-                self.agent.get_obs(1_000)
-                data = self.agent.buffer()
+            pass
 
-                bucket_save(data)
-
-                while True:
-                    sleep(client_wait_time)
-
-                    if server_done:
-                        load_new_weight()
-                        break
 
 
 # SERVER
@@ -54,15 +34,18 @@ class Server():
     def run(self):
         while True:
             sleep(server_wait_time)
-            print('Waiting weight')
 
             if client_done:
                 data = local_read()
 
-                new_weights = data + "new weights"
+                new_weights = data + "new weights" # Concat & Compute weights
 
                 local_save(new_weights)
                 print('Send new weights')
+                server_done = True
+                client_done = False
+
+
 
 # CLIENT
 
@@ -74,22 +57,24 @@ class Client():
 
     def run(self):
         while True:
-            # self.agent.get_obs(1_000)
-            # data = self.agent.buffer()
+            # self.agent.get_obs(1_000) # play
+            # data = self.agent.buffer() #
             i += 1
             if i == 100:
-                data = i
+            # if client_done:
+                data = str(i)
+
                 local_save(data)
+                client_done = True
+                print("Save Own Obs")
+                while True:
+                    sleep(client_wait_time)
+                    if server_done:
 
-            if server_done:
-                data = local_read()
-
-                new_weights = data + "new weights"
-
-                local_save(new_weights)
-                print('Send new weights')
+                        new_weights = local_read()
+                        self.agent.comute(new_weights)
+                        server_done = False
 
 
 if __name__ == '__main__':
-    agent = Agent('agent', 'env', True)
-    agent.run()
+    pass

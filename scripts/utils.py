@@ -9,12 +9,11 @@ import os
 
 
 LOCAL_PATH=os.environ.get('LOCAL_PATH')
-LOCAL_FILE_NAME=os.environ.get('LOCAL_FILENAME')
+LOCAL_FILENAME=os.environ.get('LOCAL_FILENAME')
 
-client = storage.Client()
 
 # TODO : Local
-def local_save(data, file_name=LOCAL_FILE_NAME):
+def local_save(data, file_name=LOCAL_FILENAME):
         weights_folder_path = LOCAL_PATH
         if not os.path.exists(weights_folder_path):
             os.makedirs(weights_folder_path)
@@ -23,32 +22,44 @@ def local_save(data, file_name=LOCAL_FILE_NAME):
         with open(file_name, 'w') as f:
             f.write(data)
 
-def local_read(file_name=LOCAL_FILE_NAME):
+def local_read(file_name=LOCAL_FILENAME):
     weights_folder_path = LOCAL_PATH
     file_name = os.path.join(weights_folder_path, file_name)
 
     with open(file_name, 'r') as f:
-        f.read()
-        return f
+        f.readlines()
+
+    return f
 
 # TODO : switch client / server done
 def is_done() :
-    with open(os.environ.get(LOCAL_FILE_NAME), 'r') as f:
+    with open(os.environ.get(LOCAL_FILENAME), 'r') as f:
         if 'client_done' or 'server_done' in f.read():
             return True
         return False
 
 
-# TODO : Connect to the bucket
-bucket = client.bucket(os.environ.get('BUCKET'))
+# TODO : Connect to the bucket : OK
 
-# TODO : Save weights inside bucket
-def bucket_save(bucket):
-    pass
+# TODO : Save weights inside bucket : OK
+def bucket_save(file):
 
-# TODO : Load weigths inside bucket
-def load_weights():
-    pass
+    client = storage.Client()
+    bucket = client.bucket(os.environ.get('BUCKET'))
+    blob = bucket.blob(STORAGE_LOCATION)
+
+    blob.upload_from_filename(file)
+
+# TODO : Load weigths inside bucket : OK
+def load_weights(file):
+
+    client = storage.Client()
+    bucket = client.bucket(os.environ.get('BUCKET'))
+    blob = bucket.blob(STORAGE_LOCATION)
+
+    blob.download_to_filename(file)
+
+    return blob
 
 # TODO : Load new weigths inside bucket
 def load_new_weight():
@@ -56,4 +67,5 @@ def load_new_weight():
 
 
 if __name__ == '__main__':
-     pass
+    #  local_save('coucou')
+    local_read()

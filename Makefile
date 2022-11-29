@@ -1,17 +1,39 @@
 #--------------------------------------
 # 						DEFAULT MAKE
 #--------------------------------------
-default: tree 
+default: tree
+
+
+##################### DEBUGGING HELPERS ####################
+fbold=$(shell echo "\033[1m")
+fnormal=$(shell echo "\033[0m")
+ccgreen=$(shell echo "\033[0;32m")
+ccblue=$(shell echo "\033[0;34m")
+ccreset=$(shell echo "\033[0;39m")
+############################################################
+
 
 tree:
-	@echo 'Go Train ... !!'
-	@echo 'make env - to setup up virtual env '
-	@echo 'make install - to install packages & dependances'
-	@echo 'make fight - to fight !!'
+	@echo "\nHelp for the $(ccgreen)$(fbold)\`Ryu Forcement\` $(ccreset)$(fbold)\`Makefile\`$(ccreset)"
+
+	@echo "\n$(ccgreen)$(fbold)SETUP ENV & PACKAGES$(ccreset)"
+
+	@echo "\n        $(fbold)env$(ccreset)"
+	@echo "            blablablabl."
+
+	@echo "\n        $(fbold)install$(ccreset)"
+	@echo "            blablablab."
+
+	@echo "\n$(ccgreen)$(fbold)DIAMBRA$(ccreset)"
+
+	@echo "\n        $(fbold)fight_classic$(ccreset)"
+	@echo "            blablablab."
+	@echo "\n        $(fbold)fight_raylib$(ccreset)"
+	@echo "            blablablab."
 
 
 #-------------------------------------
-# 		  	SETUP ENV & PACKAGE	
+# 		  	SETUP ENV & PACKAGES
 #--------------------------------------
 
 env:
@@ -19,24 +41,23 @@ env:
 	@pyenv local ryu-forcement-learning
 
 install:
-	@python -m pip install --upgrade pip
-	@pip install -r requirements.txt 
+	@python3 -m pip install --upgrade pip
+	@pip install -r requirements.txt
 
 #--------------------------------------
 # 		  				DIAMBRA
 #--------------------------------------
 
 fight_classic:
-	@diambra run python scripts/script.py
+	@diambra run python3 scripts/script.py
 
 fight_raylib:
-	@diambra run python scripts/basic_raylib.py
+	@diambra run python3 scripts/basic_raylib.py
 
 
 #-------------------------------------
-# 		 				KEEP PUSHING 
+# 		 				BASH SCRIPT
 #--------------------------------------
 
 push:
 	@sh dotfiles/.push.sh
-	
