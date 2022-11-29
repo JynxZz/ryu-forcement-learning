@@ -2,4 +2,6 @@ matplotlib
 seaborn
 diambra
 diambra-arena
-"ray[rllib]" torch
+google-cloud
+google-cloud-storage
+
