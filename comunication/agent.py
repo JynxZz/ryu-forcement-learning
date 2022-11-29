@@ -1,5 +1,5 @@
 from time import sleep
-from scripts.utils import local_save, load_weights, load_new_weight, bucket_save
+from scripts.utils import local_save, local_read, is_done, load_weights, load_new_weight, bucket_save
 
 # variables
 server_wait_time = 30
@@ -21,12 +21,13 @@ class Agent():
         if is_serv:
             while True:
                 sleep(server_wait_time)
+                print("coucou")
 
                 if client_done:
                     data = load_weights()
                     new_weights = self.train(data)
-
-                    bucket_save(data)
+                    print("salut")
+                    bucket_save(new_weights)
 
         else:
             while True:
@@ -41,6 +42,52 @@ class Agent():
                     if server_done:
                         load_new_weight()
                         break
+
+
+# SERVER
+
+class Server():
+    def __init__(self, agent, environement):
+        self.agent = agent
+        self.env = environement
+
+    def run(self):
+        while True:
+            sleep(server_wait_time)
+            print('Waiting weight')
+
+            if client_done:
+                data = local_read()
+
+                new_weights = data + "new weights"
+
+                local_save(new_weights)
+                print('Send new weights')
+
+# CLIENT
+
+class Client():
+    i = 0
+    def __init__(self, agent, environement):
+        self.agent = agent
+        self.env = environement
+
+    def run(self):
+        while True:
+            # self.agent.get_obs(1_000)
+            # data = self.agent.buffer()
+            i += 1
+            if i == 100:
+                data = i
+                local_save(data)
+
+            if client_done:
+                data = local_read()
+
+                new_weights = data + "new weights"
+
+                local_save(new_weights)
+                print('Send new weights')
 
 
 if __name__ == '__main__':
