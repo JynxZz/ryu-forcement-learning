@@ -1,63 +1,75 @@
 import os
 import sys
 import diambra.arena
-
+import torch
 from stable_baselines3.common.vec_env import DummyVecEnv, SubprocVecEnv
 from stable_baselines3.common.utils import set_random_seed
 from stable_baselines3.common.monitor import Monitor
+from stable_baselines3 import A2C
 
 # Make Stable Baselines Env function
-def make_sb3_env(game_id, env_settings={}, wrappers_settings={},
-                 use_subprocess=True, seed=0, log_dir_base="/tmp/DIAMBRALog/",
-                 start_index=0, allow_early_resets=True,
-                 start_method=None, no_vec=False):
+from stable_baselines3.common.callbacks import BaseCallback
+
+
+class CustomCallback(BaseCallback):
     """
-    Create a wrapped, monitored VecEnv.
-    :param game_id: (str) the game environment ID
-    :param env_settings: (dict) parameters for DIAMBRA Arena environment
-    :param wrappers_settings: (dict) parameters for environment
-                              wraping function
-    :param start_index: (int) start rank index
-    :param allow_early_resets: (bool) allows early reset of the environment
-    :param start_method: (str) method used to start the subprocesses.
-                        See SubprocVecEnv doc for more information
-    :param use_subprocess: (bool) Whether to use `SubprocVecEnv` or
-                          `DummyVecEnv` when
-    :param no_vec: (bool) Whether to avoid usage of Vectorized Env or not.
-                   Default: False
-    :param seed: (int) initial seed for RNG
-    :return: (VecEnv) The diambra environment
+    A custom callback that derives from ``BaseCallback``.
+
+    :param verbose: Verbosity level: 0 for no output, 1 for info messages, 2 for debug messages
     """
+    def __init__(self, verbose=0):
+        super(CustomCallback, self).__init__(verbose)
+        # Those variables will be accessible in the callback
+        # (they are defined in the base class)
+        # The RL model
+        # self.model = None  # type: BaseAlgorithm
+        # An alias for self.model.get_env(), the environment used for training
+        # self.training_env = None  # type: Union[gym.Env, VecEnv, None]
+        # Number of time the callback was called
+        # self.n_calls = 0  # type: int
+        # self.num_timesteps = 0  # type: int
+        # local and global variables
+        # self.locals = None  # type: Dict[str, Any]
+        # self.globals = None  # type: Dict[str, Any]
+        # The logger object, used to report things in the terminal
+        # self.logger = None  # stable_baselines3.common.logger
+        # # Sometimes, for event callback, it is useful
+        # # to have access to the parent object
+        # self.parent = None  # type: Optional[BaseCallback]
 
-    env_addresses = os.getenv("DIAMBRA_ENVS", "").split()
-    if len(env_addresses) == 0:
-        raise Exception("ERROR: Running script without DIAMBRA CLI.")
-        sys.exit(1)
+    def _on_training_start(self) -> None:
+        """
+        This method is called before the first rollout starts.
+        """
+        pass
 
-    num_envs = len(env_addresses)
+    def _on_rollout_start(self) -> None:
+        """
+        A rollout is the collection of environment interaction
+        using the current policy.
+        This event is triggered before collecting new samples.
+        """
+        pass
 
-    def _make_sb3_env(rank):
-        def _init():
-            env = diambra.arena.make(game_id, env_settings, wrappers_settings,
-                                     seed=seed + rank, rank=rank)
+    def _on_step(self) -> bool:
+        """
+        This method will be called by the model after each call to `env.step()`.
 
-            # Create log dir
-            log_dir = os.path.join(log_dir_base, str(rank))
-            os.makedirs(log_dir, exist_ok=True)
-            env = Monitor(env, log_dir, allow_early_resets=allow_early_resets)
-            return env
-        return _init
-    set_random_seed(seed)
+        For child callback (of an `EventCallback`), this will be called
+        when the event is triggered.
 
-    # If not wanting vectorized envs
-    if no_vec and num_envs == 1:
-        env = _make_sb3_env(0)()
-    else:
-        # When using one environment, no need to start subprocesses
-        if num_envs == 1 or not use_subprocess:
-            env = DummyVecEnv([_make_sb3_env(i + start_index) for i in range(num_envs)])
-        else:
-            env = SubprocVecEnv([_make_sb3_env(i + start_index) for i in range(num_envs)],
-                                start_method=start_method)
+        :return: (bool) If the callback returns False, training is aborted early.
+        """
+        return True
 
-    return env, num_envs
+    def _on_rollout_end(self) -> None:
+        """
+        This event is triggered before updating the policy.
+        """
+        pass
+
+    def _on_training_end(self) -> None:
+        """
+        This event is triggered before exiting the `learn()` method.
+        """
+        pass
