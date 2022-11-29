@@ -81,7 +81,7 @@ class Client():
                 data = i
                 local_save(data)
 
-            if client_done:
+            if server_done:
                 data = local_read()
 
                 new_weights = data + "new weights"

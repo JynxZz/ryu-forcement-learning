@@ -1,5 +1,7 @@
 # Setup Virtual Machin
 
+---
+
 ## First Step
 
 ```bash
@@ -42,6 +44,8 @@ vim ~/.bashrc
 ```
 
 Add pyenv to the list of bash plugins on the line with plugins=(git) in ~/.bashrc: in the end, you should have plugins=(git pyenv)
+
+---
 
 ## Installing Python
 
@@ -131,7 +135,9 @@ sudo apt-get install ffmpeg libsm6 libxext6 python3-tk make -y && exec bash
 
 To be sure, reset VM before the next step.
 
-## Ryu Forcement Learning
+---
+
+# Ryu Forcement Learning
 
 ```bash
 curl https://raw.githubusercontent.com/JynxZz/ryu-forcement-learning/master/dotfiles/.setup_rl.sh | sh && exec zsh
