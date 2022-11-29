@@ -8,24 +8,22 @@ from settings import start_settings
 env_settings, wrappers_settings=start_settings()
 env = diambra.arena.make("sfiii3n", env_settings=env_settings,wrappers_settings=wrappers_settings)
 observation = env.reset()
+observation_all=[], reward_all=[], done_all=[], info_all=[]
 
 # Agent-Environment interaction loop
-observation_all=[]
-reward_all=[]
-done_all=[]
-info_all=[]
+while  len(reward_all) <= 10000:
 
-while True:
-    # (Optional) Environment rendering --> mode = "human","rgb_array"
+    # Environment rendering --> mode = "human","rgb_array"
     env.render(mode="human")
 
     # Action random sampling
-    #actions = env.action_space.sample()
-    actions= [2,randrange(1,5)]
+    actions= randrange(0,2)
+    """ actions = 0 """
 
     # Environment stepping
     observation, reward, done, info = env.step(actions)
 
+    # Environment visualization
     print("-----observation-----")
     print(observation)
     print("-----reward----------")
@@ -34,6 +32,8 @@ while True:
     print(done)
     print("-----info------------")
     print(info)
+    print("-----step------------")
+    print(len(reward_all)+1)
 
     # Environment manual recording
     observation_all.append(observation)
@@ -41,21 +41,38 @@ while True:
     done_all.append(done)
     info_all.append(info)
 
-    print("-----step------------")
-    print(len(reward_all))
-
-    # Episode end (Done condition) check
+    # In case, Ryu wins the game --> restart a tournament without braking
     if done:
-        outputs=pd.DataFrame({
-            "observation":observation_all,
-            "reward":reward_all,
-            "done":done_all,
-            "info":info_all})
+        env = diambra.arena.make("sfiii3n", env_settings=env_settings,wrappers_settings=wrappers_settings)
+        env.render(mode="human")
+        actions= randrange(9,11)
+        observation, reward, done, info = env.step(actions)
 
-        outputs.to_csv('outputs.csv')
+            # Environment visualization
+        print("-----observation-----")
+        print(observation)
+        print("-----reward----------")
+        print(reward)
+        print("-----done------------")
+        print(done)
+        print("-----info------------")
+        print(info)
+        print("-----step------------")
+        print(len(reward_all)+1)
 
-        #observation = env.reset()
-        break
+        # Environment manual recording
+        observation_all.append(observation)
+        reward_all.append(reward)
+        done_all.append(done)
+        info_all.append(info)
+
+# Save and csv
+outputs=pd.DataFrame({
+    "observation":observation_all,
+    "reward":reward_all,
+    "done":done_all,
+    "info":info_all})
+outputs.to_csv('outputs.csv')
 
 # Environment close
 env.close()
