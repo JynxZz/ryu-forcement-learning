@@ -1,23 +1,48 @@
-// settings de game specific + extended 
+// settings de game specific + extended
+
 {
-    "difficulty": "int", 
-    "characters": "list of 2 lists of strings", 
-    "char_outfits": "list of 2 ints", 
-    "super_art": "int"
-  }
+  "difficulty": "int",
+  "characters": "list of 2 lists of strings",
+  "char_outfits": "list of 2 ints",
+  "super_art": "int"
+}
+
 
 // settings de old_script.py
+
 //   {
-//     'player': 'P1',
-//     'step_ratio': 6,
-//     'frame_shape': [RATIO, RATIO, 0],
-//     'continue_game': 1.0,
-//     'show_final': False,
-//     'hardcore': False,
-//     'difficulty': 8,
-//     'characters': [["Ryu"], ["Random"]],
-//     'action_space': 'multi_discrete',
-//     'attack_but_combination': True,
+//     "player": "P1",
+//     "step_ratio": "6",
+//     "frame_shape": "[RATIO, RATIO, 0]",
+//     "continue_game": "1.0",
+//     "show_final": "False",
+//     "hardcore": "False",
+//     "difficulty": "8",
+//     "characters": "[["Ryu"], ["Random"]]",
+//     "action_space": "multi_discrete",
+//     "attack_but_combination": "True",
 // }
 
-//
+
+// global
+
+// { "frame" : "[0, 255] X [224 X 384 X 3]",
+// "stage" : "[1, 10]"
+// }
+
+
+// Player specific
+
+// {"ownSide/oppSide" : "[0, 1]",
+// "ownWins/oppWins":"[0, 2]",
+// "ownChar1/oppChar1":"[0, 19]",
+// "ownChar/oppChar":"[0, 19]",
+// "ownHealth/oppHealth":"[-1, 160]",
+// "actions+move":"[0, 8]",
+// "actions+attack":"[0, 10] or [0, 7]",
+// "ownStunBar/oppStunBar":"[0, 72]",
+// "ownStunned/oppStunned" : "[0, 1]",
+// "ownSuperBar/oppSuperBar" : "[0, 128]",
+// "ownSuperType/oppSuperType" : "[0, 2]",
+// "ownSuperCount/oppSuperCount" : "[0, 3]",
+// "ownSuperMax/oppSuperMax":"[1, 3]"}
