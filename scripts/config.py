@@ -13,7 +13,7 @@ env_settings = {
   'difficulty': 8,
   'characters': [["Ryu"], ["Random"]],
   'frame_shape': [512, 512, 0], # Native frame resize operation & 1=B&W
-  'action_space': 'discrete', # 'multi_discrete'
+  'action_space': 'multi_discrete', # 'multi_discrete'
   'attack_but_combination': True,
   'super_art':[0,0],
   'hardcore': False, # If to use hardcore mode in which observations are only made of game frame
@@ -35,7 +35,7 @@ wrappers_settings = {
   "exclude_image_scaling": False, # optionally exclude images from normalization (deactivated by default)
   "process_discrete_binary": False, # and optionally perform one-hot encoding also on discrete binary variables (deactivated by default)
   "scale_mod": 0, # Scaling interval (0 = [0.0, 1.0], 1 = [-1.0, 1.0])
-  "flatten": False, # Flattening observation dictionary and filtering
+  "flatten": True, # Flattening observation dictionary and filtering
   #"filter_keys": ["stage", "P1_ownSide", "P1_oppSide","P1_ownHealth", "P1_oppChar", "P1_actions_move", "P1_actions_attack"] # a sub-set of the RAM states
   }
 
@@ -84,3 +84,14 @@ def json_to_py_start():
 #     return observations
 
 # variable "serveur" = true or flase
+is_server = True
+
+# n_steps
+n_steps = 100
+
+# loop serve/client
+looping = 10
+
+# Waiting time
+server_wait_time = 30
+client_wait_time = 10

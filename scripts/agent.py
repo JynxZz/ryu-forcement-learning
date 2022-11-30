@@ -1,10 +1,10 @@
 from stable_baselines3 import A2C
 from scripts.utils import *
-
+import datetime
 
 # SERVER
 class AgentServer():
-    init_timestamp = datetime.now()
+    init_timestamp = datetime.datetime.now()
 
     def __init__(self,  environement, n_steps):
         self.env = environement
@@ -16,7 +16,7 @@ class AgentServer():
             imported_obs = pickle.load(f)
 
         #Importing buffer
-        self.agent = import_buffer(imported_obs,self.agent) # TODO: no return inside method
+        self.agent.rollout_buffer = import_buffer(imported_obs, self.agent) # TODO: no return inside method
 
         #Server Agent Training
         self.agent.train()
@@ -24,10 +24,14 @@ class AgentServer():
         #Saving parameters in 'weights.zip' (139Mo)
         self.agent.save(file_name)
 
+    def evaluate_model(self):
+
+        self.agent()
+
 
 # CLIENT
 class AgentClient():
-    init_timestamp = datetime.now()
+    init_timestamp = datetime.datetime.now()
 
     def __init__(self,  environement, n_steps):
         self.env = environement

@@ -9,7 +9,7 @@ import json
 import os
 import datetime
 
-init_timestamp = datetime.now()
+# init_timestamp = datetime.now()
 
 LOCAL_PATH=os.environ.get('LOCAL_PATH')
 LOCAL_FILENAME=os.environ.get('LOCAL_FILENAME')
@@ -35,16 +35,6 @@ def local_read(file_name=LOCAL_FILENAME):
     return f
 
 
-
-def creation_date(path_to_file):
-    try:
-
-        return os.path.getctime(path_to_file)
-    except:
-
-        pass
-
-
 # TODO : switch client / server done
 def switch(old_timestamp):
 
@@ -55,6 +45,14 @@ def switch(old_timestamp):
         return old_timestamp, True
 
     return old_timestamp, False
+
+def creation_date(path_to_file): # WIP -> Code ça putain
+    try:
+
+        return os.path.getctime(path_to_file)
+    except:
+
+        pass
 
 
 # TODO : Connect to the bucket : OK
@@ -69,10 +67,10 @@ def bucket_save(file):
     blob.upload_from_filename(file)
 
 # TODO : Load weigths inside bucket : OK
-def load_weights(file):
+def bucket_load(file):
 
-    client = storage.Client()
-    bucket = client.bucket(os.environ.get('BUCKET'))
+    client = storage.Client(project=os.environ.get('PROJECT'))
+    bucket = client.bucket(os.environ.get('BUCKET_TEST'))
     blob = bucket.blob(os.environ.get('STORAGE_LOCATION'))
 
     blob.download_to_filename(file)
@@ -145,10 +143,10 @@ def import_buffer(imported_obs, server_agent):
     # logg = configure(folder='/tmp/')
     # server_agent.set_logger(logg)
 
-    return server_agent
+    return server_agent.rollout_buffer
 
 
 
 if __name__ == '__main__':
     #  local_save('coucou')
-    print(creation_date("weights-agent-two.txt"))
+    print(type(creation_date("readme.md")))
