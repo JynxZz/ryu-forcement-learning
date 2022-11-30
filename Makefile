@@ -1,7 +1,7 @@
 #--------------------------------------
 # 						DEFAULT MAKE
 #--------------------------------------
-default: tree 
+default: tree
 
 tree:
 	@echo 'Go Train ... !!'
@@ -11,7 +11,7 @@ tree:
 
 
 #-------------------------------------
-# 		  	SETUP ENV & PACKAGE	
+# 		  	SETUP ENV & PACKAGE
 #--------------------------------------
 
 env:
@@ -20,20 +20,19 @@ env:
 
 install:
 	@python -m pip install --upgrade pip
-	@pip install -r requirements.txt 
+	@pip install -r requirements.txt
 
 #--------------------------------------
 # 		  				DIAMBRA
 #--------------------------------------
 
 fight:
-	@diambra run python script.py
+	@diambra run python scripts/main.py
 
 
 #-------------------------------------
-# 		 				KEEP PUSHING 
+# 		 				KEEP PUSHING
 #--------------------------------------
 
 push:
 	@sh dotfiles/.push.sh
-	

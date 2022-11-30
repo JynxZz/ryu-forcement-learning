@@ -2,8 +2,7 @@
 import diambra.arena
 import pandas as pd
 from random import randrange
-from settings import start_settings
-from config_CG import json_to_py_start
+from scripts.old_config import json_to_py_start
 
 
 # Environment set and observation reset
@@ -16,7 +15,7 @@ done_all=[]
 info_all=[]
 
 # Agent-Environment interaction loop
-while  len(reward_all) <= 100:
+while  len(reward_all) <= 1000:
 
     # Environment rendering --> mode = "human","rgb_array"
     env.render(mode="human")
