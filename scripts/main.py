@@ -21,9 +21,8 @@ while  len(reward_all) <= 1000:
     # Environment rendering --> mode = "human","rgb_array"
     env.render(mode="human")
 
-    # Action random sampling
-    actions= randrange(9,11)
-    """ actions = 9 """
+    # Action random sampling // to-do plug l'AGENT
+    actions= randrange(9,15)
 
     # Environment stepping
     observation, reward, done, info = env.step(actions)
