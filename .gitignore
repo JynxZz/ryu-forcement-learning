@@ -137,3 +137,4 @@ dmypy.json
 # New files / folders
 .DS_Store
 data
+*.pickle
