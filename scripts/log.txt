@@ -1,0 +1,13 @@
+==============================
+Start Learning
+Rounds: 0
+Total Reward: 0
+Start at: 2022-11-28 18:25:00.436482
+==============================
+==============================
+Rounds: 1
+Continue: -1.0
+Total Reward: 85
+Time: 0:00:18.160994
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
