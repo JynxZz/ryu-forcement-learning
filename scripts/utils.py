@@ -31,6 +31,15 @@ def local_read(file_name=LOCAL_FILENAME):
 
     return f
 
+def creation_date(path_to_file):
+    try:
+
+        return os.path.getctime(path_to_file)
+    except:
+
+        pass
+
+
 # TODO : switch client / server done
 def is_done() :
     with open(os.environ.get(LOCAL_FILENAME), 'r') as f:
@@ -44,9 +53,9 @@ def is_done() :
 # TODO : Save weights inside bucket : OK
 def bucket_save(file):
 
-    client = storage.Client()
-    bucket = client.bucket(os.environ.get('BUCKET'))
-    blob = bucket.blob(STORAGE_LOCATION)
+    client = storage.Client(project=os.environ.get('PROJECT'))
+    bucket = client.bucket(os.environ.get('BUCKET_TEST'))
+    blob = bucket.blob(f"{os.environ.get('STORAGE_LOCATION')}/{file}")
 
     blob.upload_from_filename(file)
 
@@ -55,7 +64,7 @@ def load_weights(file):
 
     client = storage.Client()
     bucket = client.bucket(os.environ.get('BUCKET'))
-    blob = bucket.blob(STORAGE_LOCATION)
+    blob = bucket.blob(os.environ.get('STORAGE_LOCATION'))
 
     blob.download_to_filename(file)
 
@@ -68,4 +77,4 @@ def load_new_weight():
 
 if __name__ == '__main__':
     #  local_save('coucou')
-    local_read()
+    print(creation_date("weights-agent-two.txt"))

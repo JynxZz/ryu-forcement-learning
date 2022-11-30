@@ -1,5 +1,5 @@
 from time import sleep
-from scripts.utils import local_save, local_read, is_done, load_weights, load_new_weight, bucket_save
+from scripts.utils import creation_date, local_save, local_read, is_done, load_weights, load_new_weight, bucket_save
 
 # variables
 server_wait_time = 30
@@ -28,8 +28,8 @@ class Agent():
 
 class Server():
     def __init__(self, agent, environement):
-        self.agent = agent
         self.env = environement
+        self.agent = agent
 
     def run(self):
         while True:
@@ -75,6 +75,13 @@ class Client():
                         self.agent.comute(new_weights)
                         server_done = False
 
+old_timestamp= datetime.now()
 
+while True:
+    timestamp= creation_date()
+    if old_timestamp < timestamp:
+        old_timestamp = timestamp
+        client_done = True
+    
 if __name__ == '__main__':
     pass

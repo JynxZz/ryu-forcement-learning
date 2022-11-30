@@ -30,7 +30,7 @@ wrappers_settings["flatten"] = True
 
 n_steps = 10
 
-def extract_buffer(clien_agent):
+def extract_buffer(client_agent):
     #Extracting buffer
     buffer = client_agent.rollout_buffer
     observation = buffer.observations
@@ -51,14 +51,15 @@ def add(buffers):
     assert len(buffers)>2, "No buffer to add"
     n=len(buffers)
     init = buffers[0]
-    a = init[0]
-    b = init[1]
-    c = init[2]
-    d = init[3]
-    e = init[4]
-    f = init[5]
-    g = init[6]
-    h = init[7]
+    a, b, c, d, e, f, g, h = init
+    # a = init[0]
+    # b = init[1]
+    # c = init[2]
+    # d = init[3]
+    # e = init[4]
+    # f = init[5]
+    # g = init[6]
+    # h = init[7]
     #print(np.vstack([b,buffers[1][1]]))
     for j in range(n-1):
         b = np.vstack([b,buffers[j+1][1]])
@@ -89,8 +90,8 @@ def import_buffer(imported_obs, server_agent):
     server_agent.rollout_buffer.generator_ready = True
     server_agent.rollout_buffer.pos=len(imported_obs[5])
     server_agent.rollout_buffer.full=True
-    logg = configure(folder='/tmp/')
-    server_agent.set_logger(logg)
+    # logg = configure(folder='/tmp/')
+    # server_agent.set_logger(logg)
 
     return server_agent
 
@@ -105,7 +106,7 @@ if __name__ == "__main__":
     #Total_timesteps(<= n_steps so it doesn't learn)
     client_agent.learn(total_timesteps= n_steps)
     #Saving parameters in 'weights.zip' (139Mo)
-    client_agent.save("weights")
+    # client_agent.save("weights")
 
     #Exporting buffer
     to_buffer = extract_buffer(client_agent)
