@@ -2,7 +2,7 @@
 import diambra.arena
 import pandas as pd
 from random import randrange
-from scripts.old_config import json_to_py_start
+from scripts.config import json_to_py_start
 
 
 # Environment set and observation reset
