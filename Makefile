@@ -46,7 +46,7 @@ install:
 #--------------------------------------
 
 fight_classic:
-	@diambra run python3 scripts/main.py
+	@diambra run python3 scripts/main.py --server
 
 fight_raylib:
 	@diambra run python3 scripts/basic_raylib.py

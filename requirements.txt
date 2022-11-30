@@ -1,7 +1,7 @@
-matplotlib
-seaborn
 diambra
 diambra-arena
 google-cloud
 google-cloud-storage
+stable-baselines3
+
 
