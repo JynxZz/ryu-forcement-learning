@@ -1,0 +1,3352 @@
+==============================
+Start Learning
+Rounds: 0
+Total Reward: 0
+Start at: 2022-11-28 13:00:15.015440
+==============================
+==============================
+Rounds: 1
+Continue: -1.0
+Total Reward: -50
+Time: 0:00:14.074217
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 2
+Continue: -1.0
+Total Reward: -70
+Time: 0:00:35.115427
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 3
+Continue: -1.0
+Total Reward: -5
+Time: 0:00:49.090468
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 4
+Continue: -1.0
+Total Reward: 39
+Time: 0:01:05.542655
+Info: {'round_done': True, 'stage_done': True, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 5
+Continue: -1.0
+Total Reward: 115
+Time: 0:01:30.155149
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 6
+Continue: -1.0
+Total Reward: 44
+Time: 0:01:39.320964
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 7
+Continue: -1.0
+Total Reward: -18
+Time: 0:02:06.411326
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 8
+Continue: -1.0
+Total Reward: 5
+Time: 0:02:23.740410
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 9
+Continue: -1.0
+Total Reward: -7
+Time: 0:02:34.829669
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 10
+Continue: -1.0
+Total Reward: 49
+Time: 0:02:53.337068
+Info: {'round_done': True, 'stage_done': True, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 11
+Continue: -1.0
+Total Reward: 66
+Time: 0:03:11.677188
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 12
+Continue: -1.0
+Total Reward: 107
+Time: 0:03:33.454263
+Info: {'round_done': True, 'stage_done': True, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 13
+Continue: -1.0
+Total Reward: -7
+Time: 0:03:43.122432
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 14
+Continue: -1.0
+Total Reward: -81
+Time: 0:04:00.096908
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 15
+Continue: -1.0
+Total Reward: -89
+Time: 0:04:15.245347
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 16
+Continue: -1.0
+Total Reward: -232
+Time: 0:04:27.575448
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 17
+Continue: -1.0
+Total Reward: -271
+Time: 0:04:39.714340
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 18
+Continue: -1.0
+Total Reward: -318
+Time: 0:04:56.150035
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 19
+Continue: -1.0
+Total Reward: -255
+Time: 0:05:07.517131
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 20
+Continue: -1.0
+Total Reward: -294
+Time: 0:05:21.953641
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 21
+Continue: -1.0
+Total Reward: -270
+Time: 0:05:39.288180
+Info: {'round_done': True, 'stage_done': True, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 22
+Continue: -1.0
+Total Reward: -288
+Time: 0:05:57.024425
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 23
+Continue: -1.0
+Total Reward: -312
+Time: 0:06:32.913589
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 24
+Continue: -1.0
+Total Reward: -262
+Time: 0:06:54.206735
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 25
+Continue: -1.0
+Total Reward: -334
+Time: 0:07:25.256890
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 26
+Continue: -1.0
+Total Reward: -437
+Time: 0:07:44.957198
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 27
+Continue: -1.0
+Total Reward: -442
+Time: 0:08:24.386855
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 28
+Continue: -1.0
+Total Reward: -497
+Time: 0:08:55.002224
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 29
+Continue: -1.0
+Total Reward: -554
+Time: 0:09:34.689298
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 30
+Continue: -1.0
+Total Reward: -521
+Time: 0:10:01.368260
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 31
+Continue: -1.0
+Total Reward: -596
+Time: 0:10:29.256888
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 32
+Continue: -1.0
+Total Reward: -679
+Time: 0:10:47.837390
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 33
+Continue: -1.0
+Total Reward: -697
+Time: 0:11:26.001861
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 34
+Continue: -1.0
+Total Reward: -693
+Time: 0:11:53.574824
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 35
+Continue: -1.0
+Total Reward: -658
+Time: 0:12:17.953246
+Info: {'round_done': True, 'stage_done': True, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 36
+Continue: -1.0
+Total Reward: -719
+Time: 0:12:30.582633
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 37
+Continue: -1.0
+Total Reward: -831
+Time: 0:12:45.901214
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 38
+Continue: -1.0
+Total Reward: -906
+Time: 0:12:58.933501
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 39
+Continue: -1.0
+Total Reward: -907
+Time: 0:13:47.552975
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 40
+Continue: -1.0
+Total Reward: -1014
+Time: 0:14:05.738015
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 41
+Continue: -1.0
+Total Reward: -1083
+Time: 0:14:33.036305
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 42
+Continue: -1.0
+Total Reward: -1096
+Time: 0:15:26.351367
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 43
+Continue: -1.0
+Total Reward: -994
+Time: 0:16:22.193215
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 44
+Continue: -1.0
+Total Reward: -1072
+Time: 0:17:25.633629
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 45
+Continue: -1.0
+Total Reward: -1136
+Time: 0:18:32.712679
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 46
+Continue: -1.0
+Total Reward: -1178
+Time: 0:19:37.868049
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 47
+Continue: -1.0
+Total Reward: -1185
+Time: 0:20:43.025569
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 48
+Continue: -1.0
+Total Reward: -1208
+Time: 0:21:57.927893
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 49
+Continue: -1.0
+Total Reward: -1231
+Time: 0:22:50.674324
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 50
+Continue: -1.0
+Total Reward: -1259
+Time: 0:24:11.539033
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 51
+Continue: -1.0
+Total Reward: -1310
+Time: 0:25:06.273017
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 52
+Continue: -1.0
+Total Reward: -1299
+Time: 0:26:27.336457
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 53
+Continue: -1.0
+Total Reward: -1295
+Time: 0:27:34.776705
+Info: {'round_done': True, 'stage_done': True, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 54
+Continue: -1.0
+Total Reward: -1344
+Time: 0:28:30.663470
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 55
+Continue: -1.0
+Total Reward: -1412
+Time: 0:29:44.661439
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 56
+Continue: -1.0
+Total Reward: -1392
+Time: 0:30:49.232333
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 57
+Continue: -1.0
+Total Reward: -1454
+Time: 0:31:29.875790
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 58
+Continue: -1.0
+Total Reward: -1457
+Time: 0:32:33.536013
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 59
+Continue: -1.0
+Total Reward: -1378
+Time: 0:33:06.931346
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 60
+Continue: -1.0
+Total Reward: -1422
+Time: 0:34:02.223489
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 61
+Continue: -1.0
+Total Reward: -1333
+Time: 0:34:53.825042
+Info: {'round_done': True, 'stage_done': True, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 62
+Continue: -1.0
+Total Reward: -1454
+Time: 0:35:26.819244
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 63
+Continue: -1.0
+Total Reward: -1540
+Time: 0:36:15.024447
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 64
+Continue: -1.0
+Total Reward: -1652
+Time: 0:36:43.352659
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 65
+Continue: -1.0
+Total Reward: -1752
+Time: 0:37:35.959650
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 66
+Continue: -1.0
+Total Reward: -1800
+Time: 0:38:11.154790
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 67
+Continue: -1.0
+Total Reward: -1932
+Time: 0:38:50.868529
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 68
+Continue: -1.0
+Total Reward: -2008
+Time: 0:39:22.898837
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 69
+Continue: -1.0
+Total Reward: -2070
+Time: 0:40:27.083936
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 70
+Continue: -1.0
+Total Reward: -2076
+Time: 0:41:29.542172
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 71
+Continue: -1.0
+Total Reward: -2210
+Time: 0:42:13.696084
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 72
+Continue: -1.0
+Total Reward: -2332
+Time: 0:42:42.036306
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 73
+Continue: -1.0
+Total Reward: -2448
+Time: 0:43:33.780757
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 74
+Continue: -1.0
+Total Reward: -2527
+Time: 0:44:15.259953
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 75
+Continue: -1.0
+Total Reward: -2605
+Time: 0:45:01.975393
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 76
+Continue: -1.0
+Total Reward: -2729
+Time: 0:45:32.392216
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 77
+Continue: -1.0
+Total Reward: -2781
+Time: 0:46:11.497593
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 78
+Continue: -1.0
+Total Reward: -2800
+Time: 0:46:31.381111
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 79
+Continue: -1.0
+Total Reward: -2899
+Time: 0:46:54.052974
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 80
+Continue: -1.0
+Total Reward: -2959
+Time: 0:47:20.374297
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 81
+Continue: -1.0
+Total Reward: -3017
+Time: 0:47:55.139006
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 82
+Continue: -1.0
+Total Reward: -3056
+Time: 0:48:29.368610
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 83
+Continue: -1.0
+Total Reward: -3178
+Time: 0:48:58.999847
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 84
+Continue: -1.0
+Total Reward: -3210
+Time: 0:49:26.661836
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 85
+Continue: -1.0
+Total Reward: -3280
+Time: 0:49:51.789357
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 86
+Continue: -1.0
+Total Reward: -3311
+Time: 0:50:10.153155
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 87
+Continue: -1.0
+Total Reward: -3408
+Time: 0:50:25.458292
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 88
+Continue: -1.0
+Total Reward: -3498
+Time: 0:50:37.081854
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 89
+Continue: -1.0
+Total Reward: -3566
+Time: 0:50:56.094158
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 90
+Continue: -1.0
+Total Reward: -3701
+Time: 0:51:06.704133
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 91
+Continue: -1.0
+Total Reward: -3810
+Time: 0:51:24.987480
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 92
+Continue: -1.0
+Total Reward: -3925
+Time: 0:51:36.575636
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 93
+Continue: -1.0
+Total Reward: -4016
+Time: 0:51:53.534676
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 94
+Continue: -1.0
+Total Reward: -4093
+Time: 0:52:12.720190
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 95
+Continue: -1.0
+Total Reward: -4094
+Time: 0:52:32.895348
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 96
+Continue: -1.0
+Total Reward: -4214
+Time: 0:52:44.180940
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 97
+Continue: -1.0
+Total Reward: -4220
+Time: 0:53:06.012500
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 98
+Continue: -1.0
+Total Reward: -4326
+Time: 0:53:23.990779
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 99
+Continue: -1.0
+Total Reward: -4428
+Time: 0:53:41.296035
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 100
+Continue: -1.0
+Total Reward: -4507
+Time: 0:53:56.853670
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 101
+Continue: -1.0
+Total Reward: -4638
+Time: 0:54:10.812220
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 102
+Continue: -1.0
+Total Reward: -4671
+Time: 0:54:26.302781
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 103
+Continue: -1.0
+Total Reward: -4815
+Time: 0:54:37.826065
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 104
+Continue: -1.0
+Total Reward: -4880
+Time: 0:54:52.948520
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 105
+Continue: -1.0
+Total Reward: -4982
+Time: 0:55:14.976877
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 106
+Continue: -1.0
+Total Reward: -5004
+Time: 0:55:28.046251
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 107
+Continue: -1.0
+Total Reward: -5074
+Time: 0:55:46.428564
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 108
+Continue: -1.0
+Total Reward: -5190
+Time: 0:55:56.655426
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 109
+Continue: -1.0
+Total Reward: -5331
+Time: 0:56:08.824788
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 110
+Continue: -1.0
+Total Reward: -5402
+Time: 0:56:21.113390
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 111
+Continue: -1.0
+Total Reward: -5482
+Time: 0:56:39.391647
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 112
+Continue: -1.0
+Total Reward: -5495
+Time: 0:56:55.934783
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 113
+Continue: -1.0
+Total Reward: -5556
+Time: 0:57:11.640982
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 114
+Continue: -1.0
+Total Reward: -5642
+Time: 0:57:21.757625
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 115
+Continue: -1.0
+Total Reward: -5747
+Time: 0:57:36.815242
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 116
+Continue: -1.0
+Total Reward: -5822
+Time: 0:57:50.630783
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 117
+Continue: -1.0
+Total Reward: -5852
+Time: 0:58:07.299773
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 118
+Continue: -1.0
+Total Reward: -5895
+Time: 0:58:22.499999
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 119
+Continue: -1.0
+Total Reward: -6020
+Time: 0:58:35.089381
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 120
+Continue: -1.0
+Total Reward: -6097
+Time: 0:58:51.115737
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 121
+Continue: -1.0
+Total Reward: -6206
+Time: 0:59:10.422761
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 122
+Continue: -1.0
+Total Reward: -6310
+Time: 0:59:26.479702
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 123
+Continue: -1.0
+Total Reward: -6469
+Time: 0:59:50.470759
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 124
+Continue: -1.0
+Total Reward: -6535
+Time: 1:00:10.675968
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 125
+Continue: -1.0
+Total Reward: -6633
+Time: 1:00:27.551469
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 126
+Continue: -1.0
+Total Reward: -6777
+Time: 1:00:36.483451
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 127
+Continue: -1.0
+Total Reward: -6836
+Time: 1:00:54.119993
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 128
+Continue: -1.0
+Total Reward: -6913
+Time: 1:01:11.025606
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 129
+Continue: -1.0
+Total Reward: -7006
+Time: 1:01:26.396457
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 130
+Continue: -1.0
+Total Reward: -7145
+Time: 1:01:33.406100
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 131
+Continue: -1.0
+Total Reward: -7271
+Time: 1:01:48.957843
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 132
+Continue: -1.0
+Total Reward: -7373
+Time: 1:02:00.466833
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 133
+Continue: -1.0
+Total Reward: -7453
+Time: 1:02:17.899974
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 134
+Continue: -1.0
+Total Reward: -7497
+Time: 1:02:31.709022
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 135
+Continue: -1.0
+Total Reward: -7514
+Time: 1:02:50.232070
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 136
+Continue: -1.0
+Total Reward: -7582
+Time: 1:03:02.183154
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 137
+Continue: -1.0
+Total Reward: -7711
+Time: 1:03:21.066254
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 138
+Continue: -1.0
+Total Reward: -7825
+Time: 1:03:32.271099
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 139
+Continue: -1.0
+Total Reward: -7861
+Time: 1:03:52.903939
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 140
+Continue: -1.0
+Total Reward: -7998
+Time: 1:04:03.565512
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 141
+Continue: -1.0
+Total Reward: -8069
+Time: 1:04:20.897124
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 142
+Continue: -1.0
+Total Reward: -8070
+Time: 1:04:37.546114
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 143
+Continue: -1.0
+Total Reward: -8126
+Time: 1:05:00.160857
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 144
+Continue: -1.0
+Total Reward: -8260
+Time: 1:05:12.065760
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 145
+Continue: -1.0
+Total Reward: -8321
+Time: 1:05:33.239376
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 146
+Continue: -1.0
+Total Reward: -8429
+Time: 1:05:42.007364
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 147
+Continue: -1.0
+Total Reward: -8529
+Time: 1:05:58.983490
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 148
+Continue: -1.0
+Total Reward: -8608
+Time: 1:06:12.671577
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 149
+Continue: -1.0
+Total Reward: -8689
+Time: 1:06:27.508871
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 150
+Continue: -1.0
+Total Reward: -8831
+Time: 1:06:36.731435
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 151
+Continue: -1.0
+Total Reward: -8941
+Time: 1:06:55.717686
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 152
+Continue: -1.0
+Total Reward: -9006
+Time: 1:07:09.523193
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 153
+Continue: -1.0
+Total Reward: -9100
+Time: 1:07:25.475594
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 154
+Continue: -1.0
+Total Reward: -9195
+Time: 1:07:36.951600
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 155
+Continue: -1.0
+Total Reward: -9321
+Time: 1:07:50.654496
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 156
+Continue: -1.0
+Total Reward: -9364
+Time: 1:08:03.251629
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 157
+Continue: -1.0
+Total Reward: -9483
+Time: 1:08:19.274617
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 158
+Continue: -1.0
+Total Reward: -9587
+Time: 1:08:29.183536
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 159
+Continue: -1.0
+Total Reward: -9692
+Time: 1:08:43.484746
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 160
+Continue: -1.0
+Total Reward: -9814
+Time: 1:08:56.362365
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 161
+Continue: -1.0
+Total Reward: -9882
+Time: 1:09:18.750976
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 162
+Continue: -1.0
+Total Reward: -9899
+Time: 1:09:37.261685
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 163
+Continue: -1.0
+Total Reward: -10036
+Time: 1:09:53.210821
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 164
+Continue: -1.0
+Total Reward: -10175
+Time: 1:10:04.874159
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 165
+Continue: -1.0
+Total Reward: -10220
+Time: 1:10:24.321012
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 166
+Continue: -1.0
+Total Reward: -10300
+Time: 1:10:40.118381
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 167
+Continue: -1.0
+Total Reward: -10383
+Time: 1:11:00.269598
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 168
+Continue: -1.0
+Total Reward: -10485
+Time: 1:11:20.574443
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 169
+Continue: -1.0
+Total Reward: -10584
+Time: 1:11:36.093131
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 170
+Continue: -1.0
+Total Reward: -10670
+Time: 1:11:51.567390
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 171
+Continue: -1.0
+Total Reward: -10773
+Time: 1:12:06.086561
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 172
+Continue: -1.0
+Total Reward: -10932
+Time: 1:12:16.348130
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 173
+Continue: -1.0
+Total Reward: -11026
+Time: 1:12:29.965108
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 174
+Continue: -1.0
+Total Reward: -11142
+Time: 1:12:40.856714
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 175
+Continue: -1.0
+Total Reward: -11257
+Time: 1:12:55.377218
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 176
+Continue: -1.0
+Total Reward: -11375
+Time: 1:13:06.422754
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 177
+Continue: -1.0
+Total Reward: -11446
+Time: 1:13:21.516198
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 178
+Continue: -1.0
+Total Reward: -11591
+Time: 1:13:33.269390
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 179
+Continue: -1.0
+Total Reward: -11741
+Time: 1:13:46.502609
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 180
+Continue: -1.0
+Total Reward: -11828
+Time: 1:14:01.104117
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 181
+Continue: -1.0
+Total Reward: -11928
+Time: 1:14:16.980284
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 182
+Continue: -1.0
+Total Reward: -11968
+Time: 1:14:29.523892
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 183
+Continue: -1.0
+Total Reward: -12082
+Time: 1:14:46.515447
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 184
+Continue: -1.0
+Total Reward: -12196
+Time: 1:14:56.894202
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 185
+Continue: -1.0
+Total Reward: -12355
+Time: 1:15:09.620258
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 186
+Continue: -1.0
+Total Reward: -12366
+Time: 1:15:25.079080
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 187
+Continue: -1.0
+Total Reward: -12431
+Time: 1:15:39.935483
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 188
+Continue: -1.0
+Total Reward: -12450
+Time: 1:15:51.791143
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 189
+Continue: -1.0
+Total Reward: -12568
+Time: 1:16:03.577265
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 190
+Continue: -1.0
+Total Reward: -12613
+Time: 1:16:21.158562
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 191
+Continue: -1.0
+Total Reward: -12669
+Time: 1:16:46.336934
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 192
+Continue: -1.0
+Total Reward: -12676
+Time: 1:17:11.866460
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 193
+Continue: -1.0
+Total Reward: -12764
+Time: 1:17:32.369824
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 194
+Continue: -1.0
+Total Reward: -12855
+Time: 1:17:45.198610
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 195
+Continue: -1.0
+Total Reward: -12905
+Time: 1:18:06.746192
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 196
+Continue: -1.0
+Total Reward: -13013
+Time: 1:18:20.003038
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 197
+Continue: -1.0
+Total Reward: -13125
+Time: 1:18:38.311870
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 198
+Continue: -1.0
+Total Reward: -13085
+Time: 1:18:54.998471
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 199
+Continue: -1.0
+Total Reward: -13215
+Time: 1:19:04.356849
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 200
+Continue: -1.0
+Total Reward: -13310
+Time: 1:19:23.440871
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 201
+Continue: -1.0
+Total Reward: -13456
+Time: 1:19:33.949132
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 202
+Continue: -1.0
+Total Reward: -13594
+Time: 1:19:47.245814
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 203
+Continue: -1.0
+Total Reward: -13724
+Time: 1:19:56.242717
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 204
+Continue: -1.0
+Total Reward: -13810
+Time: 1:20:14.620443
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 205
+Continue: -1.0
+Total Reward: -13919
+Time: 1:20:25.678153
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 206
+Continue: -1.0
+Total Reward: -13975
+Time: 1:20:44.093659
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 207
+Continue: -1.0
+Total Reward: -14086
+Time: 1:20:54.238891
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 208
+Continue: -1.0
+Total Reward: -14085
+Time: 1:21:11.543349
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 209
+Continue: -1.0
+Total Reward: -14137
+Time: 1:21:36.287282
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 210
+Continue: -1.0
+Total Reward: -14251
+Time: 1:21:50.295694
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 211
+Continue: -1.0
+Total Reward: -14364
+Time: 1:22:05.067850
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 212
+Continue: -1.0
+Total Reward: -14444
+Time: 1:22:15.770263
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 213
+Continue: -1.0
+Total Reward: -14476
+Time: 1:22:37.637410
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 214
+Continue: -1.0
+Total Reward: -14592
+Time: 1:22:49.787603
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 215
+Continue: -1.0
+Total Reward: -14684
+Time: 1:23:08.601811
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 216
+Continue: -1.0
+Total Reward: -14745
+Time: 1:23:23.208845
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 217
+Continue: -1.0
+Total Reward: -14817
+Time: 1:23:43.430667
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 218
+Continue: -1.0
+Total Reward: -14949
+Time: 1:23:52.891941
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 219
+Continue: -1.0
+Total Reward: -14980
+Time: 1:24:09.555324
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 220
+Continue: -1.0
+Total Reward: -15135
+Time: 1:24:18.837665
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 221
+Continue: -1.0
+Total Reward: -15252
+Time: 1:24:32.317163
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 222
+Continue: -1.0
+Total Reward: -15344
+Time: 1:24:43.228916
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 223
+Continue: -1.0
+Total Reward: -15446
+Time: 1:24:59.303543
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 224
+Continue: -1.0
+Total Reward: -15442
+Time: 1:25:18.267405
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 225
+Continue: -1.0
+Total Reward: -15598
+Time: 1:25:27.893939
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 226
+Continue: -1.0
+Total Reward: -15727
+Time: 1:25:45.213728
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 227
+Continue: -1.0
+Total Reward: -15855
+Time: 1:25:56.850098
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 228
+Continue: -1.0
+Total Reward: -15991
+Time: 1:26:10.087188
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 229
+Continue: -1.0
+Total Reward: -16041
+Time: 1:26:21.663529
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 230
+Continue: -1.0
+Total Reward: -16082
+Time: 1:26:39.771304
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 231
+Continue: -1.0
+Total Reward: -16149
+Time: 1:26:53.564853
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 232
+Continue: -1.0
+Total Reward: -16255
+Time: 1:27:08.501338
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 233
+Continue: -1.0
+Total Reward: -16363
+Time: 1:27:19.207660
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 234
+Continue: -1.0
+Total Reward: -16456
+Time: 1:27:36.533858
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 235
+Continue: -1.0
+Total Reward: -16561
+Time: 1:27:46.971290
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 236
+Continue: -1.0
+Total Reward: -16678
+Time: 1:28:01.858958
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 237
+Continue: -1.0
+Total Reward: -16789
+Time: 1:28:11.787577
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 238
+Continue: -1.0
+Total Reward: -16872
+Time: 1:28:32.524489
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 239
+Continue: -1.0
+Total Reward: -16929
+Time: 1:28:47.276480
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 240
+Continue: -1.0
+Total Reward: -17038
+Time: 1:29:02.305030
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 241
+Continue: -1.0
+Total Reward: -17161
+Time: 1:29:13.534103
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 242
+Continue: -1.0
+Total Reward: -17300
+Time: 1:29:32.842001
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 243
+Continue: -1.0
+Total Reward: -17377
+Time: 1:29:46.116454
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 244
+Continue: -1.0
+Total Reward: -17401
+Time: 1:30:07.077143
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 245
+Continue: -1.0
+Total Reward: -17510
+Time: 1:30:17.535030
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 246
+Continue: -1.0
+Total Reward: -17597
+Time: 1:30:38.046921
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 247
+Continue: -1.0
+Total Reward: -17631
+Time: 1:30:50.590447
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 248
+Continue: -1.0
+Total Reward: -17773
+Time: 1:31:02.910118
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 249
+Continue: -1.0
+Total Reward: -17870
+Time: 1:31:14.179964
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 250
+Continue: -1.0
+Total Reward: -18024
+Time: 1:31:28.726943
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 251
+Continue: -1.0
+Total Reward: -18145
+Time: 1:31:38.045132
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 252
+Continue: -1.0
+Total Reward: -18255
+Time: 1:31:56.531468
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 253
+Continue: -1.0
+Total Reward: -18411
+Time: 1:32:03.631612
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 254
+Continue: -1.0
+Total Reward: -18522
+Time: 1:32:21.610772
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 255
+Continue: -1.0
+Total Reward: -18588
+Time: 1:32:37.736336
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 256
+Continue: -1.0
+Total Reward: -18708
+Time: 1:32:53.257790
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 257
+Continue: -1.0
+Total Reward: -18753
+Time: 1:33:10.268039
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 258
+Continue: -1.0
+Total Reward: -18864
+Time: 1:33:25.882788
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 259
+Continue: -1.0
+Total Reward: -18957
+Time: 1:33:34.104027
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 260
+Continue: -1.0
+Total Reward: -19059
+Time: 1:33:48.052418
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 261
+Continue: -1.0
+Total Reward: -19206
+Time: 1:34:00.261119
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 262
+Continue: -1.0
+Total Reward: -19287
+Time: 1:34:15.612575
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 263
+Continue: -1.0
+Total Reward: -19432
+Time: 1:34:23.942742
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 264
+Continue: -1.0
+Total Reward: -19459
+Time: 1:34:41.111404
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 265
+Continue: -1.0
+Total Reward: -19520
+Time: 1:34:54.659403
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 266
+Continue: -1.0
+Total Reward: -19576
+Time: 1:35:11.301567
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 267
+Continue: -1.0
+Total Reward: -19679
+Time: 1:35:25.273150
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 268
+Continue: -1.0
+Total Reward: -19714
+Time: 1:35:43.996336
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 269
+Continue: -1.0
+Total Reward: -19739
+Time: 1:35:59.990120
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 270
+Continue: -1.0
+Total Reward: -19840
+Time: 1:36:15.305990
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 271
+Continue: -1.0
+Total Reward: -19930
+Time: 1:36:26.797427
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 272
+Continue: -1.0
+Total Reward: -20031
+Time: 1:36:42.500839
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 273
+Continue: -1.0
+Total Reward: -20123
+Time: 1:36:53.644993
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 274
+Continue: -1.0
+Total Reward: -20208
+Time: 1:37:09.875410
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 275
+Continue: -1.0
+Total Reward: -20290
+Time: 1:37:24.446253
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 276
+Continue: -1.0
+Total Reward: -20350
+Time: 1:37:38.520733
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 277
+Continue: -1.0
+Total Reward: -20448
+Time: 1:37:48.501455
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 278
+Continue: -1.0
+Total Reward: -20535
+Time: 1:38:04.756165
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 279
+Continue: -1.0
+Total Reward: -20659
+Time: 1:38:13.476880
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 280
+Continue: -1.0
+Total Reward: -20686
+Time: 1:38:32.969618
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 281
+Continue: -1.0
+Total Reward: -20824
+Time: 1:38:41.892132
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 282
+Continue: -1.0
+Total Reward: -20950
+Time: 1:38:54.792387
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 283
+Continue: -1.0
+Total Reward: -20986
+Time: 1:39:11.422728
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 284
+Continue: -1.0
+Total Reward: -21096
+Time: 1:39:24.949816
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 285
+Continue: -1.0
+Total Reward: -21196
+Time: 1:39:36.634492
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 286
+Continue: -1.0
+Total Reward: -21288
+Time: 1:39:49.762879
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 287
+Continue: -1.0
+Total Reward: -21321
+Time: 1:40:01.141225
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 288
+Continue: -1.0
+Total Reward: -21400
+Time: 1:40:14.882115
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 289
+Continue: -1.0
+Total Reward: -21463
+Time: 1:40:30.608472
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 290
+Continue: -1.0
+Total Reward: -21464
+Time: 1:40:52.263084
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 291
+Continue: -1.0
+Total Reward: -21586
+Time: 1:41:02.486217
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 292
+Continue: -1.0
+Total Reward: -21716
+Time: 1:41:17.730770
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 293
+Continue: -1.0
+Total Reward: -21847
+Time: 1:41:31.481234
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 294
+Continue: -1.0
+Total Reward: -21933
+Time: 1:41:47.809438
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 295
+Continue: -1.0
+Total Reward: -22074
+Time: 1:41:57.466880
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 296
+Continue: -1.0
+Total Reward: -22112
+Time: 1:42:15.988152
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 297
+Continue: -1.0
+Total Reward: -22140
+Time: 1:42:29.786014
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 298
+Continue: -1.0
+Total Reward: -22258
+Time: 1:42:44.899423
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 299
+Continue: -1.0
+Total Reward: -22316
+Time: 1:42:55.111557
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 300
+Continue: -1.0
+Total Reward: -22419
+Time: 1:43:10.045513
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 301
+Continue: -1.0
+Total Reward: -22518
+Time: 1:43:21.603959
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 302
+Continue: -1.0
+Total Reward: -22651
+Time: 1:43:35.355760
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 303
+Continue: -1.0
+Total Reward: -22718
+Time: 1:43:50.037446
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 304
+Continue: -1.0
+Total Reward: -22837
+Time: 1:44:03.070234
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 305
+Continue: -1.0
+Total Reward: -22860
+Time: 1:44:17.608170
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 306
+Continue: -1.0
+Total Reward: -22998
+Time: 1:44:29.734447
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 307
+Continue: -1.0
+Total Reward: -23124
+Time: 1:44:37.521083
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 308
+Continue: -1.0
+Total Reward: -23214
+Time: 1:44:54.351526
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 309
+Continue: -1.0
+Total Reward: -23321
+Time: 1:45:04.270058
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 310
+Continue: -1.0
+Total Reward: -23447
+Time: 1:45:18.524956
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 311
+Continue: -1.0
+Total Reward: -23457
+Time: 1:45:33.004214
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 312
+Continue: -1.0
+Total Reward: -23541
+Time: 1:45:48.949745
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 313
+Continue: -1.0
+Total Reward: -23568
+Time: 1:46:02.258731
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 314
+Continue: -1.0
+Total Reward: -23706
+Time: 1:46:16.877159
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 315
+Continue: -1.0
+Total Reward: -23793
+Time: 1:46:30.349622
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 316
+Continue: -1.0
+Total Reward: -23934
+Time: 1:46:43.257646
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 317
+Continue: -1.0
+Total Reward: -24025
+Time: 1:46:53.764686
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 318
+Continue: -1.0
+Total Reward: -24114
+Time: 1:47:05.799631
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 319
+Continue: -1.0
+Total Reward: -24168
+Time: 1:47:21.017914
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 320
+Continue: -1.0
+Total Reward: -24180
+Time: 1:47:40.411181
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 321
+Continue: -1.0
+Total Reward: -24285
+Time: 1:47:50.977704
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 322
+Continue: -1.0
+Total Reward: -24407
+Time: 1:48:05.690915
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 323
+Continue: -1.0
+Total Reward: -24479
+Time: 1:48:19.688157
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 324
+Continue: -1.0
+Total Reward: -24621
+Time: 1:48:33.472188
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 325
+Continue: -1.0
+Total Reward: -24720
+Time: 1:48:43.435544
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 326
+Continue: -1.0
+Total Reward: -24766
+Time: 1:48:59.717866
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 327
+Continue: -1.0
+Total Reward: -24835
+Time: 1:49:14.637557
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 328
+Continue: -1.0
+Total Reward: -24991
+Time: 1:49:26.325242
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 329
+Continue: -1.0
+Total Reward: -25146
+Time: 1:49:36.389139
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 330
+Continue: -1.0
+Total Reward: -25215
+Time: 1:49:51.388580
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 331
+Continue: -1.0
+Total Reward: -25324
+Time: 1:50:02.366643
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 332
+Continue: -1.0
+Total Reward: -25393
+Time: 1:50:19.521069
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 333
+Continue: -1.0
+Total Reward: -25441
+Time: 1:50:36.767434
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 334
+Continue: -1.0
+Total Reward: -25527
+Time: 1:50:52.812677
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 335
+Continue: -1.0
+Total Reward: -25526
+Time: 1:51:07.214409
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 336
+Continue: -1.0
+Total Reward: -25658
+Time: 1:51:14.558850
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 337
+Continue: -1.0
+Total Reward: -25675
+Time: 1:51:32.573379
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 338
+Continue: -1.0
+Total Reward: -25747
+Time: 1:51:44.811022
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 339
+Continue: -1.0
+Total Reward: -25879
+Time: 1:51:58.544676
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 340
+Continue: -1.0
+Total Reward: -25890
+Time: 1:52:12.638110
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 341
+Continue: -1.0
+Total Reward: -25980
+Time: 1:52:26.631740
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 342
+Continue: -1.0
+Total Reward: -26069
+Time: 1:52:38.722378
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 343
+Continue: -1.0
+Total Reward: -26101
+Time: 1:52:57.268764
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 344
+Continue: -1.0
+Total Reward: -26039
+Time: 1:53:11.716744
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 345
+Continue: -1.0
+Total Reward: -26086
+Time: 1:53:25.769133
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 346
+Continue: -1.0
+Total Reward: -26190
+Time: 1:53:38.564236
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 347
+Continue: -1.0
+Total Reward: -26282
+Time: 1:53:47.979048
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 348
+Continue: -1.0
+Total Reward: -26309
+Time: 1:54:06.715530
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 349
+Continue: -1.0
+Total Reward: -26351
+Time: 1:54:17.109602
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 350
+Continue: -1.0
+Total Reward: -26456
+Time: 1:54:30.553398
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 351
+Continue: -1.0
+Total Reward: -26560
+Time: 1:54:41.502735
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 352
+Continue: -1.0
+Total Reward: -26615
+Time: 1:54:56.658009
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 353
+Continue: -1.0
+Total Reward: -26726
+Time: 1:55:07.436062
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 354
+Continue: -1.0
+Total Reward: -26802
+Time: 1:55:23.012876
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 355
+Continue: -1.0
+Total Reward: -26918
+Time: 1:55:34.634645
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 356
+Continue: -1.0
+Total Reward: -26932
+Time: 1:55:52.083783
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 357
+Continue: -1.0
+Total Reward: -27073
+Time: 1:56:05.330523
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 358
+Continue: -1.0
+Total Reward: -27233
+Time: 1:56:17.682008
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 359
+Continue: -1.0
+Total Reward: -27314
+Time: 1:56:28.554882
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 360
+Continue: -1.0
+Total Reward: -27468
+Time: 1:56:41.821459
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 361
+Continue: -1.0
+Total Reward: -27524
+Time: 1:56:54.364788
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 362
+Continue: -1.0
+Total Reward: -27602
+Time: 1:57:13.327641
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 363
+Continue: -1.0
+Total Reward: -27718
+Time: 1:57:23.991911
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 364
+Continue: -1.0
+Total Reward: -27791
+Time: 1:57:44.957993
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 365
+Continue: -1.0
+Total Reward: -27895
+Time: 1:57:54.619250
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 366
+Continue: -1.0
+Total Reward: -27952
+Time: 1:58:11.253354
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 367
+Continue: -1.0
+Total Reward: -28001
+Time: 1:58:25.950897
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 368
+Continue: -1.0
+Total Reward: -28068
+Time: 1:58:41.989608
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 369
+Continue: -1.0
+Total Reward: -28229
+Time: 1:58:51.555194
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 370
+Continue: -1.0
+Total Reward: -28308
+Time: 1:59:08.675637
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 371
+Continue: -1.0
+Total Reward: -28371
+Time: 1:59:21.146388
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 372
+Continue: -1.0
+Total Reward: -28434
+Time: 1:59:34.436822
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 373
+Continue: -1.0
+Total Reward: -28501
+Time: 1:59:51.386808
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 374
+Continue: -1.0
+Total Reward: -28509
+Time: 2:00:14.137088
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 375
+Continue: -1.0
+Total Reward: -28587
+Time: 2:00:27.918113
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 376
+Continue: -1.0
+Total Reward: -28628
+Time: 2:00:47.031225
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 377
+Continue: -1.0
+Total Reward: -28736
+Time: 2:01:00.511676
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 378
+Continue: -1.0
+Total Reward: -28787
+Time: 2:01:15.249264
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 379
+Continue: -1.0
+Total Reward: -28826
+Time: 2:01:32.773797
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 380
+Continue: -1.0
+Total Reward: -28938
+Time: 2:01:48.795088
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 381
+Continue: -1.0
+Total Reward: -29036
+Time: 2:02:01.007494
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 382
+Continue: -1.0
+Total Reward: -29029
+Time: 2:02:17.853544
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 383
+Continue: -1.0
+Total Reward: -29136
+Time: 2:02:33.187561
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 384
+Continue: -1.0
+Total Reward: -29236
+Time: 2:02:43.999028
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 385
+Continue: -1.0
+Total Reward: -29360
+Time: 2:03:00.150784
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 386
+Continue: -1.0
+Total Reward: -29498
+Time: 2:03:08.924321
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 387
+Continue: -1.0
+Total Reward: -29595
+Time: 2:03:24.976543
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 388
+Continue: -1.0
+Total Reward: -29710
+Time: 2:03:35.990751
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 389
+Continue: -1.0
+Total Reward: -29698
+Time: 2:03:48.695529
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 390
+Continue: -1.0
+Total Reward: -29789
+Time: 2:04:03.156774
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 391
+Continue: -1.0
+Total Reward: -29851
+Time: 2:04:20.724011
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 392
+Continue: -1.0
+Total Reward: -29976
+Time: 2:04:35.670345
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 393
+Continue: -1.0
+Total Reward: -30086
+Time: 2:04:48.938502
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 394
+Continue: -1.0
+Total Reward: -30179
+Time: 2:05:05.030138
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 395
+Continue: -1.0
+Total Reward: -30297
+Time: 2:05:18.417847
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 396
+Continue: -1.0
+Total Reward: -30446
+Time: 2:05:30.323412
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 397
+Continue: -1.0
+Total Reward: -30524
+Time: 2:05:43.955819
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 398
+Continue: -1.0
+Total Reward: -30573
+Time: 2:06:02.484157
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 399
+Continue: -1.0
+Total Reward: -30577
+Time: 2:06:19.703235
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 400
+Continue: -1.0
+Total Reward: -30717
+Time: 2:06:32.509690
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 401
+Continue: -1.0
+Total Reward: -30824
+Time: 2:06:45.192488
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 402
+Continue: -1.0
+Total Reward: -30952
+Time: 2:07:01.170021
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 403
+Continue: -1.0
+Total Reward: -31012
+Time: 2:07:11.082390
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 404
+Continue: -1.0
+Total Reward: -31131
+Time: 2:07:24.224102
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 405
+Continue: -1.0
+Total Reward: -31172
+Time: 2:07:41.274006
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 406
+Continue: -1.0
+Total Reward: -31285
+Time: 2:07:55.047543
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 407
+Continue: -1.0
+Total Reward: -31399
+Time: 2:08:05.139102
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 408
+Continue: -1.0
+Total Reward: -31475
+Time: 2:08:25.182185
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 409
+Continue: -1.0
+Total Reward: -31588
+Time: 2:08:36.327980
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 410
+Continue: -1.0
+Total Reward: -31712
+Time: 2:08:48.799000
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 411
+Continue: -1.0
+Total Reward: -31766
+Time: 2:09:01.519132
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 412
+Continue: -1.0
+Total Reward: -31845
+Time: 2:09:18.187422
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 413
+Continue: -1.0
+Total Reward: -31978
+Time: 2:09:26.957535
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 414
+Continue: -1.0
+Total Reward: -32022
+Time: 2:09:46.963343
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 415
+Continue: -1.0
+Total Reward: -32071
+Time: 2:09:58.753213
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 416
+Continue: -1.0
+Total Reward: -32196
+Time: 2:10:13.816609
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 417
+Continue: -1.0
+Total Reward: -32334
+Time: 2:10:22.200031
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 418
+Continue: -1.0
+Total Reward: -32460
+Time: 2:10:36.712742
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 419
+Continue: -1.0
+Total Reward: -32530
+Time: 2:10:48.674216
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 420
+Continue: -1.0
+Total Reward: -32639
+Time: 2:11:05.585522
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 421
+Continue: -1.0
+Total Reward: -32762
+Time: 2:11:15.025804
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 422
+Continue: -1.0
+Total Reward: -32779
+Time: 2:11:33.510241
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 423
+Continue: -1.0
+Total Reward: -32904
+Time: 2:11:44.573909
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 424
+Continue: -1.0
+Total Reward: -33006
+Time: 2:11:57.918602
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 425
+Continue: -1.0
+Total Reward: -33100
+Time: 2:12:08.164173
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 426
+Continue: -1.0
+Total Reward: -33136
+Time: 2:12:23.959230
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 427
+Continue: -1.0
+Total Reward: -33237
+Time: 2:12:33.869965
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 428
+Continue: -1.0
+Total Reward: -33293
+Time: 2:12:53.670386
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 429
+Continue: -1.0
+Total Reward: -33391
+Time: 2:13:03.523187
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 430
+Continue: -1.0
+Total Reward: -33482
+Time: 2:13:19.006960
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 431
+Continue: -1.0
+Total Reward: -33608
+Time: 2:13:28.925432
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 432
+Continue: -1.0
+Total Reward: -33708
+Time: 2:13:44.820716
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 433
+Continue: -1.0
+Total Reward: -33812
+Time: 2:14:00.493227
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 434
+Continue: -1.0
+Total Reward: -33947
+Time: 2:14:16.955798
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 435
+Continue: -1.0
+Total Reward: -33999
+Time: 2:14:35.260728
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 436
+Continue: -1.0
+Total Reward: -34141
+Time: 2:14:48.036132
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 437
+Continue: -1.0
+Total Reward: -34177
+Time: 2:15:02.272118
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 438
+Continue: -1.0
+Total Reward: -34225
+Time: 2:15:20.018648
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 439
+Continue: -1.0
+Total Reward: -34320
+Time: 2:15:34.781761
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 440
+Continue: -1.0
+Total Reward: -34396
+Time: 2:15:50.153640
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 441
+Continue: -1.0
+Total Reward: -34533
+Time: 2:15:56.914239
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 442
+Continue: -1.0
+Total Reward: -34597
+Time: 2:16:13.602698
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 443
+Continue: -1.0
+Total Reward: -34713
+Time: 2:16:23.816051
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 444
+Continue: -1.0
+Total Reward: -34725
+Time: 2:16:46.531259
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 445
+Continue: -1.0
+Total Reward: -34789
+Time: 2:16:59.746248
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 446
+Continue: -1.0
+Total Reward: -34884
+Time: 2:17:12.778714
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 447
+Continue: -1.0
+Total Reward: -34955
+Time: 2:17:25.077155
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 448
+Continue: -1.0
+Total Reward: -35005
+Time: 2:17:44.566201
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 449
+Continue: -1.0
+Total Reward: -35043
+Time: 2:17:59.145558
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 450
+Continue: -1.0
+Total Reward: -35095
+Time: 2:18:14.584677
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 451
+Continue: -1.0
+Total Reward: -35173
+Time: 2:18:25.363108
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 452
+Continue: -1.0
+Total Reward: -35216
+Time: 2:18:43.916677
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 453
+Continue: -1.0
+Total Reward: -35239
+Time: 2:18:59.554050
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 454
+Continue: -1.0
+Total Reward: -35314
+Time: 2:19:12.310884
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 455
+Continue: -1.0
+Total Reward: -35376
+Time: 2:19:22.634862
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 456
+Continue: -1.0
+Total Reward: -35387
+Time: 2:19:42.337613
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 457
+Continue: -1.0
+Total Reward: -35500
+Time: 2:19:52.045065
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 458
+Continue: -1.0
+Total Reward: -35574
+Time: 2:20:06.881501
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 459
+Continue: -1.0
+Total Reward: -35657
+Time: 2:20:20.289005
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 460
+Continue: -1.0
+Total Reward: -35679
+Time: 2:20:40.300906
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 461
+Continue: -1.0
+Total Reward: -35793
+Time: 2:20:51.131626
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 462
+Continue: -1.0
+Total Reward: -35830
+Time: 2:21:06.910259
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 463
+Continue: -1.0
+Total Reward: -35958
+Time: 2:21:16.453334
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 464
+Continue: -1.0
+Total Reward: -36074
+Time: 2:21:32.591348
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 465
+Continue: -1.0
+Total Reward: -36208
+Time: 2:21:43.821018
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 466
+Continue: -1.0
+Total Reward: -36335
+Time: 2:21:57.538812
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 467
+Continue: -1.0
+Total Reward: -36405
+Time: 2:22:07.315725
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 468
+Continue: -1.0
+Total Reward: -36425
+Time: 2:22:31.134707
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 469
+Continue: -1.0
+Total Reward: -36527
+Time: 2:22:41.879014
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 470
+Continue: -1.0
+Total Reward: -36611
+Time: 2:22:57.846463
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 471
+Continue: -1.0
+Total Reward: -36549
+Time: 2:23:08.724568
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 472
+Continue: -1.0
+Total Reward: -36565
+Time: 2:23:30.067574
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 473
+Continue: -1.0
+Total Reward: -36624
+Time: 2:23:48.168186
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 474
+Continue: -1.0
+Total Reward: -36720
+Time: 2:24:01.460853
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 475
+Continue: -1.0
+Total Reward: -36832
+Time: 2:24:17.032248
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 476
+Continue: -1.0
+Total Reward: -36988
+Time: 2:24:25.606744
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 477
+Continue: -1.0
+Total Reward: -37094
+Time: 2:24:41.763077
+Info: {'round_done': True, 'stage_done': False, 'game_done': True, 'ep_done': False, 'env_done': False}
+==============================
+==============================
+Rounds: 478
+Continue: -1.0
+Total Reward: -37085
+Time: 2:24:58.380914
+Info: {'round_done': True, 'stage_done': False, 'game_done': False, 'ep_done': False, 'env_done': False}
+==============================

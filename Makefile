@@ -2,8 +2,6 @@
 # 						DEFAULT MAKE
 #--------------------------------------
 default: tree
-
-
 ##################### DEBUGGING HELPERS ####################
 fbold=$(shell echo "\033[1m")
 fnormal=$(shell echo "\033[0m")
@@ -11,7 +9,6 @@ ccgreen=$(shell echo "\033[0;32m")
 ccblue=$(shell echo "\033[0;34m")
 ccreset=$(shell echo "\033[0;39m")
 ############################################################
-
 
 tree:
 	@echo "\nHelp for the $(ccgreen)$(fbold)\`Ryu Forcement\` $(ccreset)$(fbold)\`Makefile\`$(ccreset)"
@@ -49,11 +46,10 @@ install:
 #--------------------------------------
 
 fight_classic:
-	@diambra run python3 scripts/script.py
+	@diambra run python3 scripts/main.py
 
 fight_raylib:
 	@diambra run python3 scripts/basic_raylib.py
-
 
 #-------------------------------------
 # 		 				BASH SCRIPT
