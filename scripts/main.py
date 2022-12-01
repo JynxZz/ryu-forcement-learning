@@ -12,13 +12,6 @@ from time import sleep
 
 env_settings, wrappers_settings = json_to_py_start()
 
-# is_server = is_server
-# n_steps = n_steps
-# looping = looping
-
-# server_wait_time = server_wait_time
-# client_wait_time = client_wait_time
-
 
 # Instance Env
 env, _ = make_sb3_env("sfiii3n", env_settings, wrappers_settings)
@@ -26,8 +19,8 @@ env, _ = make_sb3_env("sfiii3n", env_settings, wrappers_settings)
 
 # Instance Agent
 if is_server:
-    # n_steps => 3 x n_steps
-    server = AgentServer(env, n_steps=3 * n_steps)
+    # WIP : when 3client : n_steps => 3 x n_steps
+    server = AgentServer(env, n_steps=n_steps)
 
 else:
     client = AgentClient(env, n_steps=n_steps)

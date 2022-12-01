@@ -3,9 +3,10 @@ from google.cloud import storage
 # import de diff settings pour les params
 
 import numpy as np
+import pickle
 import random
 import os
-import datetime, time
+import datetime
 
 
 LOCAL_PATH=os.environ.get('LOCAL_PATH')
