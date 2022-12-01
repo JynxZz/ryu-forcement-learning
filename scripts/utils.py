@@ -3,13 +3,11 @@ from google.cloud import storage
 # import de diff settings pour les params
 
 import numpy as np
-import random
 import pickle
-import json
+import random
 import os
 import datetime
 
-# init_timestamp = datetime.now()
 
 LOCAL_PATH=os.environ.get('LOCAL_PATH')
 LOCAL_FILENAME=os.environ.get('LOCAL_FILENAME')
@@ -36,6 +34,9 @@ def local_read(file_name=LOCAL_FILENAME):
 
 
 # TODO : switch client / server done
+timestamp = datetime.datetime.utcnow()
+init_timestamp = datetime.date.ctime(datetime.datetime.now()) # WIP -> find the good type timestamp : CHECK : ok
+
 def switch(old_timestamp):
 
     timestamp = creation_date()
@@ -46,13 +47,14 @@ def switch(old_timestamp):
 
     return old_timestamp, False
 
-def creation_date(path_to_file): # WIP -> Code ça putain
+def creation_date(path_to_file): # WIP -> Code ça putain : CHECK : ok
     try:
+        timer = os.path.getmtime(path_to_file)
+        return timer
 
-        return os.path.getctime(path_to_file)
-    except:
+    except OSError:
+        return "Path '%s' does not exists or is inaccessible" %path_to_file
 
-        pass
 
 
 # TODO : Connect to the bucket : OK
@@ -77,7 +79,7 @@ def bucket_load(file):
 
     return blob
 
-
+# Methode use by the Server & Client
 def extract_buffer(client_agent):
     #Extracting buffer
     buffer = client_agent.rollout_buffer
@@ -149,4 +151,6 @@ def import_buffer(imported_obs, server_agent):
 
 if __name__ == '__main__':
     #  local_save('coucou')
-    print(type(creation_date("readme.md")))
+    print(timestamp)
+    print(init_timestamp)
+    print(creation_date("readme.md"))
