@@ -37,10 +37,14 @@ class AgentServer(Agent):
         while True:
             sleep(server_wait_time)
             #init_timestamp, is_done = switch(self.init_timestamp)
-            is_done=True
-
+            blob = interface_bucket(project, bucket, agent_name, file_name)
+            try:
+                is_done=switch(blob, self.init_timestamp)
+            except:
+                is_done= False
+            # SWITCH
             if is_done:
-                buffer_1 = interface_bucket(project, bucket, agent_name, file_name, self.init_timestamp, uploading)
+                buffer_1 = upload_download(blob, agent_name, file_name, uploading)
                 # buffer_2 = bucket_load("agent_two_obs.pickle")
                 # buffer_3 = bucket_load("agent_three_obs.pickle")
                 uploading = True
@@ -50,7 +54,7 @@ class AgentServer(Agent):
                 self.compute(f'{agent_name+file_name}', compute_name[:-4])
 
                 #bucket_save("new_weights.zip")
-                interface_bucket(project, bucket, agent_name, file_name, self.init_timestamp, uploading)
+                upload_download(blob, agent_name, compute_name, uploading)
 
                 #TODO : Code evaluate method
                 #server.evaluate()

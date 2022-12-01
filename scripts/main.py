@@ -38,6 +38,7 @@ while i < looping:
 
     if is_server:
         server.run(project, bucket, agent_name, file_name, False, compute_name)
-
+        print(f'{i}# : Server')
     else:
         client.run(project, bucket, agent_name, file_name, True)
+        print(f'{i}# : Client')

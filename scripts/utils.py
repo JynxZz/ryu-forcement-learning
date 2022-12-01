@@ -104,22 +104,51 @@ def interface_bucket(project, bucket, agent, file_name, timestamp, uploading=Tru
     bucket = client.bucket(bucket)
     blob = bucket.blob(f"{agent}/{agent+file_name}")
 
-    # blob.reload()
-    # blob_timestamp = blob.time_created.timestamp()
+    blob.reload()
+    blob_timestamp = blob.time_created.timestamp()
 
     if uploading:
         blob.upload_from_filename(f'{agent+file_name}')
-    elif not uploading:
-        blob.download_to_filename(f'{agent+file_name}')
+        print("Upload OK !")
 
-    # elif not uploading and blob_timestamp > timestamp :
-    #     blob.download_to_filename(file_name)
-    #     timestamp=blob_timestamp
-    #     return timestamp
+    elif not uploading and blob_timestamp > timestamp :
+        print("Switch OK")
+        blob.download_to_filename(file_name)
+        timestamp=blob_timestamp
+        return timestamp
     else:
         pass
 
+# TODO : Wrap 3 method
+def interface_bucket(project, bucket, agent, file_name):
+    try:
+        client = storage.Client(project)
+        bucket = client.bucket(bucket)
+        blob = bucket.blob(f"{agent}/{agent+file_name}")
+        return blob
+    except:
+        return "Path '%s' does not exists or is inaccessible" %blob
 
+def switch(blob, timestamp):
+
+    blob.reload()
+    blob_timestamp = blob.time_created.timestamp()
+
+    if blob_timestamp > timestamp:
+        print("Switch OK")
+        return True
+    else:
+        print("You Shall Not Pass")
+        return False
+
+def upload_download(blob, agent, file_name, uploading):
+
+    if uploading:
+        blob.upload_from_filename(f'{agent+file_name}')
+        print("Upload OK !")
+
+    elif not uploading:
+        blob.download_to_filename(file_name)
 
 # Methode use by the Server & Client
 def extract_buffer(client_agent):
