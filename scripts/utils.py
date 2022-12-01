@@ -60,24 +60,35 @@ def creation_date(path_to_file): # WIP -> Code ça putain : CHECK : ok
 # TODO : Connect to the bucket : OK
 
 # TODO : Save weights inside bucket : WIP -> good path ...
-def bucket_save(file):
+def bucket_save(project, bucket, agent, file_name):
 
-    client = storage.Client(project=os.environ.get('PROJECT'))
-    bucket = client.bucket(os.environ.get('BUCKET_TEST'))
-    blob = bucket.blob(f"{os.environ.get('STORAGE_LOCATION')}/{file}")
+    #client = storage.Client(project=os.environ.get('PROJECT'))
+    client = storage.Client(project)
 
-    blob.upload_from_filename(file)
+    #bucket = client.bucket(os.environ.get('BUCKET_TEST'))
+    bucket = client.bucket(bucket)
+
+    #blob = bucket.blob(f"{os.environ.get('STORAGE_LOCATION')}/{file}")
+    blob = bucket.blob(f"{agent}/{agent+file_name}")
+
+    blob.upload_from_filename(file_name)
 
 # TODO : Load weigths inside bucket : OK
-def bucket_load(file):
+def bucket_load(project, bucket, agent, file_name):
 
-    client = storage.Client(project=os.environ.get('PROJECT'))
-    bucket = client.bucket(os.environ.get('BUCKET_TEST'))
-    blob = bucket.blob(os.environ.get('STORAGE_LOCATION'))
+    #client = storage.Client(project=os.environ.get('PROJECT'))
+    client = storage.Client(project)
 
-    blob.download_to_filename(file)
+    #bucket = client.bucket(os.environ.get('BUCKET_TEST'))
+    bucket = client.bucket(bucket)
+
+    #blob = bucket.blob(os.environ.get('STORAGE_LOCATION'))
+    blob = bucket.blob(f"{agent}/{agent+file_name}")
+
+    blob.download_to_filename(file_name)
 
     return blob
+
 
 # Methode use by the Server & Client
 def extract_buffer(client_agent):
@@ -150,7 +161,16 @@ def import_buffer(imported_obs, server_agent):
 
 
 if __name__ == '__main__':
-    #  local_save('coucou')
-    print(timestamp)
-    print(init_timestamp)
-    print(creation_date("readme.md"))
+
+    # print(timestamp)
+    # print(init_timestamp)
+    # print(creation_date("readme.md"))
+
+    project = os.environ['PROJECT']
+    bucket = os.environ['BUCKET_TEST']
+    agent = os.environ['AGENT_NAME']
+    server = os.environ['SERVER_NAME']
+    file_name = os.environ['OBS']
+
+    # bucket_save(project, bucket, agent, file_name)
+    bucket_load(project, bucket, agent, file_name)
