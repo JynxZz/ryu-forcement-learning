@@ -90,6 +90,27 @@ def bucket_load(project, bucket, agent, file_name):
     return blob
 
 
+# TODO : method bucket general & timestamps
+def interface_bucket(project, bucket, agent, file_name, timestamp, uploading=True):
+
+    client = storage.Client(project)
+    bucket = client.bucket(bucket)
+    blob = bucket.blob(f"{agent}/{agent+file_name}")
+
+    blob.reload()
+    blob_timestamp = blob.time_created.timestamp()
+
+    if uploading:
+        blob.upload_from_filename(file_name)
+    elif not uploading and blob_timestamp > timestamp :
+        blob.download_to_filename(file_name)
+        timestamp=blob_timestamp
+        return timestamp
+    else:
+        pass
+
+
+
 # Methode use by the Server & Client
 def extract_buffer(client_agent):
     #Extracting buffer
