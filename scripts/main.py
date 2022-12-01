@@ -70,3 +70,4 @@ while i < looping:
 
                     client.new_weights(f"{new_weights[:-4]}")
                     break
+            break

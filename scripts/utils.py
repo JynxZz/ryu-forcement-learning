@@ -174,3 +174,26 @@ if __name__ == '__main__':
 
     # bucket_save(project, bucket, agent, file_name)
     bucket_load(project, bucket, agent, file_name)
+
+def evaluate(model):
+    env_settings['continue_game']=0
+    env,_ = make_sb3_env("sfiii3n", env_settings, wrappers_settings)
+    obs = env.reset()
+    rew = []
+    for i in range(5):
+
+        tot =0
+        while True:
+
+            action, _ = model.agent.predict(obs, deterministic=True)
+
+            obs, reward, done, info = env.step(action)
+            tot+=reward[0]
+            if done:
+                obs = env.reset()
+                if info[0]["game_done"]:
+                    print(tot)
+                    rew.append(tot)
+                    break
+    env.close()
+    return np.array(rew).mean()
