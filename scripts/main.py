@@ -8,6 +8,8 @@ from scripts.agent import *
 
 from time import sleep
 
+from config import CFG
+
 # Load Settings & variables from config
 
 env_settings, wrappers_settings = json_to_py_start()

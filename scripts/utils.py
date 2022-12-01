@@ -44,6 +44,8 @@ def bucket_save(project, bucket, agent, file_name):
     #blob = bucket.blob(f"{os.environ.get('STORAGE_LOCATION')}/{file}")
     blob = bucket.blob(f"{agent}/{agent+file_name}")
 
+    # TODO utiliser blob.exists
+
     blob.upload_from_filename(file_name)
 
 # TODO : Load weigths inside bucket : OK
