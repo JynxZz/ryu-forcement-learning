@@ -90,7 +90,7 @@ is_server = True
 n_steps = 100
 
 # loop serve/client
-looping = 10
+looping = 2
 
 # Waiting time
 server_wait_time = 30

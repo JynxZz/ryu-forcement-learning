@@ -1,4 +1,6 @@
 from google.cloud import storage
+from stable_baselines3.common.logger import configure
+
 
 # import de diff settings pour les params
 
@@ -155,8 +157,8 @@ def import_buffer(imported_obs, server_agent):
     server_agent.rollout_buffer.generator_ready = True
     server_agent.rollout_buffer.pos=len(imported_obs[5])
     server_agent.rollout_buffer.full=True
-    # logg = configure(folder='/tmp/')
-    # server_agent.set_logger(logg)
+    logg = configure(folder='/tmp/')
+    server_agent.set_logger(logg)
 
     return server_agent.rollout_buffer
 
