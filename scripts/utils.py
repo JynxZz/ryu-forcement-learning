@@ -184,9 +184,6 @@ def extract_buffer(client_agent):
                  value, log_prob,
                  buffer.returns, buffer.advantages)
 
-    for item in to_buffer:
-        print(type(item))
-
     return to_buffer
 
 
