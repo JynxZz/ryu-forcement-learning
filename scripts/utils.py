@@ -189,22 +189,6 @@ def import_buffer(imported_obs, server_agent):
 
     return server_agent.rollout_buffer
 
-
-
-if __name__ == '__main__':
-
-
-    print(init_timestamp)
-    print(creation_date("readme.md"))
-    print(now)
-
-    project = os.environ['PROJECT']
-    bucket = os.environ['BUCKET_TEST']
-    agent = os.environ['AGENT_NAME']
-    server = os.environ['SERVER_NAME']
-    file_name = os.environ['OBS']
-
-
 def evaluate(model):
     env_settings['continue_game']=0
     env,_ = make_sb3_env("sfiii3n", env_settings, wrappers_settings)
@@ -226,8 +210,24 @@ def evaluate(model):
                     rew.append(tot)
                     break
     env.close()
+    env_settings['continue_game']=1
     return np.array(rew).mean()
+
+if __name__ == '__main__':
+
+
+    print(init_timestamp)
+    print(creation_date("readme.md"))
+    print(now)
+
+    project = os.environ['PROJECT']
+    bucket = os.environ['BUCKET_TEST']
+    agent = os.environ['AGENT_NAME']
+    server = os.environ['SERVER_NAME']
+    file_name = os.environ['OBS']
+
+
+
 
     bucket_save(project, bucket, agent, file_name)
     bucket_load(project, bucket, agent, file_name)
-
