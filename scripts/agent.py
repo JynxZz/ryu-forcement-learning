@@ -99,22 +99,31 @@ class AgentClient(Agent):
     def new_weights(self, file_path):
         self.agent = A2C.load(file_path)
 
-    def run(self, project, bucket, agent_name, file_name, uploading):
+    def run(self, project, bucket, agent_name, file_name, uploading, compute_name):
         while True:
             self.game()
 
             self.write_buffer(f'{agent_name+file_name}') # WIP : Variables
 
-            utils.interface_bucket(project, bucket, agent_name, file_name, self.init_timestamp, uploading)
-
+            blob = utils.interface_bucket(project, bucket, agent_name, file_name)
+            utils.upload_download(blob, agent_name, file_name, uploading)
 
             while True:
                 #time.sleep(client_wait_time)
                 #init_timestamp, is_done = switch(self.init_timestamp)
-                is_done=True
+                blob = utils.interface_bucket(project, bucket, agent_name, compute_name)
 
-                if is_done:
+                try:
+                    # is_done=switch(blob, self.init_timestamp)
+                    blob_time = utils.get_timestamp(blob)
+                except:
+                    blob_time = 0
+
+                if self.init_timestamp < blob_time:
                     #new_weights = bucket_load("new_weights.zip")
+                    uploading = False
+                    blob = utils.interface_bucket(project, bucket, agent_name, compute_name)
+                    utils.upload_download(blob, agent_name, compute_name, uploading)
 
                     #self.new_weights(f"{new_weights[:-4]}")
                     # self.new_weights("new_weights")

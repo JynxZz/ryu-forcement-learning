@@ -97,7 +97,7 @@ def creation_date(path_to_file): # WIP -> Code ça putain : CHECK : ok
 
 
 # TODO : method bucket general & timestamps
-def interface_bucket(project, bucket, agent, file_name, timestamp, uploading=True):
+def old_interface_bucket(project, bucket, agent, file_name, timestamp, uploading=True):
 
     # TODO : Wrap inside method
     client = storage.Client(project)
@@ -183,6 +183,10 @@ def extract_buffer(client_agent):
                  reward, episode_start,
                  value, log_prob,
                  buffer.returns, buffer.advantages)
+
+    for item in to_buffer:
+        print(type(item))
+
     return to_buffer
 
 

@@ -22,7 +22,7 @@ agent_name = os.environ['AGENT_NAME']
 file_name = os.environ['OBS']
 compute_name = os.environ['NEW_WEIGHTS']
 
-is_server=True
+is_server=False
 # Instance Agent
 if is_server:
     # WIP : when 3client : n_steps => 3 x n_steps
@@ -31,14 +31,15 @@ else:
     client = AgentClient(env, n_steps=n_steps)
 
 
-# LOOP
 i = 0
+# LOOP
 while i < looping:
-    i += 1
 
     if is_server:
         server.run(project, bucket, agent_name, file_name, False, compute_name)
+        i += 1
         print(f'{i}# : Server')
     else:
-        client.run(project, bucket, agent_name, file_name, True)
+        i += 1
+        client.run(project, bucket, agent_name, file_name, True, compute_name)
         print(f'{i}# : Client')
