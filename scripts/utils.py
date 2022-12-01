@@ -1,4 +1,6 @@
 from google.cloud import storage
+from stable_baselines3.common.logger import configure
+
 
 # import de diff settings pour les params
 
@@ -6,7 +8,7 @@ import numpy as np
 import pickle
 import random
 import os
-import datetime
+import datetime, time
 
 
 LOCAL_PATH=os.environ.get('LOCAL_PATH')
@@ -15,13 +17,13 @@ LOCAL_FILENAME=os.environ.get('LOCAL_FILENAME')
 
 # TODO : Local
 def local_save(data, file_name=LOCAL_FILENAME):
-        weights_folder_path = LOCAL_PATH
-        if not os.path.exists(weights_folder_path):
-            os.makedirs(weights_folder_path)
+    weights_folder_path = LOCAL_PATH
+    if not os.path.exists(weights_folder_path):
+        os.makedirs(weights_folder_path)
 
-        file_name = os.path.join(weights_folder_path, file_name)
-        with open(file_name, 'w') as f:
-            f.write(data)
+    file_name = os.path.join(weights_folder_path, file_name)
+    with open(file_name, 'w') as f:
+        f.write(data)
 
 def local_read(file_name=LOCAL_FILENAME):
     weights_folder_path = LOCAL_PATH
@@ -32,10 +34,43 @@ def local_read(file_name=LOCAL_FILENAME):
 
     return f
 
+# TODO : Save weights inside bucket : WIP -> good path ...
+def bucket_save(project, bucket, agent, file_name):
+
+    #client = storage.Client(project=os.environ.get('PROJECT'))
+    client = storage.Client(project)
+
+    #bucket = client.bucket(os.environ.get('BUCKET_TEST'))
+    bucket = client.bucket(bucket)
+
+    #blob = bucket.blob(f"{os.environ.get('STORAGE_LOCATION')}/{file}")
+    blob = bucket.blob(f"{agent}/{agent+file_name}")
+
+    # TODO utiliser blob.exists
+
+    blob.upload_from_filename(file_name)
+
+# TODO : Load weigths inside bucket : OK
+def bucket_load(project, bucket, agent, file_name):
+
+    #client = storage.Client(project=os.environ.get('PROJECT'))
+    client = storage.Client(project)
+
+    #bucket = client.bucket(os.environ.get('BUCKET_TEST'))
+    bucket = client.bucket(bucket)
+
+    #blob = bucket.blob(os.environ.get('STORAGE_LOCATION'))
+    blob = bucket.blob(f"{agent}/{agent+file_name}")
+
+    blob.download_to_filename(file_name)
+
+    return blob
+
 
 # TODO : switch client / server done
-timestamp = datetime.datetime.utcnow()
-init_timestamp = datetime.date.ctime(datetime.datetime.now()) # WIP -> find the good type timestamp : CHECK : ok
+
+now = time.time()
+init_timestamp = time.time() # WIP -> find the good type timestamp : CHECK : ok
 
 def switch(old_timestamp):
 
@@ -59,35 +94,31 @@ def creation_date(path_to_file): # WIP -> Code ça putain : CHECK : ok
 
 # TODO : Connect to the bucket : OK
 
-# TODO : Save weights inside bucket : WIP -> good path ...
-def bucket_save(project, bucket, agent, file_name):
 
-    #client = storage.Client(project=os.environ.get('PROJECT'))
+
+# TODO : method bucket general & timestamps
+def interface_bucket(project, bucket, agent, file_name, timestamp, uploading=True):
+
+    # TODO : Wrap inside method
     client = storage.Client(project)
-
-    #bucket = client.bucket(os.environ.get('BUCKET_TEST'))
     bucket = client.bucket(bucket)
-
-    #blob = bucket.blob(f"{os.environ.get('STORAGE_LOCATION')}/{file}")
     blob = bucket.blob(f"{agent}/{agent+file_name}")
 
-    blob.upload_from_filename(file_name)
+    # blob.reload()
+    # blob_timestamp = blob.time_created.timestamp()
 
-# TODO : Load weigths inside bucket : OK
-def bucket_load(project, bucket, agent, file_name):
+    if uploading:
+        blob.upload_from_filename(f'{agent+file_name}')
+    elif not uploading:
+        blob.download_to_filename(f'{agent+file_name}')
 
-    #client = storage.Client(project=os.environ.get('PROJECT'))
-    client = storage.Client(project)
+    # elif not uploading and blob_timestamp > timestamp :
+    #     blob.download_to_filename(file_name)
+    #     timestamp=blob_timestamp
+    #     return timestamp
+    else:
+        pass
 
-    #bucket = client.bucket(os.environ.get('BUCKET_TEST'))
-    bucket = client.bucket(bucket)
-
-    #blob = bucket.blob(os.environ.get('STORAGE_LOCATION'))
-    blob = bucket.blob(f"{agent}/{agent+file_name}")
-
-    blob.download_to_filename(file_name)
-
-    return blob
 
 
 # Methode use by the Server & Client
@@ -153,8 +184,8 @@ def import_buffer(imported_obs, server_agent):
     server_agent.rollout_buffer.generator_ready = True
     server_agent.rollout_buffer.pos=len(imported_obs[5])
     server_agent.rollout_buffer.full=True
-    # logg = configure(folder='/tmp/')
-    # server_agent.set_logger(logg)
+    logg = configure(folder='/tmp/')
+    server_agent.set_logger(logg)
 
     return server_agent.rollout_buffer
 
@@ -162,9 +193,10 @@ def import_buffer(imported_obs, server_agent):
 
 if __name__ == '__main__':
 
-    # print(timestamp)
-    # print(init_timestamp)
-    # print(creation_date("readme.md"))
+
+    print(init_timestamp)
+    print(creation_date("readme.md"))
+    print(now)
 
     project = os.environ['PROJECT']
     bucket = os.environ['BUCKET_TEST']
@@ -172,8 +204,6 @@ if __name__ == '__main__':
     server = os.environ['SERVER_NAME']
     file_name = os.environ['OBS']
 
-    # bucket_save(project, bucket, agent, file_name)
-    bucket_load(project, bucket, agent, file_name)
 
 def evaluate(model):
     env_settings['continue_game']=0
@@ -197,3 +227,7 @@ def evaluate(model):
                     break
     env.close()
     return np.array(rew).mean()
+
+    bucket_save(project, bucket, agent, file_name)
+    bucket_load(project, bucket, agent, file_name)
+
