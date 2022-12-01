@@ -60,7 +60,7 @@ def creation_date(path_to_file): # WIP -> Code ça putain : CHECK : ok
 # TODO : Connect to the bucket : OK
 
 # TODO : Save weights inside bucket : WIP -> good path ...
-def bucket_save(project, bucket, agnent, file_name):
+def bucket_save(project, bucket, agent, file_name):
 
     #client = storage.Client(project=os.environ.get('PROJECT'))
     client = storage.Client(project)
@@ -78,16 +78,16 @@ def bucket_load(project, bucket, agent, file_name):
 
     #client = storage.Client(project=os.environ.get('PROJECT'))
     client = storage.Client(project)
-    
+
     #bucket = client.bucket(os.environ.get('BUCKET_TEST'))
     bucket = client.bucket(bucket)
-    
+
     #blob = bucket.blob(os.environ.get('STORAGE_LOCATION'))
-    blob = bucket.blob(f"{agent}/{agent}+{file_name}")
+    blob = bucket.blob(f"{agent}/{agent+file_name}")
 
     blob.download_to_filename(file_name)
 
-    # return blob
+    return blob
 
 
 # Methode use by the Server & Client
@@ -165,7 +165,7 @@ if __name__ == '__main__':
     # print(timestamp)
     # print(init_timestamp)
     # print(creation_date("readme.md"))
-    
+
     project = os.environ['PROJECT']
     bucket = os.environ['BUCKET_TEST']
     agent = os.environ['AGENT_NAME']
