@@ -6,7 +6,7 @@ import numpy as np
 import pickle
 import random
 import os
-import datetime
+import datetime, time
 
 
 LOCAL_PATH=os.environ.get('LOCAL_PATH')
@@ -15,13 +15,13 @@ LOCAL_FILENAME=os.environ.get('LOCAL_FILENAME')
 
 # TODO : Local
 def local_save(data, file_name=LOCAL_FILENAME):
-        weights_folder_path = LOCAL_PATH
-        if not os.path.exists(weights_folder_path):
-            os.makedirs(weights_folder_path)
+    weights_folder_path = LOCAL_PATH
+    if not os.path.exists(weights_folder_path):
+        os.makedirs(weights_folder_path)
 
-        file_name = os.path.join(weights_folder_path, file_name)
-        with open(file_name, 'w') as f:
-            f.write(data)
+    file_name = os.path.join(weights_folder_path, file_name)
+    with open(file_name, 'w') as f:
+        f.write(data)
 
 def local_read(file_name=LOCAL_FILENAME):
     weights_folder_path = LOCAL_PATH
@@ -31,33 +31,6 @@ def local_read(file_name=LOCAL_FILENAME):
         f.readlines()
 
     return f
-
-
-# TODO : switch client / server done
-timestamp = datetime.datetime.utcnow()
-init_timestamp = datetime.date.ctime(datetime.datetime.now()) # WIP -> find the good type timestamp : CHECK : ok
-
-def switch(old_timestamp):
-
-    timestamp = creation_date()
-
-    if old_timestamp < timestamp:
-        old_timestamp = timestamp
-        return old_timestamp, True
-
-    return old_timestamp, False
-
-def creation_date(path_to_file): # WIP -> Code ça putain : CHECK : ok
-    try:
-        timer = os.path.getmtime(path_to_file)
-        return timer
-
-    except OSError:
-        return "Path '%s' does not exists or is inaccessible" %path_to_file
-
-
-
-# TODO : Connect to the bucket : OK
 
 # TODO : Save weights inside bucket : WIP -> good path ...
 def bucket_save(project, bucket, agent, file_name):
@@ -88,6 +61,35 @@ def bucket_load(project, bucket, agent, file_name):
     blob.download_to_filename(file_name)
 
     return blob
+
+
+# TODO : switch client / server done
+
+now = time.time()
+init_timestamp = time.time() # WIP -> find the good type timestamp : CHECK : ok
+
+def switch(old_timestamp):
+
+    timestamp = creation_date()
+
+    if old_timestamp < timestamp:
+        old_timestamp = timestamp
+        return old_timestamp, True
+
+    return old_timestamp, False
+
+def creation_date(path_to_file): # WIP -> Code ça putain : CHECK : ok
+    try:
+        timer = os.path.getmtime(path_to_file)
+        return timer
+
+    except OSError:
+        return "Path '%s' does not exists or is inaccessible" %path_to_file
+
+
+
+# TODO : Connect to the bucket : OK
+
 
 
 # Methode use by the Server & Client
@@ -162,15 +164,16 @@ def import_buffer(imported_obs, server_agent):
 
 if __name__ == '__main__':
 
-    # print(timestamp)
-    # print(init_timestamp)
-    # print(creation_date("readme.md"))
+    print(timestamp)
+    print(init_timestamp)
+    print(creation_date("readme.md"))
+    print(now)
 
-    project = os.environ['PROJECT']
-    bucket = os.environ['BUCKET_TEST']
-    agent = os.environ['AGENT_NAME']
-    server = os.environ['SERVER_NAME']
-    file_name = os.environ['OBS']
+    # project = os.environ['PROJECT']
+    # bucket = os.environ['BUCKET_TEST']
+    # agent = os.environ['AGENT_NAME']
+    # server = os.environ['SERVER_NAME']
+    # file_name = os.environ['OBS']
 
-    # bucket_save(project, bucket, agent, file_name)
-    bucket_load(project, bucket, agent, file_name)
+    # # bucket_save(project, bucket, agent, file_name)
+    # bucket_load(project, bucket, agent, file_name)
