@@ -1,6 +1,6 @@
 from stable_baselines3 import A2C
 from scripts.utils import *
-import datetime
+import datetime, time
 from time import sleep
 from scripts.config import *
 
@@ -15,7 +15,7 @@ class Agent():
 
 # SERVER
 class AgentServer(Agent):
-    init_timestamp = datetime.datetime.now()
+    init_timestamp = time.time()
 
     def __init__(self,  environement, n_steps):
         super().__init__(environement, n_steps)
@@ -33,23 +33,24 @@ class AgentServer(Agent):
         #Saving parameters in 'weights.zip' (139Mo)
         self.agent.save(file_name)
 
-    def run(self):
+    def run(self, project, bucket, agent_name, file_name, uploading, compute_name):
         while True:
             sleep(server_wait_time)
             #init_timestamp, is_done = switch(self.init_timestamp)
             is_done=True
 
             if is_done:
-                #buffer_1 = bucket_load("agent_one_obs.pickle")
+                buffer_1 = interface_bucket(project, bucket, agent_name, file_name, self.init_timestamp, uploading)
                 # buffer_2 = bucket_load("agent_two_obs.pickle")
                 # buffer_3 = bucket_load("agent_three_obs.pickle")
-
+                uploading = True
                 # TODO : Concat when more than 1 client
                 # concat_buffer()
 
-                self.compute("agent_one_obs.pickle", "new_weights")
+                self.compute(f'{agent_name+file_name}', compute_name[:-4])
 
                 #bucket_save("new_weights.zip")
+                interface_bucket(project, bucket, agent_name, file_name, self.init_timestamp, uploading)
 
                 #TODO : Code evaluate method
                 #server.evaluate()
@@ -59,7 +60,8 @@ class AgentServer(Agent):
 
 # CLIENT
 class AgentClient(Agent):
-    init_timestamp = datetime.datetime.now()
+    init_timestamp = time.time()
+
 
     def __init__(self,  environement, n_steps):
         super().__init__(environement, n_steps)
@@ -76,13 +78,13 @@ class AgentClient(Agent):
     def new_weights(self, file_path):
         self.agent = A2C.load(file_path)
 
-    def run(self):
+    def run(self, project, bucket, agent_name, file_name, uploading):
         while True:
-            #self.game()
+            self.game()
 
-            #self.write_buffer("agent_one_obs.pickle") # WIP : Variables
+            self.write_buffer(f'{agent_name+file_name}') # WIP : Variables
 
-            #bucket_save("agent_one_obs.pickle")
+            interface_bucket(project, bucket, agent_name, file_name, self.init_timestamp, uploading)
 
 
             while True:
@@ -94,7 +96,7 @@ class AgentClient(Agent):
                     #new_weights = bucket_load("new_weights.zip")
 
                     #self.new_weights(f"{new_weights[:-4]}")
-                    self.new_weights("new_weights")
+                    # self.new_weights("new_weights")
                     print("weights loaded in client")
                     break
 

@@ -99,19 +99,23 @@ def creation_date(path_to_file): # WIP -> Code ça putain : CHECK : ok
 # TODO : method bucket general & timestamps
 def interface_bucket(project, bucket, agent, file_name, timestamp, uploading=True):
 
+    # TODO : Wrap inside method
     client = storage.Client(project)
     bucket = client.bucket(bucket)
     blob = bucket.blob(f"{agent}/{agent+file_name}")
 
-    blob.reload()
-    blob_timestamp = blob.time_created.timestamp()
+    # blob.reload()
+    # blob_timestamp = blob.time_created.timestamp()
 
     if uploading:
-        blob.upload_from_filename(file_name)
-    elif not uploading and blob_timestamp > timestamp :
-        blob.download_to_filename(file_name)
-        timestamp=blob_timestamp
-        return timestamp
+        blob.upload_from_filename(f'{agent+file_name}')
+    elif not uploading:
+        blob.download_to_filename(f'{agent+file_name}')
+
+    # elif not uploading and blob_timestamp > timestamp :
+    #     blob.download_to_filename(file_name)
+    #     timestamp=blob_timestamp
+    #     return timestamp
     else:
         pass
 
@@ -189,16 +193,16 @@ def import_buffer(imported_obs, server_agent):
 
 if __name__ == '__main__':
 
-    print(timestamp)
+
     print(init_timestamp)
     print(creation_date("readme.md"))
     print(now)
 
-    # project = os.environ['PROJECT']
-    # bucket = os.environ['BUCKET_TEST']
-    # agent = os.environ['AGENT_NAME']
-    # server = os.environ['SERVER_NAME']
-    # file_name = os.environ['OBS']
+    project = os.environ['PROJECT']
+    bucket = os.environ['BUCKET_TEST']
+    agent = os.environ['AGENT_NAME']
+    server = os.environ['SERVER_NAME']
+    file_name = os.environ['OBS']
 
     # # bucket_save(project, bucket, agent, file_name)
     # bucket_load(project, bucket, agent, file_name)
