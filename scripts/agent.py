@@ -1,60 +1,79 @@
 from stable_baselines3 import A2C
-from scripts.utils import *
-import datetime, time
-from time import sleep
-from scripts.config import *
+import datetime
+import time
+import pickle
 
+from stable_baselines3.common.logger import configure
+
+from scripts.config import CFG
+import scripts.utils as utils
 
 # AGENT
 class Agent():
-        def __init__(self,  environement, n_steps):
-            self.env = environement
+
+        def __init__(self, env, n_steps):
+            self.env = env
             self.n_steps = n_steps
             self.agent = A2C("MultiInputPolicy", self.env , n_steps= self.n_steps)
-
+            self.init_timestamp = time.time()
 
 # SERVER
 class AgentServer(Agent):
-    init_timestamp = time.time()
 
-    def __init__(self,  environement, n_steps):
-        super().__init__(environement, n_steps)
-
-    def compute(self, file_path, file_name):
-        with open(file_path, 'rb') as f:
-            imported_obs = pickle.load(f)
-
-        #Importing buffer
-        self.agent.rollout_buffer = import_buffer(imported_obs, self.agent) # TODO: no return inside method
-
-        #Server Agent Training
-        self.agent.train()
-
-        #Saving parameters in 'weights.zip' (139Mo)
-        self.agent.save(file_name)
+    def __init__(self,  env, n_steps):
+        super().__init__(env, n_steps)
+        self.name = "server"
 
     def run(self, project, bucket, agent_name, file_name, uploading, compute_name):
+
+        server_wait_time = 1
+
         while True:
-            sleep(server_wait_time)
+
+            time.sleep(server_wait_time)
             #init_timestamp, is_done = switch(self.init_timestamp)
-            blob = interface_bucket(project, bucket, agent_name, file_name)
+            blob = utils.interface_bucket(project, bucket, agent_name, file_name)
+
             try:
-                is_done=switch(blob, self.init_timestamp)
+                # is_done=switch(blob, self.init_timestamp)
+                blob_time = utils.get_timestamp(blob)
             except:
-                is_done= False
-            # SWITCH
-            if is_done:
-                buffer_1 = upload_download(blob, agent_name, file_name, uploading)
+                blob_time = 0
+
+            if self.init_timestamp < blob_time:
+                # buffer_1 = upload_download(blob, agent_name, file_name, uploading)
+                # TODO Multithread
+                # TODO Ecrire fonction get_buffers_async
+                buffer_1 = utils.max_download(blob, f"{agent_name+file_name}")
                 # buffer_2 = bucket_load("agent_two_obs.pickle")
                 # buffer_3 = bucket_load("agent_three_obs.pickle")
-                uploading = True
-                # TODO : Concat when more than 1 client
-                # concat_buffer()
 
-                self.compute(f'{agent_name+file_name}', compute_name[:-4])
+                # TODO Deuxième fonction, prepare buffers
+
+                # 2.1. Load files from pickles
+                with open(f"{agent_name+file_name}", 'rb') as f:
+                    obs = pickle.load(f)
+                # TODO : Concat when more than 1 client
+                # 2.2. Concat pickles
+                # concat_buffer(obs_1, obs_2, obs_3)
+
+                # 2.3. Load the concat buffer
+                self.agent.rollout_buffer = utils.load_buffer(obs, self.agent) # TODO: no return inside method
+
+                # 2.4. Prep buffer logging
+                logg = configure(folder='/tmp/')
+                self.agent.set_logger(logg)
+
+                # Step 3 - Compûte weights
+                self.agent.train()
+
+                #Saving parameters in 'weights.zip' (139Mo)
+                self.agent.save(compute_name[:-4])
 
                 #bucket_save("new_weights.zip")
-                upload_download(blob, agent_name, compute_name, uploading)
+                uploading = True
+                blob = utils.interface_bucket(project, bucket, agent_name, compute_name)
+                utils.upload_download(blob, agent_name, compute_name, uploading)
 
                 #TODO : Code evaluate method
                 #server.evaluate()
@@ -64,8 +83,6 @@ class AgentServer(Agent):
 
 # CLIENT
 class AgentClient(Agent):
-    init_timestamp = time.time()
-
 
     def __init__(self,  environement, n_steps):
         super().__init__(environement, n_steps)
@@ -74,7 +91,7 @@ class AgentClient(Agent):
         self.agent.learn(total_timesteps= self.n_steps)
 
     def write_buffer(self, file_name:str):
-        to_buffer = extract_buffer(self.agent)
+        to_buffer = utils.extract_buffer(self.agent)
 
         with open(file_name,'wb') as f :
             pickle.dump(to_buffer, f)
@@ -88,11 +105,11 @@ class AgentClient(Agent):
 
             self.write_buffer(f'{agent_name+file_name}') # WIP : Variables
 
-            interface_bucket(project, bucket, agent_name, file_name, self.init_timestamp, uploading)
+            utils.interface_bucket(project, bucket, agent_name, file_name, self.init_timestamp, uploading)
 
 
             while True:
-                #sleep(client_wait_time)
+                #time.sleep(client_wait_time)
                 #init_timestamp, is_done = switch(self.init_timestamp)
                 is_done=True
 

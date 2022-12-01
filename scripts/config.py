@@ -1,8 +1,3 @@
-"""
-Configuration Module.
-This module defines a singleton-type configuration class that can be used all across our project. This class can contain any parameter that one may want to change from one simulation run to the other.
-"""
-
 import random
 class Configuration:
     """
@@ -13,8 +8,6 @@ class Configuration:
         """
         Declare types but do not instanciate anything
         """
-        self.alpha = 0.2
-        self.gamma = 0.98
         self.epsilon = None
         self.rnd_seed = None
         self.agt_type = None
@@ -135,5 +128,5 @@ n_steps = 100
 looping = 2
 
 # Waiting time
-server_wait_time = 30
-client_wait_time = 10
+server_wait_time = 3
+client_wait_time = 1

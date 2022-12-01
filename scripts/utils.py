@@ -129,6 +129,11 @@ def interface_bucket(project, bucket, agent, file_name):
     except:
         return "Path '%s' does not exists or is inaccessible" %blob
 
+
+def get_timestamp(blob) -> float:
+    blob.reload()
+    return blob.time_created.timestamp()
+
 def switch(blob, timestamp):
 
     blob.reload()
@@ -141,17 +146,30 @@ def switch(blob, timestamp):
         print("You Shall Not Pass")
         return False
 
+def max_download(blob, file):
+    blob.download_to_filename(file)
+
+def jynxzz_upload(blob, file):
+    blob.upload_from_filename(file)
+
 def upload_download(blob, agent, file_name, uploading):
 
     if uploading:
-        blob.upload_from_filename(f'{agent+file_name}')
-        print("Upload OK !")
+        if file_name.endswith('.zip'):
+            blob.upload_from_filename(file_name)
+            print("Upload Server : OK !")
+        else:
+            blob.upload_from_filename(f'{agent+file_name}')
+            print("Upload Client : OK !")
 
     elif not uploading:
-        blob.download_to_filename(file_name)
+        blob.download_to_filename(f'{agent+file_name}')
 
 # Methode use by the Server & Client
 def extract_buffer(client_agent):
+
+    # WARN Maybe we need to copy these arrays
+
     #Extracting buffer
     buffer = client_agent.rollout_buffer
     observation = buffer.observations
@@ -173,6 +191,7 @@ def concat_buffer(buffers):
     assert len(buffers)>2, "No buffer to add"
     n=len(buffers)
     init = buffers[0]
+
     a, b, c, d, e, f, g, h = init
     # a = init[0]
     # b = init[1]
@@ -197,24 +216,29 @@ def concat_buffer(buffers):
 
     return (a,b,c,d,e,f,g,h)
 
+# TODO Pass buffer, not full agent
+def load_buffer(imported_obs, server_agent):
 
-def import_buffer(imported_obs, server_agent):
+    observations, actions, rewards, episode_starts, values, log_probs, returns, advantages = imported_obs
 
-    server_agent.rollout_buffer.reset()
-    server_agent.rollout_buffer.buffer_size = server_agent.n_steps
-    server_agent.rollout_buffer.observations = imported_obs[0]
-    server_agent.rollout_buffer.actions = imported_obs[1]
-    server_agent.rollout_buffer.rewards = imported_obs[2]
-    server_agent.rollout_buffer.episode_starts = imported_obs[3]
-    server_agent.rollout_buffer.values = imported_obs[4]
-    server_agent.rollout_buffer.log_probs = imported_obs[5]
-    server_agent.rollout_buffer.returns = imported_obs[6]
-    server_agent.rollout_buffer.advantages = imported_obs[7]
-    server_agent.rollout_buffer.generator_ready = True
-    server_agent.rollout_buffer.pos=len(imported_obs[5])
-    server_agent.rollout_buffer.full=True
-    logg = configure(folder='/tmp/')
-    server_agent.set_logger(logg)
+    buffer = server_agent.rollout_buffer
+
+    buffer.reset()
+    buffer.buffer_size = server_agent.n_steps
+    buffer.generator_ready = True
+
+    buffer.observations = observations
+    buffer.actions = actions
+    buffer.rewards = rewards
+    buffer.episode_starts = episode_starts
+    buffer.values = values
+    buffer.log_probs = log_probs
+    buffer.returns = returns
+    buffer.advantages = advantages
+
+    buffer.pos=len(imported_obs[5])
+
+    buffer.full=True
 
     return server_agent.rollout_buffer
 
