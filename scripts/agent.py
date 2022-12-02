@@ -61,8 +61,8 @@ class Server(Agent):
                 # TODO Multithread
                 # TODO Ecrire fonction get_buffers_async
                 buffer_ryu = utils.download(blob, CFG.path_ryu)
-                # buffer_ken = bucket_load("agent_two_obs.pickle")
-                # buffer_osu = bucket_load("agent_three_obs.pickle")
+                # buffer_ken = utils.download(blob, CFG.path_ken)
+                # buffer_osu = utils.download(blob, CFG.path_osu)
 
                 # TODO : Deuxième fonction, prepare buffers
 
