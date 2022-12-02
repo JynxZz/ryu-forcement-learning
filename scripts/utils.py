@@ -5,6 +5,7 @@ from stable_baselines3.common.logger import configure
 from config import CFG
 import numpy as np
 
+
 def get_blob(name):
     client = storage.Client(CFG.project)
     bucket = client.bucket(CFG.bucket_path)
@@ -31,6 +32,7 @@ def get_file_async(blob_path, file_path, timestamp):
             download(get_blob(blob_path), file_path)
             return
 
+
 def download(blob, file):
     blob.download_to_filename(file)
 
@@ -41,7 +43,6 @@ def upload(blob, file):
 
 # Methode use by agent : buffer
 def extract_buffer(buffer):
-
     # WARN Maybe we need to copy these arrays
 
     observation = buffer.observations
@@ -87,7 +88,6 @@ def concat_buffers(buffers):
 
 
 def load_buffer(data, buffer):
-
     (
         observations,
         actions,
@@ -118,5 +118,4 @@ def load_buffer(data, buffer):
 
 
 if __name__ == "__main__":
-
     pass

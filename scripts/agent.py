@@ -91,7 +91,7 @@ class Server(Agent):
         # TODO Add env in CFG directly
         env, _ = make_sb3_env("sfiii3n", CFG.eval_settings, CFG.wrappers_settings)
 
-        rew = [0 for _ in CFG.eval_rounds]
+        rew = [0 for _ in range(CFG.eval_rounds)]
         for eval_round in range(CFG.eval_rounds):
             obs = env.reset()
             while True:
