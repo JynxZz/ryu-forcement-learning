@@ -8,7 +8,7 @@ import numpy as np
 def get_blob(name):
     client = storage.Client(CFG.project)
     bucket = client.bucket(CFG.bucket_path)
-    blob = bucket.blob(f"honda/{name}/")
+    blob = bucket.blob(f"{CFG.bucket_path}/{name}/")
     return blob
 
 
@@ -86,7 +86,7 @@ def concat_buffers(buffers):
     return a, b, c, d, e, f, g, h
 
 
-def load_buffer(imported_obs, server_agent):
+def load_buffer(data, buffer):
 
     (
         observations,
@@ -97,12 +97,10 @@ def load_buffer(imported_obs, server_agent):
         log_probs,
         returns,
         advantages,
-    ) = imported_obs
-
-    buffer = server_agent.rollout_buffer
+    ) = data
 
     buffer.reset()
-    buffer.buffer_size = server_agent.n_steps
+    buffer.buffer_size = CFG.buffer_size
     buffer.generator_ready = True
 
     buffer.observations = observations
@@ -113,12 +111,10 @@ def load_buffer(imported_obs, server_agent):
     buffer.log_probs = log_probs
     buffer.returns = returns
     buffer.advantages = advantages
-
-    buffer.pos = len(imported_obs[5])
-
+    buffer.pos = CFG.buffer_size
     buffer.full = True
 
-    return server_agent.rollout_buffer
+    return buffer
 
 
 if __name__ == "__main__":

@@ -11,15 +11,10 @@ class Configuration:
         """
         Declare types but do not instanciate anything
         """
-        # Project
 
         self.project = "ryu-forcement-learning"
+        self.bucket_path = "chun-lee"
 
-        # TODO CLEANUP PATHS GCP path
-        self.bucket_path = "honda"
-        # GCP File Name
-
-        self.rnd_seed = None
         self.name = None
 
         # Evaluation
@@ -96,7 +91,7 @@ class Configuration:
         if self.server:
             self.buffer_size *= 3
 
-        self.blob_path = f"honda/{self.name}/"
+        self.blob_path = f"{self.bucket_path}/{self.name}/"
         self.buffer_path = f"{self.name}_obs.pickle"
         self.weights_path = "weights"
 

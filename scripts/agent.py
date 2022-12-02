@@ -72,54 +72,18 @@ class Server(Agent):
 
             # Concatenate and load replay buffer
             buffer = utils.concat_buffers(buffers)
+            self.agent.rollout_buffer = utils.load_buffer(buffer, self.agent.rollout_buffer)
 
-            # Learn
+            # Prepare buffer logging for some reason
+            logg = configure(folder="/tmp/")
+            self.agent.set_logger(logg)
 
-            # Save weights
+            # Learn from loaded observations
+            self.agent.train()
 
-            # Upload
-
-            time.sleep(CFG.wait_time)
-            blob = utils.get_blob_client()
-            try:
-                blob_time = utils.get_timestamp(blob)
-            except:
-                blob_time = 0
-
-            if self.init_timestamp < blob_time:
-                # TODO Multithread
-                # TODO Ecrire fonction get_buffers_async
-                buffer_ryu = utils.download(blob, CFG.path_ryu)
-                # buffer_ken = utils.download(blob, CFG.path_ken)
-                # buffer_osu = utils.download(blob, CFG.path_osu)
-
-                # TODO : Deuxième fonction, prepare buffers
-
-                # 2.1. Load files from pickles
-                with open(CFG.obs_ryu, "rb") as f:
-                    obs_ryu = pickle.load(f)
-
-                # TODO : Concat when more than 1 client
-                # 2.2. Concat pickles
-                # concat_obs = concat_buffer([obs_ryu, obs_ken, obs_osu])
-
-                # 2.3. Load the concat buffer
-                self.agent.rollout_buffer = utils.load_buffer(
-                    obs_ryu, self.agent
-                )  # TODO: no return inside method
-
-                # 2.4. Prep buffer logging
-                logg = configure(folder="/tmp/")
-                self.agent.set_logger(logg)
-
-                # Step 3 - Compûte weights
-                self.agent.train()
-
-                # Saving parameters in 'weights.zip' (139Mo)
-                self.agent.save(CFG.weights[:-4])
-
-                blob = utils.get_blob_server()
-                utils.upload(blob, CFG.weights)
+            # Save neural network weights and upload them on the bucket
+            self.agent.save(CFG.weights)
+            utils.upload(utils.get_blob(CFG.name), f"{CFG.weights}.zip")
 
 
     def evaluate(self) -> float:
