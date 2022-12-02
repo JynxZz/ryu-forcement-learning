@@ -69,7 +69,7 @@ class Server(Agent):
 
             print("HEHEHEHEHE")
             print(len(buffers))
-            exit(0)
+
 
             # Concatenate and load replay buffer
             buffer = utils.concat_buffers(buffers)
