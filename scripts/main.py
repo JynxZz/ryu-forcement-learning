@@ -6,12 +6,14 @@ import scripts.agent as agent
 
 from config import CFG
 
-# TODO INIT THE CFG CONFIG HERE | MERGE WITH CONFIG.PY
-# CFG.init(...)
+import argparse
+args = argparse.ArgumentParser().add_argument("name").parse_args()
+
+CFG.init(args.name)
 
 env, _ = make_sb3_env("sfiii3n", CFG.env_settings, CFG.wrappers_settings)
 
-if CFG.agt_type == CFG.server:
+if CFG.name == CFG.server:
     server = agent.Server(env)
     server.run()
 else:

@@ -1,23 +1,14 @@
+import time
+
 from google.cloud import storage
 from stable_baselines3.common.logger import configure
 from scripts.config import CFG
 import numpy as np
 
-
-# TODO : Wrap 3 method
-def get_blob_client():
-
+def get_blob(name):
     client = storage.Client(CFG.project)
     bucket = client.bucket(CFG.bucket_path)
-    blob = bucket.blob(CFG.client_path)
-    return blob
-
-
-def get_blob_server():
-
-    client = storage.Client(CFG.project)
-    bucket = client.bucket(CFG.bucket_path)
-    blob = bucket.blob(CFG.server_path)
+    blob = bucket.blob(f"honda/{name}/")
     return blob
 
 
@@ -25,6 +16,20 @@ def get_timestamp(blob):
     blob.reload()
     return blob.time_created.timestamp()
 
+
+def get_file_async(blob_path, file_path, timestamp):
+    while True:
+        time.sleep(CFG.wait_time)
+
+        blob = get_blob(blob_path)
+        try:
+            blob_time = get_timestamp(blob)
+        except:
+            blob_time = 0
+
+        if timestamp < blob_time:
+            download(get_blob(blob_path), file_path)
+            return
 
 def download(blob, file):
     blob.download_to_filename(file)
@@ -35,12 +40,10 @@ def upload(blob, file):
 
 
 # Methode use by agent : buffer
-def extract_buffer(client_agent):
+def extract_buffer(buffer):
 
     # WARN Maybe we need to copy these arrays
 
-    # Extracting buffer
-    buffer = client_agent.rollout_buffer
     observation = buffer.observations
     action = buffer.actions
     reward = buffer.rewards
@@ -48,7 +51,7 @@ def extract_buffer(client_agent):
     value = buffer.values
     log_prob = buffer.log_probs
 
-    to_buffer = (
+    return (
         observation,
         action,
         reward,
@@ -58,8 +61,6 @@ def extract_buffer(client_agent):
         buffer.returns,
         buffer.advantages,
     )
-
-    return to_buffer
 
 
 def concat_buffer(buffers):

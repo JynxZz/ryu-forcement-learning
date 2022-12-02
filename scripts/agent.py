@@ -1,54 +1,76 @@
-import datetime
 import pickle
 import time
 
-import numpy as np
+from multiprocessing import Pool
+
 from diambra.arena.stable_baselines3.make_sb3_env import make_sb3_env
 from stable_baselines3 import A2C
 from stable_baselines3.common.logger import configure
 
 import scripts.utils as utils
-from scripts.config import CFG, env_settings, wrappers_settings
+from scripts.config import CFG
 
 
 class Agent:
     def __init__(self, env):
         self.env = env
         self.agent = A2C("MultiInputPolicy", self.env, n_steps=CFG.buffer_size)
+        self.timestamp = time.time()
 
-        self.init_timestamp = time.time()
+
+class Client(Agent):
+    def __init__(self, env):
+        super().__init__(env)
+
+    def run(self):
+
+        while True:
+
+            # Fill up replay buffer
+            self.agent.learn(total_timesteps=CFG.buffer_size)
+
+            # Save buffer to pickle file
+            buffer = utils.extract_buffer(self.agent.rollout_buffer)
+            with open(CFG.bucket_path, "wb") as f:
+                pickle.dump(buffer, f)
+
+            # Upload buffer to bucket
+            utils.upload(utils.get_blob(CFG.name), CFG.buffer_path)
+
+            # Wait and load new weights
+            utils.get_file_async(CFG.server, CFG.weights_path, self.timestamp)
+            self.timestamp = time.time()
+            self.agent = A2C.load(CFG.weights_path)
 
 
 class Server(Agent):
     def __init__(self, env):
         super().__init__(env)
 
-    def evaluate(self) -> float:
-
-        # TODO Have a separate eval env in CFG
-        env_settings["continue_game"] = 0
-        env, _ = make_sb3_env("sfiii3n", env_settings, wrappers_settings)
-
-        # TODO Remove when CFG clean
-        CFG.eval_rounds = 3
-
-        rew = [0 for _ in CFG.eval_rounds]
-        for eval_round in range(CFG.eval_rounds):
-            obs = env.reset()
-            while True:
-                action, _ = self.agent.predict(obs, deterministic=True)
-                obs, reward, done, info = env.step(action)
-                rew[eval_round] += reward[0]
-                if done:
-                    break
-        env.close()
-        env_settings["continue_game"] = 1
-        return sum(rew) / len(rew)
+    def get_agent_obs(self, name):
+        utils.get_file_async(f"honda/{name}/", f"{name}_obs.pickle", self.timestamp)
 
     def run(self):
 
-        i = 0
         while True:
+
+            # Evaluate the agent and save results
+            score = self.evaluate()
+            with open("reward.txt", "a") as file:
+                file.write(f"{score}\n")
+
+            # Wait for agent observations
+            with Pool(3) as pool:
+                pool.map(self.get_agent_obs, CFG.clients)
+            self.timestamp = time.time()
+
+            # Concatenate and load replay buffer
+
+            # Learn
+
+            # Save weights
+
+            # Upload
 
             time.sleep(CFG.wait_time)
             blob = utils.get_blob_client()
@@ -92,63 +114,19 @@ class Server(Agent):
                 blob = utils.get_blob_server()
                 utils.upload(blob, CFG.weights)
 
-                # Evaluate
-                score = self.evaluate()
 
-                with open("reward.txt", "a") as file:
-                    file.write(f"{i} \t {CFG.buffer_size} \t {score}\n")
+    def evaluate(self) -> float:
 
-                i += 1
-                print(f"{i}# : Server")
+        env, _ = make_sb3_env("sfiii3n", CFG.eval_settings, CFG.wrappers_settings)
 
-
-# CLIENT
-class Client(Agent):
-    def __init__(self, env):
-        super().__init__(env)
-
-    def game(self):
-        self.agent.learn(total_timesteps=CFG.buffer_size)
-
-    def write_buffer(self):
-        to_buffer = utils.extract_buffer(self.agent)
-
-        with open(f"{CFG.name+CFG.obs}", "wb") as f:
-            pickle.dump(to_buffer, f)
-
-    def new_weights(self):
-        self.agent = A2C.load(CFG.obs)
-
-    def run(self):
-
-        i = 0
-        while True:
-            self.game()
-
-            self.write_buffer()
-
-            blob = utils.get_blob_client()
-            utils.upload(blob, f"{CFG.name+CFG.obs}")
-
+        rew = [0 for _ in CFG.eval_rounds]
+        for eval_round in range(CFG.eval_rounds):
+            obs = env.reset()
             while True:
-                time.sleep(CFG.wait_time)
-
-                blob = utils.get_blob_server()
-
-                try:
-
-                    blob_time = utils.get_timestamp(blob)
-                except:
-                    blob_time = 0
-
-                if self.init_timestamp < blob_time:
-                    uploading = False
-                    blob = utils.get_blob_server()
-                    utils.download(blob, CFG.weights)
-
-                    self.new_weights(f"{CFG.weights[:-4]}")
-
+                action, _ = self.agent.predict(obs, deterministic=True)
+                obs, reward, done, info = env.step(action)
+                rew[eval_round] += reward[0]
+                if done:
                     break
-
-            i += 1
-            print(f"{i}# : Client")
+        env.close()
+        return sum(rew) / len(rew)
