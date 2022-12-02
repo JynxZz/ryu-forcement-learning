@@ -71,7 +71,7 @@ class Server(Agent):
             exit(0)
 
             # Concatenate and load replay buffer
-            utils.concat_buffers(buffers)
+            buffer = utils.concat_buffers(buffers)
 
             # Learn
 

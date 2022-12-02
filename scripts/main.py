@@ -7,7 +7,9 @@ import agent
 from config import CFG
 
 import argparse
-args = argparse.ArgumentParser().add_argument("name").parse_args()
+parser = argparse.ArgumentParser()
+parser.add_argument("name")
+args = parser.parse_args()
 
 CFG.init(args.name)
 
