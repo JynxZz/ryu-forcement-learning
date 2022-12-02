@@ -2,13 +2,18 @@ from stable_baselines3 import A2C
 import datetime
 import time
 import pickle
+import numpy as np
+
 
 from stable_baselines3.common.logger import configure
+from diambra.arena.stable_baselines3.make_sb3_env import make_sb3_env
+
 
 from scripts.config import CFG
 import scripts.utils as utils
+from scripts.config import env_settings, wrappers_settings
 
-# AGENT
+
 class Agent():
 
         def __init__(self, env, n_steps):
@@ -17,17 +22,40 @@ class Agent():
             self.agent = A2C("MultiInputPolicy", self.env , n_steps= self.n_steps)
             self.init_timestamp = time.time()
 
-# SERVER
-class AgentServer(Agent):
+
+class Server(Agent):
 
     def __init__(self,  env, n_steps):
         super().__init__(env, n_steps)
         self.name = "server"
 
+    def evaluate(self) -> float:
+
+        # TODO Have a separate eval env in CFG
+        env_settings['continue_game']=0
+        env,_ = make_sb3_env("sfiii3n", env_settings, wrappers_settings)
+
+        # TODO Remove when CFG clean
+        CFG.eval_rounds = 3
+
+        rew = [0 for _ in CFG.eval_rounds]
+        for eval_round in range(CFG.eval_rounds):
+            obs = env.reset()
+            while True:
+                action, _ = self.agent.predict(obs, deterministic=True)
+                obs, reward, done, info = env.step(action)
+                rew[eval_round] += reward[0]
+                if done:
+                    break
+        env.close()
+        env_settings['continue_game']=1
+        return sum(rew)/len(rew)
+
     def run(self, project, bucket, agent_name, file_name, uploading, compute_name):
 
         server_wait_time = 1
 
+        i = 0
         while True:
 
             time.sleep(server_wait_time)
@@ -75,20 +103,24 @@ class AgentServer(Agent):
                 blob = utils.interface_bucket(project, bucket, agent_name, compute_name)
                 utils.upload_download(blob, agent_name, compute_name, uploading)
 
-                #TODO : Code evaluate method
-                #server.evaluate()
+                #Evaluate
+                score = self.evaluate()
 
-                break
+                with open('reward.txt','a') as file:
+                    file.write(f"{i} \t {self.n_steps} \t {score}\n")
+
+                i += 1
+                print(f'{i}# : Server')
 
 
 # CLIENT
-class AgentClient(Agent):
+class Client(Agent):
 
-    def __init__(self,  environement, n_steps):
-        super().__init__(environement, n_steps)
+    def __init__(self,  environement):
+        super().__init__(environement)
 
     def game (self):
-        self.agent.learn(total_timesteps= self.n_steps)
+        self.agent.learn(total_timesteps=CFG.n_steps)
 
     def write_buffer(self, file_name:str):
         to_buffer = utils.extract_buffer(self.agent)
@@ -100,6 +132,8 @@ class AgentClient(Agent):
         self.agent = A2C.load(file_path)
 
     def run(self, project, bucket, agent_name, file_name, uploading, compute_name):
+
+        i = 0
         while True:
             self.game()
 
@@ -130,4 +164,5 @@ class AgentClient(Agent):
                     print("weights loaded in client")
                     break
 
-            break
+            i += 1
+            print(f'{i}# : Client')
