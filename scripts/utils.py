@@ -2,7 +2,7 @@ import time
 
 from google.cloud import storage
 from stable_baselines3.common.logger import configure
-from scripts.config import CFG
+from config import CFG
 import numpy as np
 
 def get_blob(name):
@@ -63,7 +63,7 @@ def extract_buffer(buffer):
     )
 
 
-def concat_buffer(buffers):
+def concat_buffers(buffers):
     # Stack buffers
     assert len(buffers) > 2, "No buffer to add"
     n = len(buffers)
@@ -83,7 +83,7 @@ def concat_buffer(buffers):
         for key in init[0].keys():
             a[key] = np.vstack([a[key], buffers[j + 1][0][key]])
 
-    return (a, b, c, d, e, f, g, h)
+    return a, b, c, d, e, f, g, h
 
 
 def load_buffer(imported_obs, server_agent):

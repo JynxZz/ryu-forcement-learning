@@ -2,7 +2,7 @@ import diambra
 import diambra.arena
 from diambra.arena.stable_baselines3.make_sb3_env import make_sb3_env
 
-import scripts.agent as agent
+import agent
 
 from config import CFG
 

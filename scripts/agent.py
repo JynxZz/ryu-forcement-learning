@@ -7,8 +7,8 @@ from diambra.arena.stable_baselines3.make_sb3_env import make_sb3_env
 from stable_baselines3 import A2C
 from stable_baselines3.common.logger import configure
 
-import scripts.utils as utils
-from scripts.config import CFG
+import utils
+from config import CFG
 
 
 class Agent:
@@ -61,16 +61,17 @@ class Server(Agent):
             with open("reward.txt", "a") as file:
                 file.write(f"{score}\n")
 
-            # Wait for agent observations
+            # Wait for agent observations and load them
             with Pool(3) as pool:
                 buffers = pool.map(self.get_agent_obs, CFG.clients)
             self.timestamp = time.time()
-            print("HEHEHE")
-            print(len(buffers))
-            exit()
 
+            print("HEHEHEHEHE")
+            print(len(buffers))
+            exit(0)
 
             # Concatenate and load replay buffer
+            utils.concat_buffers(buffers)
 
             # Learn
 
