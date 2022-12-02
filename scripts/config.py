@@ -17,20 +17,59 @@ class Configuration:
         # GCP path
         self.bucket_path = "honda"
         self.server_path = "honda/gouki/"
+        self.path_ryu = "honda/ryu"
+        self.path_ken = "honda/ken"
+        self.path_osu = "honda/osu"
+        # GCP File Name
         self.weights = "weights.zip"
         self.obs = "_obs.pickle"
 
         # Name of Agent
         self.server = "gouki"
-        self.agent_ryu = "ryu"
-        self.agent_ken = "ken"
-        self.agent_osu = "osu"
 
-        #Waiting time
+        # Loop
         self.looping = 1
 
         self.rnd_seed = None
         self.agt_type = None
+
+        # Evaluation
+        self.eval_rounds = 3
+
+        # Environment settings
+        env_settings = {
+        'player': 'P1',
+        'continue_game': 1.0,
+        'show_final': False, # If to show game final when game is completed
+        'step_ratio': 6, # Number of steps performed by the game # for every environment step, bounds: [1, 6]
+        'difficulty': 8,
+        'characters': [["Ryu"], ["Random"]],
+        'frame_shape': [128, 128, 0], # Native frame resize operation & 1=B&W
+        'action_space': 'multi_discrete', # 'multi_discrete'
+        'attack_but_combination': True,
+        'super_art':[0,0],
+        'hardcore': False, # If to use hardcore mode in which observations are only made of game frame
+        'rank':1,                           #???
+        'seed':-1,                          #???
+        'grpc_timeout':60                   #???
+        }
+
+        # Gym wrappers settings
+        wrappers_settings = {
+        "no_op_max" : 0, # Number of no-Op actions to be executed # at the beginning of the episode (0 by default)
+        "sticky_actions" : 1, # Number of steps for which the same action should be sent (1 by default)
+        "reward_normalization": True, # When activated, the reward normalization factor can be set (default = 0.5)
+        "reward_normalization_factor": 0.5,
+        "frame_stack": 1, # Number of frames to be stacked together (1 by default)
+        "dilation":1, # Frames interval when stacking (1 by default)
+        "actions_stack":1, # How many past actions to stack together (1 by default)
+        "scale": False, # If to scale observation numerical values (deactivated by default)
+        "exclude_image_scaling": False, # optionally exclude images from normalization (deactivated by default)
+        "process_discrete_binary": False, # and optionally perform one-hot encoding also on discrete binary variables (deactivated by default)
+        "scale_mod": 0, # Scaling interval (0 = [0.0, 1.0], 1 = [-1.0, 1.0])
+        "flatten": True, # Flattening observation dictionary and filtering
+        #"filter_keys": ["stage", "P1_ownSide", "P1_oppSide","P1_ownHealth", "P1_oppChar", "P1_actions_move", "P1_actions_attack"] # a sub-set of the RAM states
+        }
 
 
     def init(self, agt_type, **kwargs):
@@ -52,13 +91,12 @@ class Configuration:
         else:
             self.wait_time = 1
 
-        # Client bucket path
-        if self.agt_type == self.agent_ryu:
-            self.client_path = "honda/ryu"
-        if self.agent_ken:
-            self.client_path = "honda/ken"
-        if self.agent_osu:
-            self.client_path = "honda/osu"
+        # Dict Agent
+        # variable_name = f'{CFG.name+CFG.obs}' => client_path
+        setting_agent = {
+            self.name : ["ryu","ken","osu"]
+            }
+
 
 
         # We set default values for arguments we have to define
@@ -74,82 +112,5 @@ class Configuration:
 
 CFG = Configuration()
 
-# Environment settings
-env_settings = {
-  'player': 'P1',
-  'continue_game': 1.0,
-  'show_final': False, # If to show game final when game is completed
-  'step_ratio': 6, # Number of steps performed by the game # for every environment step, bounds: [1, 6]
-  'difficulty': 8,
-  'characters': [["Ryu"], ["Random"]],
-  'frame_shape': [128, 128, 0], # Native frame resize operation & 1=B&W
-  'action_space': 'multi_discrete', # 'multi_discrete'
-  'attack_but_combination': True,
-  'super_art':[0,0],
-  'hardcore': False, # If to use hardcore mode in which observations are only made of game frame
-  'rank':1,                           #???
-  'seed':-1,                          #???
-  'grpc_timeout':60                   #???
-  }
-
-# Gym wrappers settings
-wrappers_settings = {
-  "no_op_max" : 0, # Number of no-Op actions to be executed # at the beginning of the episode (0 by default)
-  "sticky_actions" : 1, # Number of steps for which the same action should be sent (1 by default)
-  "reward_normalization": True, # When activated, the reward normalization factor can be set (default = 0.5)
-  "reward_normalization_factor": 0.5,
-  "frame_stack": 1, # Number of frames to be stacked together (1 by default)
-  "dilation":1, # Frames interval when stacking (1 by default)
-  "actions_stack":1, # How many past actions to stack together (1 by default)
-  "scale": False, # If to scale observation numerical values (deactivated by default)
-  "exclude_image_scaling": False, # optionally exclude images from normalization (deactivated by default)
-  "process_discrete_binary": False, # and optionally perform one-hot encoding also on discrete binary variables (deactivated by default)
-  "scale_mod": 0, # Scaling interval (0 = [0.0, 1.0], 1 = [-1.0, 1.0])
-  "flatten": True, # Flattening observation dictionary and filtering
-  #"filter_keys": ["stage", "P1_ownSide", "P1_oppSide","P1_ownHealth", "P1_oppChar", "P1_actions_move", "P1_actions_attack"] # a sub-set of the RAM states
-  }
-
-# array to list : arr_1.tolist()
-
-#agent settings
-# obs= {
-
-
-# reward = float
-
-result = {"env_settings" : env_settings,
-          "wrappers_settings" : wrappers_settings,
-        #   "observations" : obs
-          }
-
-result_json = json.dumps(result)
-
-with open("settings.json", "w") as jsonfile:
-    jsonfile.write(result_json)
-
-
 
 print("Write successful")
-
-def json_to_py_start():
-    with open("settings.json", "r") as jsonfile:
-
-        data = json.load(jsonfile)
-        env_settings = data["env_settings"]
-        wrapper_settings = data["wrappers_settings"]
-
-    # 2 premiers dicts settings & wrapper_settings
-    return env_settings,wrapper_settings
-
-# variable "serveur" = true or flase
-is_server = True
-
-# n_steps
-n_steps = 100
-
-# loop serve/client
-looping = 4
-
-# Waiting time
-server_wait_time = 3
-client_wait_time = 1

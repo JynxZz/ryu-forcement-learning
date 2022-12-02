@@ -11,94 +11,6 @@ import os
 import datetime, time
 
 
-LOCAL_PATH=os.environ.get('LOCAL_PATH')
-LOCAL_FILENAME=os.environ.get('LOCAL_FILENAME')
-
-
-# Save in local - test zone
-def local_save(data, file_name=LOCAL_FILENAME):
-    weights_folder_path = LOCAL_PATH
-    if not os.path.exists(weights_folder_path):
-        os.makedirs(weights_folder_path)
-
-    file_name = os.path.join(weights_folder_path, file_name)
-    with open(file_name, 'w') as f:
-        f.write(data)
-
-def local_read(file_name=LOCAL_FILENAME):
-    weights_folder_path = LOCAL_PATH
-    file_name = os.path.join(weights_folder_path, file_name)
-
-    with open(file_name, 'r') as f:
-        f.readlines()
-
-    return f
-
-def creation_date(path_to_file): # WIP -> Code ça putain : CHECK : ok
-    try:
-        timer = os.path.getmtime(path_to_file)
-        return timer
-
-    except OSError:
-        return "Path '%s' does not exists or is inaccessible" %path_to_file
-
-# TODO : Save weights inside bucket : WIP -> good path ...
-def bucket_save(project, bucket, agent, file_name):
-
-    #client = storage.Client(project=os.environ.get('PROJECT'))
-    client = storage.Client(project)
-
-    #bucket = client.bucket(os.environ.get('BUCKET_TEST'))
-    bucket = client.bucket(bucket)
-
-    #blob = bucket.blob(f"{os.environ.get('STORAGE_LOCATION')}/{file}")
-    blob = bucket.blob(f"{agent}/{agent+file_name}")
-
-    # TODO utiliser blob.exists
-
-    blob.upload_from_filename(file_name)
-
-# TODO : Load weigths inside bucket : OK
-def bucket_load(project, bucket, agent, file_name):
-
-    #client = storage.Client(project=os.environ.get('PROJECT'))
-    client = storage.Client(project)
-
-    #bucket = client.bucket(os.environ.get('BUCKET_TEST'))
-    bucket = client.bucket(bucket)
-
-    #blob = bucket.blob(os.environ.get('STORAGE_LOCATION'))
-    blob = bucket.blob(f"{agent}/{agent+file_name}")
-
-    blob.download_to_filename(file_name)
-
-    return blob
-
-
-
-# TODO : method bucket general & timestamps
-def old_interface_bucket(project, bucket, agent, file_name, timestamp, uploading=True):
-
-    # TODO : Wrap inside method
-    client = storage.Client(project)
-    bucket = client.bucket(bucket)
-    blob = bucket.blob(f"{agent}/{agent+file_name}")
-
-    blob.reload()
-    blob_timestamp = blob.time_created.timestamp()
-
-    if uploading:
-        blob.upload_from_filename(f'{agent+file_name}')
-        print("Upload OK !")
-
-    elif not uploading and blob_timestamp > timestamp :
-        print("Switch OK")
-        blob.download_to_filename(file_name)
-        timestamp=blob_timestamp
-        return timestamp
-    else:
-        pass
-
 # TODO : Wrap 3 method
 def get_blob_client():
 
@@ -114,41 +26,15 @@ def get_blob_server():
         blob = bucket.blob(CFG.server_path)
         return blob
 
-
-def get_timestamp(blob) -> float:
+def get_timestamp(blob):
     blob.reload()
     return blob.time_created.timestamp()
 
-def switch(blob, timestamp):
-
-    blob.reload()
-    blob_timestamp = blob.time_created.timestamp()
-
-    if blob_timestamp > timestamp:
-        print("Switch OK")
-        return True
-    else:
-        print("You Shall Not Pass")
-        return False
-
-def max_download(blob, file):
+def download(blob, file):
     blob.download_to_filename(file)
 
-def jynxzz_upload(blob, file):
+def upload(blob, file):
     blob.upload_from_filename(file)
-
-def upload_download(blob, agent, file_name, uploading):
-
-    if uploading:
-        if file_name.endswith('.zip'):
-            blob.upload_from_filename(file_name)
-            print("Upload Server : OK !")
-        else:
-            blob.upload_from_filename(f'{agent+file_name}')
-            print("Upload Client : OK !")
-
-    elif not uploading:
-        blob.download_to_filename(f'{agent+file_name}')
 
 # Methode use by agent : buffer
 def extract_buffer(client_agent):
@@ -178,15 +64,7 @@ def concat_buffer(buffers):
     init = buffers[0]
 
     a, b, c, d, e, f, g, h = init
-    # a = init[0]
-    # b = init[1]
-    # c = init[2]
-    # d = init[3]
-    # e = init[4]
-    # f = init[5]
-    # g = init[6]
-    # h = init[7]
-    #print(np.vstack([b,buffers[1][1]]))
+
     for j in range(n-1):
         b = np.vstack([b,buffers[j+1][1]])
         c = np.vstack([c,buffers[j+1][2]])
@@ -252,19 +130,4 @@ def evaluate(model):
 
 if __name__ == '__main__':
 
-
-    print(init_timestamp)
-    print(creation_date("readme.md"))
-    print(now)
-
-    project = os.environ['PROJECT']
-    bucket = os.environ['BUCKET_TEST']
-    agent = os.environ['AGENT_NAME']
-    server = os.environ['SERVER_NAME']
-    file_name = os.environ['OBS']
-
-
-
-
-    bucket_save(project, bucket, agent, file_name)
-    bucket_load(project, bucket, agent, file_name)
+    pass

@@ -37,21 +37,22 @@ class AgentServer(Agent):
             if self.init_timestamp < blob_time:
                 # TODO Multithread
                 # TODO Ecrire fonction get_buffers_async
-                buffer_1 = utils.max_download(blob, f"{agent_name+file_name}")
-                # buffer_2 = bucket_load("agent_two_obs.pickle")
-                # buffer_3 = bucket_load("agent_three_obs.pickle")
+                buffer_ryu = utils.download(blob, CFG.path_ryu)
+                # buffer_ken = bucket_load("agent_two_obs.pickle")
+                # buffer_osu = bucket_load("agent_three_obs.pickle")
 
-                # TODO Deuxième fonction, prepare buffers
+                # TODO : Deuxième fonction, prepare buffers
 
                 # 2.1. Load files from pickles
-                with open(f"{agent_name+file_name}", 'rb') as f:
-                    obs = pickle.load(f)
+                with open(CFG.obs_ryu, 'rb') as f:
+                    obs_ryu = pickle.load(f)
+
                 # TODO : Concat when more than 1 client
                 # 2.2. Concat pickles
-                # concat_buffer(obs_1, obs_2, obs_3)
+                # concat_obs = concat_buffer([obs_ryu, obs_ken, obs_osu])
 
                 # 2.3. Load the concat buffer
-                self.agent.rollout_buffer = utils.load_buffer(obs, self.agent) # TODO: no return inside method
+                self.agent.rollout_buffer = utils.load_buffer(obs_ryu, self.agent) # TODO: no return inside method
 
                 # 2.4. Prep buffer logging
                 logg = configure(folder='/tmp/')
@@ -61,12 +62,10 @@ class AgentServer(Agent):
                 self.agent.train()
 
                 #Saving parameters in 'weights.zip' (139Mo)
-                self.agent.save(compute_name[:-4])
+                self.agent.save(CFG.weights[:-4])
 
-                #bucket_save("new_weights.zip")
-                uploading = True
-                blob = utils.get_blob(project, bucket, agent_name, compute_name)
-                utils.upload_download(blob, agent_name, compute_name, uploading)
+                blob = utils.get_blob_server()
+                utils.upload(blob, CFG.weights)
 
                 #TODO : Code evaluate method
                 #server.evaluate()
@@ -77,50 +76,48 @@ class AgentServer(Agent):
 # CLIENT
 class AgentClient(Agent):
 
-    def __init__(self,  environement, n_steps):
-        super().__init__(environement, n_steps)
+    def __init__(self,  env):
+        super().__init__(env)
 
     def game (self):
-        self.agent.learn(total_timesteps= self.n_steps)
+        self.agent.learn(total_timesteps= CFG.buffer_size)
 
-    def write_buffer(self, file_name:str):
+    def write_buffer(self):
         to_buffer = utils.extract_buffer(self.agent)
 
-        with open(file_name,'wb') as f :
+        with open(f'{CFG.name+CFG.obs}','wb') as f :
             pickle.dump(to_buffer, f)
 
-    def new_weights(self, file_path):
-        self.agent = A2C.load(file_path)
+    def new_weights(self):
+        self.agent = A2C.load(CFG.obs)
 
-    def run(self, project, bucket, agent_name, file_name, uploading, compute_name):
+    def run(self):
         while True:
             self.game()
 
-            self.write_buffer(f'{agent_name+file_name}') # WIP : Variables
+            self.write_buffer()
 
-            blob = utils.get_blob(project, bucket, agent_name, file_name)
-            utils.upload_download(blob, agent_name, file_name, uploading)
+            blob = utils.get_blob_client()
+            utils.upload(blob, f'{CFG.name+CFG.obs}')
 
             while True:
-                #time.sleep(client_wait_time)
-                #init_timestamp, is_done = switch(self.init_timestamp)
-                blob = utils.get_blob(project, bucket, agent_name, compute_name)
+                time.sleep(CFG.wait_time)
+
+                blob = utils.get_blob_server()
 
                 try:
-                    # is_done=switch(blob, self.init_timestamp)
+
                     blob_time = utils.get_timestamp(blob)
                 except:
                     blob_time = 0
 
                 if self.init_timestamp < blob_time:
-                    #new_weights = bucket_load("new_weights.zip")
                     uploading = False
-                    blob = utils.get_blob(project, bucket, agent_name, compute_name)
-                    utils.upload_download(blob, agent_name, compute_name, uploading)
+                    blob = utils.get_blob_server()
+                    utils.download(blob, CFG.weights)
 
-                    #self.new_weights(f"{new_weights[:-4]}")
-                    # self.new_weights("new_weights")
-                    print("weights loaded in client")
+                    self.new_weights(f"{CFG.weights[:-4]}")
+
                     break
 
             break
