@@ -18,18 +18,18 @@ def get_timestamp(blob):
     return blob.time_created.timestamp()
 
 
-def get_file_async(blob_path, file_path, timestamp):
+def get_file_async(name, file_path, timestamp):
     while True:
         time.sleep(CFG.wait_time)
 
-        blob = get_blob(blob_path)
+        blob = get_blob(name)
         try:
             blob_time = get_timestamp(blob)
         except:
             blob_time = 0
 
         if timestamp < blob_time:
-            download(get_blob(blob_path), file_path)
+            download(get_blob(name), file_path)
             return
 
 
