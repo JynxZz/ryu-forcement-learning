@@ -84,7 +84,10 @@ class Configuration:
 
         self.name = name
 
-        self.server = True if name == "gouki" else False
+        self.server = False
+        if self.name == "gouki":
+            self.server = True
+
         self.client = not self.server
 
         self.buffer_size = 2 ** 14

@@ -88,6 +88,7 @@ class Server(Agent):
 
     def evaluate(self) -> float:
 
+        # TODO Add env in CFG directly
         env, _ = make_sb3_env("sfiii3n", CFG.eval_settings, CFG.wrappers_settings)
 
         rew = [0 for _ in CFG.eval_rounds]
