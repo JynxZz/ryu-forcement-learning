@@ -31,7 +31,7 @@ class Client(Agent):
 
             # Save buffer to pickle file
             buffer = utils.extract_buffer(self.agent.rollout_buffer)
-            with open(CFG.bucket_path, "wb") as f:
+            with open(CFG.buffer_path, "wb") as f:
                 pickle.dump(buffer, f)
 
             # Upload buffer to bucket
@@ -62,8 +62,9 @@ class Server(Agent):
                 file.write(f"{score}\n")
 
             # Wait for agent observations and load them
-            with Pool(3) as pool:
-                buffers = pool.map(self.get_agent_obs, CFG.clients)
+            # with Pool(3) as pool:
+            #     buffers = pool.map(self.get_agent_obs, CFG.clients)
+            buffers = [self.get_agent_obs(client) for client in CFG.clients]
             self.timestamp = time.time()
 
             print("HEHEHEHEHE")
