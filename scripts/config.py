@@ -1,4 +1,6 @@
+import json
 import random
+
 class Configuration:
     """
     This configuration class is extremely flexible due to a two-step init process. We only instanciate a single instance of it (at the bottom if this file) so that all modules can import this singleton at load time. The second initialization (which happens in main.py) allows the user to input custom parameters of the config class at execution time.
@@ -8,10 +10,24 @@ class Configuration:
         """
         Declare types but do not instanciate anything
         """
-        self.bucket_path = "honda/"
+        # Project
+
+        self.project = "ryu-forcement-learning"
+
+        # GCP path
+        self.bucket_path = "honda"
         self.server_path = "honda/gouki/"
         self.weights = "weights.zip"
         self.obs = "_obs.pickle"
+
+        # Name of Agent
+        self.server = "gouki"
+        self.agent_ryu = "ryu"
+        self.agent_ken = "ken"
+        self.agent_osu = "osu"
+
+        #Waiting time
+        self.looping = 1
 
         self.rnd_seed = None
         self.agt_type = None
@@ -22,8 +38,28 @@ class Configuration:
         User-defined configuration init. Mandatory to properly set all configuration parameters.
         """
 
-        # Mandatory arguments go here. In our case it is useless.
+        # Mandatory arguments go here.
         self.agt_type = agt_type
+
+        # Var init by agent class
+        self.buffer_size = 2 ** 14
+        if self.agt_type == self.server:
+            self.buffer_size *= 3
+
+        # Waiting time
+        if self.agt_type == self.server:
+            self.wait_time = 1
+        else:
+            self.wait_time = 1
+
+        # Client bucket path
+        if self.agt_type == self.agent_ryu:
+            self.client_path = "honda/ryu"
+        if self.agent_ken:
+            self.client_path = "honda/ken"
+        if self.agent_osu:
+            self.client_path = "honda/osu"
+
 
         # We set default values for arguments we have to define
         self.rnd_seed = random.randint(0, 1000)
@@ -38,12 +74,6 @@ class Configuration:
 
 CFG = Configuration()
 
-# import random
-# import torch
-# from turtle import shape
-import json
-import numpy as np
-import mmap
 # Environment settings
 env_settings = {
   'player': 'P1',
@@ -101,8 +131,6 @@ with open("settings.json", "w") as jsonfile:
 
 print("Write successful")
 
-#changer .json en .py
-
 def json_to_py_start():
     with open("settings.json", "r") as jsonfile:
 
@@ -112,16 +140,6 @@ def json_to_py_start():
 
     # 2 premiers dicts settings & wrapper_settings
     return env_settings,wrapper_settings
-
-
-# def json_to_py_agent()):
-#     with open("settings.json", "r") as jsonfile:
-
-#         data = json.load(jsonfile)
-#         observations = data["observations"]
-
-#     # dernier dict observations
-#     return observations
 
 # variable "serveur" = true or flase
 is_server = True

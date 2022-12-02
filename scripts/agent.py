@@ -11,37 +11,30 @@ import scripts.utils as utils
 # AGENT
 class Agent():
 
-        def __init__(self, env, n_steps):
+        def __init__(self, env):
             self.env = env
-            self.n_steps = n_steps
-            self.agent = A2C("MultiInputPolicy", self.env , n_steps= self.n_steps)
+            self.agent = A2C("MultiInputPolicy", self.env , n_steps= CFG.buffer_size)
+
             self.init_timestamp = time.time()
 
 # SERVER
 class AgentServer(Agent):
 
-    def __init__(self,  env, n_steps):
-        super().__init__(env, n_steps)
-        self.name = "server"
+    def __init__(self,  env):
+        super().__init__(env)
 
-    def run(self, project, bucket, agent_name, file_name, uploading, compute_name):
-
-        server_wait_time = 1
+    def run(self):
 
         while True:
 
-            time.sleep(server_wait_time)
-            #init_timestamp, is_done = switch(self.init_timestamp)
-            blob = utils.interface_bucket(project, bucket, agent_name, file_name)
-
+            time.sleep(CFG.wait_time)
+            blob = utils.get_blob_client()
             try:
-                # is_done=switch(blob, self.init_timestamp)
                 blob_time = utils.get_timestamp(blob)
             except:
                 blob_time = 0
 
             if self.init_timestamp < blob_time:
-                # buffer_1 = upload_download(blob, agent_name, file_name, uploading)
                 # TODO Multithread
                 # TODO Ecrire fonction get_buffers_async
                 buffer_1 = utils.max_download(blob, f"{agent_name+file_name}")
@@ -72,7 +65,7 @@ class AgentServer(Agent):
 
                 #bucket_save("new_weights.zip")
                 uploading = True
-                blob = utils.interface_bucket(project, bucket, agent_name, compute_name)
+                blob = utils.get_blob(project, bucket, agent_name, compute_name)
                 utils.upload_download(blob, agent_name, compute_name, uploading)
 
                 #TODO : Code evaluate method
@@ -105,13 +98,13 @@ class AgentClient(Agent):
 
             self.write_buffer(f'{agent_name+file_name}') # WIP : Variables
 
-            blob = utils.interface_bucket(project, bucket, agent_name, file_name)
+            blob = utils.get_blob(project, bucket, agent_name, file_name)
             utils.upload_download(blob, agent_name, file_name, uploading)
 
             while True:
                 #time.sleep(client_wait_time)
                 #init_timestamp, is_done = switch(self.init_timestamp)
-                blob = utils.interface_bucket(project, bucket, agent_name, compute_name)
+                blob = utils.get_blob(project, bucket, agent_name, compute_name)
 
                 try:
                     # is_done=switch(blob, self.init_timestamp)
@@ -122,7 +115,7 @@ class AgentClient(Agent):
                 if self.init_timestamp < blob_time:
                     #new_weights = bucket_load("new_weights.zip")
                     uploading = False
-                    blob = utils.interface_bucket(project, bucket, agent_name, compute_name)
+                    blob = utils.get_blob(project, bucket, agent_name, compute_name)
                     utils.upload_download(blob, agent_name, compute_name, uploading)
 
                     #self.new_weights(f"{new_weights[:-4]}")

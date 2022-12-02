@@ -1,6 +1,6 @@
 from google.cloud import storage
 from stable_baselines3.common.logger import configure
-
+from scripts.config import CFG
 
 # import de diff settings pour les params
 
@@ -15,7 +15,7 @@ LOCAL_PATH=os.environ.get('LOCAL_PATH')
 LOCAL_FILENAME=os.environ.get('LOCAL_FILENAME')
 
 
-# TODO : Local
+# Save in local - test zone
 def local_save(data, file_name=LOCAL_FILENAME):
     weights_folder_path = LOCAL_PATH
     if not os.path.exists(weights_folder_path):
@@ -33,6 +33,14 @@ def local_read(file_name=LOCAL_FILENAME):
         f.readlines()
 
     return f
+
+def creation_date(path_to_file): # WIP -> Code ça putain : CHECK : ok
+    try:
+        timer = os.path.getmtime(path_to_file)
+        return timer
+
+    except OSError:
+        return "Path '%s' does not exists or is inaccessible" %path_to_file
 
 # TODO : Save weights inside bucket : WIP -> good path ...
 def bucket_save(project, bucket, agent, file_name):
@@ -67,34 +75,6 @@ def bucket_load(project, bucket, agent, file_name):
     return blob
 
 
-# TODO : switch client / server done
-
-now = time.time()
-init_timestamp = time.time() # WIP -> find the good type timestamp : CHECK : ok
-
-def switch(old_timestamp):
-
-    timestamp = creation_date()
-
-    if old_timestamp < timestamp:
-        old_timestamp = timestamp
-        return old_timestamp, True
-
-    return old_timestamp, False
-
-def creation_date(path_to_file): # WIP -> Code ça putain : CHECK : ok
-    try:
-        timer = os.path.getmtime(path_to_file)
-        return timer
-
-    except OSError:
-        return "Path '%s' does not exists or is inaccessible" %path_to_file
-
-
-
-# TODO : Connect to the bucket : OK
-
-
 
 # TODO : method bucket general & timestamps
 def old_interface_bucket(project, bucket, agent, file_name, timestamp, uploading=True):
@@ -120,14 +100,19 @@ def old_interface_bucket(project, bucket, agent, file_name, timestamp, uploading
         pass
 
 # TODO : Wrap 3 method
-def interface_bucket(project, bucket, agent, file_name):
-    try:
-        client = storage.Client(project)
-        bucket = client.bucket(bucket)
-        blob = bucket.blob(f"{agent}/{agent+file_name}")
+def get_blob_client():
+
+        client = storage.Client(CFG.project)
+        bucket = client.bucket(CFG.bucket_path)
+        blob = bucket.blob(CFG.client_path)
         return blob
-    except:
-        return "Path '%s' does not exists or is inaccessible" %blob
+
+def get_blob_server():
+
+        client = storage.Client(CFG.project)
+        bucket = client.bucket(CFG.bucket_path)
+        blob = bucket.blob(CFG.server_path)
+        return blob
 
 
 def get_timestamp(blob) -> float:
@@ -165,7 +150,7 @@ def upload_download(blob, agent, file_name, uploading):
     elif not uploading:
         blob.download_to_filename(f'{agent+file_name}')
 
-# Methode use by the Server & Client
+# Methode use by agent : buffer
 def extract_buffer(client_agent):
 
     # WARN Maybe we need to copy these arrays
@@ -185,7 +170,6 @@ def extract_buffer(client_agent):
                  buffer.returns, buffer.advantages)
 
     return to_buffer
-
 
 def concat_buffer(buffers):
     #Stack buffers
@@ -217,7 +201,6 @@ def concat_buffer(buffers):
 
     return (a,b,c,d,e,f,g,h)
 
-# TODO Pass buffer, not full agent
 def load_buffer(imported_obs, server_agent):
 
     observations, actions, rewards, episode_starts, values, log_probs, returns, advantages = imported_obs
