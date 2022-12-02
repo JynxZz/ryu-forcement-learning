@@ -8,9 +8,14 @@ class Configuration:
         """
         Declare types but do not instanciate anything
         """
-        self.epsilon = None
+        self.bucket_path = "honda/"
+        self.server_path = "honda/gouki/"
+        self.weights = "weights.zip"
+        self.obs = "_obs.pickle"
+
         self.rnd_seed = None
         self.agt_type = None
+
 
     def init(self, agt_type, **kwargs):
         """
