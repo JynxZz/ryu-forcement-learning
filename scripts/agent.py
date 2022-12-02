@@ -48,7 +48,7 @@ class Server(Agent):
         super().__init__(env)
 
     def get_agent_obs(self, name):
-        utils.get_file_async(f"honda/{name}/", f"{name}_obs.pickle", self.timestamp)
+        utils.get_file_async(f"{CFG.bucket_path}/{name}/", f"{name}_obs.pickle", self.timestamp)
         with open(f"{name}_obs.pickle", "rb") as file:
             return pickle.load(file)
 
