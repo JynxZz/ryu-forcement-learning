@@ -27,10 +27,10 @@ i = 0
 while i < CFG.looping:
 
     if CFG.agt_type == CFG.server:
-        server.run(project, bucket, agent_name, file_name, False, compute_name)
+        server.run()
         i += 1
         print(f'{i}# : Server')
     else:
         i += 1
-        client.run(project, bucket, agent_name, file_name, True, compute_name)
+        client.run()
         print(f'{i}# : Client')
