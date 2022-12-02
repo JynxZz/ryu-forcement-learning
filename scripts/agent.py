@@ -49,6 +49,8 @@ class Server(Agent):
 
     def get_agent_obs(self, name):
         utils.get_file_async(f"honda/{name}/", f"{name}_obs.pickle", self.timestamp)
+        with open(f"{name}_obs.pickle", "rb") as file:
+            return pickle.load(file)
 
     def run(self):
 
@@ -61,8 +63,12 @@ class Server(Agent):
 
             # Wait for agent observations
             with Pool(3) as pool:
-                pool.map(self.get_agent_obs, CFG.clients)
+                buffers = pool.map(self.get_agent_obs, CFG.clients)
             self.timestamp = time.time()
+            print("HEHEHE")
+            print(len(buffers))
+            exit()
+
 
             # Concatenate and load replay buffer
 
