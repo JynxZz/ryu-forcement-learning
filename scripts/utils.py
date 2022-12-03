@@ -9,7 +9,11 @@ import numpy as np
 def get_blob(name):
     client = storage.Client(CFG.project)
     bucket = client.bucket(CFG.bucket_path)
-    blob = bucket.blob(f"{CFG.bucket_path}/{name}/")
+    if name == CFG.server:
+        blob = bucket.blob(f"{CFG.weights_path}")
+    else:
+        blob = bucket.blob(f"{name}_obs.pickle")
+        # blob = bucket.blob(f"{CFG.buffer_path}")
     return blob
 
 

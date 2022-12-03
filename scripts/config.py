@@ -15,14 +15,15 @@ class Configuration:
         self.project = "ryu-forcement-learning"
         self.bucket_path = "chun-lee"
 
-        self.name = None
+        # self.name = None
 
         # Evaluation
         self.eval_rounds = 3
         self.wait_time = 1
 
-        self.server = "gouki"
-        self.clients = ["ryu", "ken", "osu"]
+        self.server_name = "gouki"
+        self.clients_name = ["ryu", "ken", "osu"]
+        # self.clients_name = ["ryu", "ryu", "ryu"]
 
         # Environment settings
         self.env_settings = {
@@ -90,13 +91,13 @@ class Configuration:
 
         self.client = not self.server
 
-        self.buffer_size = 128 # 2 ** 14
+        self.buffer_size = 64 # 2 ** 14
         if self.server:
             self.buffer_size *= 3
 
-        self.blob_path = f"{self.bucket_path}/{self.name}/"
         self.buffer_path = f"{self.name}_obs.pickle"
-        self.weights_path = "weights"
+        self.weights_path = "weights.zip"
+        self.blob_path = f"{self.name}/{self.name}/"
 
         self.__dict__.update(kwargs)
 

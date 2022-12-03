@@ -45,8 +45,20 @@ install:
 # 		  				DIAMBRA
 #--------------------------------------
 
+gouki:
+	@diambra run python3 scripts/main.py gouki
+
+ryu:
+	@diambra run python3 scripts/main.py ryu
+
+ken:
+	@diambra run python3 scripts/main.py ken
+
+osu:
+	@diambra run python3 scripts/main.py osu
+
 fight_classic:
-	@diambra run python3 scripts/main.py --server
+	@diambra run python3 scripts/main.py
 
 fight_raylib:
 	@diambra run python3 scripts/basic_raylib.py
