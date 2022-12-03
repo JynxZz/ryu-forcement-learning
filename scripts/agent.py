@@ -39,7 +39,7 @@ class Client(Agent):
             utils.upload(utils.get_blob(CFG.name), CFG.buffer_path)
             print("Step 5 -- WAIT")
             # Wait and load new weights
-            utils.get_file_async(CFG.server, CFG.weights_path, self.timestamp)
+            utils.get_file_async(CFG.server_name, CFG.weights_path, self.timestamp)
             self.timestamp = time.time()
             self.agent = A2C.load(CFG.weights_path[:-4])
 
@@ -65,6 +65,7 @@ class Server(Agent):
             # Wait for agent observations and load them
             # with Pool(3) as pool:
             #     buffers = pool.map(self.get_agent_obs, CFG.clients)
+
             buffers = [self.get_agent_obs(client) for client in CFG.clients_name]
             self.timestamp = time.time()
 
