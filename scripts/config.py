@@ -1,6 +1,3 @@
-import json
-import random
-
 
 class Configuration:
     """
@@ -13,7 +10,7 @@ class Configuration:
         """
 
         self.project = "ryu-forcement-learning"
-        self.bucket_path = "chun-lee"
+        self.bucket_path = "chun-li"
 
         # self.name = None
 

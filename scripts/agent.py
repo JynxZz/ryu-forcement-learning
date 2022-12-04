@@ -40,8 +40,11 @@ class Client(Agent):
             print("Step 5 -- WAIT")
             # Wait and load new weights
             utils.get_file_async(CFG.server_name, CFG.weights_path, self.timestamp)
+            print("Step 6 -- new timestamp")
             self.timestamp = time.time()
+            print("Step 7 -- load new weights")
             self.agent = A2C.load(CFG.weights_path[:-4])
+            print("Step 8 -- reset")
 
 
 class Server(Agent):
