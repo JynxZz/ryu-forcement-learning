@@ -40,6 +40,7 @@ class Client(Agent):
                 pickle.dump(buffer, f)
             # Trying to reset buffers
             print("RESET BUFFER AND ENV")
+            self.agent.rollout_buffer.reset()
             del self.agent
 
             print("Step 4 -- go upload buffer")
@@ -54,6 +55,7 @@ class Client(Agent):
 
             self.agent = A2C.load(CFG.weights_path[:-4], env=self.get_env())
             print("Step 8 -- reset")
+
 
 
 
