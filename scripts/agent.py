@@ -1,8 +1,6 @@
 import pickle
 import time
 
-from multiprocessing import Pool
-
 from diambra.arena.stable_baselines3.make_sb3_env import make_sb3_env
 from stable_baselines3 import A2C
 from stable_baselines3.common.logger import configure
@@ -10,46 +8,37 @@ from stable_baselines3.common.logger import configure
 import utils
 from config import CFG
 
+
 class Agent:
     def __init__(self):
-        self.env = self.get_env()
-        if  utils.download(CFG.server_name, CFG.weights_path):
+        self.env, _ = make_sb3_env("sfiii3n", CFG.env_settings, CFG.wrappers_settings)
+        self.timestamp = time.time()
+        if utils.download(CFG.server_name, CFG.weights_path):
             self.agent = A2C.load(CFG.weights_path[:-4], env=self.env)
         else:
             self.agent = A2C("MultiInputPolicy", self.env, n_steps=CFG.buffer_size)
-
-        self.timestamp = time.time()
-
-    def get_env(self, eval=False):
-        if eval:
-            env, _ = make_sb3_env("sfiii3n", CFG.eval_settings, CFG.wrappers_settings)
-        else:
-            env, _ = make_sb3_env("sfiii3n", CFG.env_settings, CFG.wrappers_settings)
-        return env
 
 
 class Client(Agent):
 
     def run(self):
-
-        # while True:
         for _ in range(3):
             # Fill up replay buffer
             print("Step 1 -- go learn")
             self.agent.learn(total_timesteps=CFG.buffer_size)
+
             # Save buffer to pickle file
             print("Step 2 -- go save buffer")
             buffer = utils.extract_buffer(self.agent.rollout_buffer)
             print("Step 3 -- go write buffer")
             with open(CFG.buffer_path, "wb") as f:
                 pickle.dump(buffer, f)
-            # Trying to reset buffers
             self.agent.rollout_buffer.reset()
-            del self.agent
 
             # Upload buffer to bucket
             print("Step 4 -- go upload buffer")
             utils.upload(utils.get_blob(CFG.name), CFG.buffer_path)
+
             # Wait and load new weights
             print("Step 5 -- WAIT")
             utils.get_file_async(CFG.server_name, CFG.weights_path, self.timestamp)
@@ -58,10 +47,8 @@ class Client(Agent):
             self.timestamp = time.time()
 
             print("Step 7 -- load new weights and env")
-            self.agent = A2C.load(CFG.weights_path[:-4], env=self.get_env())
+            self.agent = A2C.load(CFG.weights_path[:-4], env=self.env)
             print("Step 8 -- reset")
-
-
 
 
 class Server(Agent):
@@ -73,9 +60,7 @@ class Server(Agent):
 
     def run(self):
 
-        # while True:
         for _ in range(3):
-
             # Evaluate the agent and save results
             print("Step 1 - evaluate")
             score = self.evaluate()
@@ -83,8 +68,6 @@ class Server(Agent):
                 file.write(f"{score}\n")
 
             # Wait for agent observations and load them
-            # with Pool(3) as pool:
-            #     buffers = pool.map(self.get_agent_obs, CFG.clients)
             print("Step 2 -- WAIT")
             buffers = [self.get_agent_obs(client) for client in CFG.clients_name]
             self.timestamp = time.time()
@@ -93,12 +76,11 @@ class Server(Agent):
             # Concatenate and load replay buffer
             print("Step 4 - Concat")
             buffer = utils.concat_buffers(buffers)
-            print("Step 5 - Load buffer")
 
-            self.agent = A2C.load(CFG.weights_path[:-4], env=self.get_env())
+            print("Step 5 - Load buffer")
             self.agent.rollout_buffer = utils.load_buffer(buffer, self.agent.rollout_buffer)
 
-            # Prepare buffer logging for some reason
+            # Prepare buffer logging
             logg = configure(folder="/tmp/")
             self.agent.set_logger(logg)
 
@@ -113,13 +95,10 @@ class Server(Agent):
 
             print("Step 8 - Reset")
             self.agent.rollout_buffer.reset()
-            del self.agent
-
-
 
     def evaluate(self) -> float:
 
-        env = self.get_env(eval=True)
+        env, _ = make_sb3_env("sfiii3n", CFG.eval_settings, CFG.wrappers_settings)
         agent = A2C.load(CFG.weights_path[:-4], env=env)
 
         rew = [0 for _ in range(CFG.eval_rounds)]
@@ -133,5 +112,4 @@ class Server(Agent):
                     break
         env.close()
         agent.rollout_buffer.reset()
-        del env, agent
         return sum(rew) / len(rew)
