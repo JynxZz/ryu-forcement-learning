@@ -13,7 +13,11 @@ from config import CFG
 class Agent:
     def __init__(self):
         self.env = self.get_env()
-        self.agent = A2C("MultiInputPolicy", self.env, n_steps=CFG.buffer_size)
+        if  utils.download(CFG.server_name, CFG.weights_path):
+            self.agent = A2C.load(CFG.weights_path[:-4], env=self.env)
+        else:
+            self.agent = A2C("MultiInputPolicy", self.env, n_steps=CFG.buffer_size)
+
         self.timestamp = time.time()
 
     def get_env(self, eval=False):
@@ -116,17 +120,18 @@ class Server(Agent):
     def evaluate(self) -> float:
 
         env = self.get_env(eval=True)
-        self.agent = A2C.load(CFG.weights_path[:-4], env=env)
+        agent = A2C.load(CFG.weights_path[:-4], env=env)
 
         rew = [0 for _ in range(CFG.eval_rounds)]
         for eval_round in range(CFG.eval_rounds):
             obs = env.reset()
             while True:
-                action, _ = self.agent.predict(obs, deterministic=True)
+                action, _ = agent.predict(obs, deterministic=True)
                 obs, reward, done, info = env.step(action)
                 rew[eval_round] += reward[0]
                 if done:
                     break
         env.close()
-        del env, self.agent
+        agent.rollout_buffer.reset()
+        del env, agent
         return sum(rew) / len(rew)
