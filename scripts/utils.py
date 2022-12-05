@@ -61,7 +61,7 @@ def extract_buffer(buffer: stable_baselines3.common.buffers.RolloutBuffer) -> tu
     )
 
 
-def concat_buffers(buffers: list[stable_baselines3.common.buffers.RolloutBuffer]) -> tuple:
+def concat_buffers(buffers) -> tuple:
     # Stack buffers
     assert len(buffers) > 2, "No buffer to add"
     n = len(buffers)
