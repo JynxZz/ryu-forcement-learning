@@ -7,6 +7,7 @@ import agent
 from config import CFG
 
 import argparse
+
 parser = argparse.ArgumentParser()
 parser.add_argument("name")
 args = parser.parse_args()
@@ -29,5 +30,3 @@ statistics = snapshot.statistics('lineno')
 print("[ Top 10 ]")
 for stat in statistics[:10]:
     print(stat)
-
-

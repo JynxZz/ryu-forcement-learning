@@ -30,29 +30,31 @@ class Client(Agent):
 
         # while True:
         for _ in range(3):
-            print("Step 1 -- go learn")
             # Fill up replay buffer
+            print("Step 1 -- go learn")
             self.agent.learn(total_timesteps=CFG.buffer_size)
-            print("Step 2 -- go save buffer")
             # Save buffer to pickle file
+            print("Step 2 -- go save buffer")
             buffer = utils.extract_buffer(self.agent.rollout_buffer)
             print("Step 3 -- go write buffer")
             with open(CFG.buffer_path, "wb") as f:
                 pickle.dump(buffer, f)
             # Trying to reset buffers
             self.agent.rollout_buffer.reset()
+            del self.agent
 
-            print("Step 4 -- go upload buffer")
             # Upload buffer to bucket
+            print("Step 4 -- go upload buffer")
             utils.upload(utils.get_blob(CFG.name), CFG.buffer_path)
-            print("Step 5 -- WAIT")
             # Wait and load new weights
+            print("Step 5 -- WAIT")
             utils.get_file_async(CFG.server_name, CFG.weights_path, self.timestamp)
+
             print("Step 6 -- new timestamp")
             self.timestamp = time.time()
-            print("Step 7 -- load new weights and env")
 
-            self.agent = A2C.load(CFG.weights_path[:-4], env=self.env)
+            print("Step 7 -- load new weights and env")
+            self.agent = A2C.load(CFG.weights_path[:-4], env=self.get_env())
             print("Step 8 -- reset")
 
 
@@ -88,6 +90,8 @@ class Server(Agent):
             print("Step 4 - Concat")
             buffer = utils.concat_buffers(buffers)
             print("Step 5 - Load buffer")
+
+            self.agent = A2C.load(CFG.weights_path[:-4], env=self.env())
             self.agent.rollout_buffer = utils.load_buffer(buffer, self.agent.rollout_buffer)
 
             # Prepare buffer logging for some reason
@@ -102,14 +106,17 @@ class Server(Agent):
             print("Step 7 - Save")
             self.agent.save(CFG.weights_path)
             utils.upload(utils.get_blob(CFG.name), f"{CFG.weights_path}")
+
             print("Step 8 - Reset")
             self.agent.rollout_buffer.reset()
-            # self.agent = A2C.load(CFG.weights_path[:-4], env=self.env())
+            del self.agent
+
 
 
     def evaluate(self) -> float:
 
         env = self.get_env(eval=True)
+        self.agent = A2C.load(CFG.weights_path[:-4], env=env)
 
         rew = [0 for _ in range(CFG.eval_rounds)]
         for eval_round in range(CFG.eval_rounds):
@@ -121,5 +128,5 @@ class Server(Agent):
                 if done:
                     break
         env.close()
-        del env
+        del env, self.agent
         return sum(rew) / len(rew)
