@@ -1,12 +1,14 @@
 import time
 
+import google.cloud.storage
+import stable_baselines3.common.buffers
 from google.cloud import storage
-from stable_baselines3.common.logger import configure
+
 from config import CFG
 import numpy as np
 
 
-def get_blob(name):
+def get_blob(name: str) -> google.cloud.storage.Blob:
     client = storage.Client(CFG.project)
     bucket = client.bucket(CFG.bucket_path)
     if name == CFG.server_name:
@@ -17,12 +19,12 @@ def get_blob(name):
     return blob
 
 
-def get_timestamp(blob):
+def get_timestamp(blob: google.cloud.storage.Blob) -> float:
     blob.reload()
     return blob.time_created.timestamp()
 
 
-def get_file_async(name, file_path, timestamp):
+def get_file_async(name: str, file_path: str, timestamp: float) -> None:
     while True:
         time.sleep(CFG.wait_time)
 
@@ -37,38 +39,29 @@ def get_file_async(name, file_path, timestamp):
             return
 
 
-def download(blob, file):
+def download(blob: google.cloud.storage.Blob, file: str) -> None:
     blob.download_to_filename(file)
 
 
-def upload(blob, file):
+def upload(blob: google.cloud.storage.Blob, file: str) -> None:
     blob.upload_from_filename(file)
 
 
-# Methode use by agent : buffer
-def extract_buffer(buffer):
-    # WARN Maybe we need to copy these arrays
-
-    observation = buffer.observations
-    action = buffer.actions
-    reward = buffer.rewards
-    episode_start = buffer.episode_starts
-    value = buffer.values
-    log_prob = buffer.log_probs
+def extract_buffer(buffer: stable_baselines3.common.buffers.RolloutBuffer) -> tuple:
 
     return (
-        observation,
-        action,
-        reward,
-        episode_start,
-        value,
-        log_prob,
+        buffer.observations,
+        buffer.actions,
+        buffer.rewards,
+        buffer.episode_starts,
+        buffer.values,
+        buffer.log_probs,
         buffer.returns,
         buffer.advantages,
     )
 
 
-def concat_buffers(buffers):
+def concat_buffers(buffers: list[stable_baselines3.common.buffers.RolloutBuffer]) -> tuple:
     # Stack buffers
     assert len(buffers) > 2, "No buffer to add"
     n = len(buffers)
