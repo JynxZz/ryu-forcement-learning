@@ -13,9 +13,10 @@ class Agent:
     def __init__(self):
         self.env, _ = make_sb3_env("sfiii3n", CFG.env_settings, CFG.wrappers_settings)
         self.timestamp = time.time()
-        if utils.download(utils.get_blob(CFG.server_name), CFG.weights_path):
-            self.agent = A2C.load(CFG.weights_path[:-4], env=self.env)
-        else:
+        try :
+            utils.download(utils.get_blob(CFG.server_name), CFG.weights_path)
+            self.agent = A2C.load("weights", env=self.env)
+        except FileNotFoundError:
             self.agent = A2C("MultiInputPolicy", self.env, n_steps=CFG.buffer_size)
 
 
@@ -47,7 +48,7 @@ class Client(Agent):
             self.timestamp = time.time()
 
             print("Step 7 -- load new weights and env")
-            self.agent = A2C.load(CFG.weights_path[:-4], env=self.env)
+            self.agent = A2C.load("weights", env=self.env)
             print("Step 8 -- reset")
 
 
@@ -99,7 +100,7 @@ class Server(Agent):
     def evaluate(self) -> float:
 
         env, _ = make_sb3_env("sfiii3n", CFG.eval_settings, CFG.wrappers_settings)
-        agent = A2C.load(CFG.weights_path[:-4], env=env)
+        agent = A2C.load("weights", env=env)
 
         rew = [0 for _ in range(CFG.eval_rounds)]
         for eval_round in range(CFG.eval_rounds):
