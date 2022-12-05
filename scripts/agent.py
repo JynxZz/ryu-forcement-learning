@@ -91,7 +91,7 @@ class Server(Agent):
             buffer = utils.concat_buffers(buffers)
             print("Step 5 - Load buffer")
 
-            self.agent = A2C.load(CFG.weights_path[:-4], env=self.env())
+            self.agent = A2C.load(CFG.weights_path[:-4], env=self.get_env())
             self.agent.rollout_buffer = utils.load_buffer(buffer, self.agent.rollout_buffer)
 
             # Prepare buffer logging for some reason
