@@ -1,4 +1,4 @@
-# Setup Virtual Machin
+# Setup Virtual Machine
 
 ---
 
