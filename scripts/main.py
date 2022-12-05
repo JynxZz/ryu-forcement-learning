@@ -13,11 +13,9 @@ args = parser.parse_args()
 
 CFG.init(args.name)
 
-env, _ = make_sb3_env("sfiii3n", CFG.env_settings, CFG.wrappers_settings)
-
 if CFG.server:
-    server = agent.Server(env)
+    server = agent.Server()
     server.run()
 else:
-    client = agent.Client(env)
+    client = agent.Client()
     client.run()

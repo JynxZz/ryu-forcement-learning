@@ -1,5 +1,6 @@
 import pickle
 import time
+from pympler.tracker import SummaryTracker
 
 from multiprocessing import Pool
 
@@ -10,17 +11,22 @@ from stable_baselines3.common.logger import configure
 import utils
 from config import CFG
 
+tracker = SummaryTracker()
 
 class Agent:
-    def __init__(self, env):
-        self.env = env
-        self.agent = A2C("MultiInputPolicy", self.env, n_steps=CFG.buffer_size)
+    def __init__(self):
+        self.agent = A2C("MultiInputPolicy", self.get_env(), n_steps=CFG.buffer_size)
         self.timestamp = time.time()
+
+    def get_env(self, eval=False):
+        if eval:
+            env, _ = make_sb3_env("sfiii3n", CFG.eval_settings, CFG.wrappers_settings)
+        else:
+            env, _ = make_sb3_env("sfiii3n", CFG.env_settings, CFG.wrappers_settings)
+        return env
 
 
 class Client(Agent):
-    def __init__(self, env):
-        super().__init__(env)
 
     def run(self):
 
@@ -34,6 +40,10 @@ class Client(Agent):
             print("Step 3 -- go write buffer")
             with open(CFG.buffer_path, "wb") as f:
                 pickle.dump(buffer, f)
+            # Trying to reset buffers
+            print("RESET BUFFER AND ENV")
+            del self.agent
+
             print("Step 4 -- go upload buffer")
             # Upload buffer to bucket
             utils.upload(utils.get_blob(CFG.name), CFG.buffer_path)
@@ -42,15 +52,15 @@ class Client(Agent):
             utils.get_file_async(CFG.server_name, CFG.weights_path, self.timestamp)
             print("Step 6 -- new timestamp")
             self.timestamp = time.time()
-            print("Step 7 -- load new weights")
-            self.agent = A2C.load(CFG.weights_path[:-4], env=self.env)
+            print("Step 7 -- load new weights and env")
+
+            self.agent = A2C.load(CFG.weights_path[:-4], env=self.get_env())
             print("Step 8 -- reset")
+            tracker.print_diff()
 
 
 
 class Server(Agent):
-    def __init__(self, env):
-        super().__init__(env)
 
     def get_agent_obs(self, name):
         utils.get_file_async(name, f"{name}_obs.pickle", self.timestamp)
@@ -74,9 +84,6 @@ class Server(Agent):
             buffers = [self.get_agent_obs(client) for client in CFG.clients_name]
             self.timestamp = time.time()
             print("Step 3 - reset timestamp")
-            print("HEHEHEHEHE")
-            print(len(buffers))
-
 
             # Concatenate and load replay buffer
             print("Step 4 - Concat")
@@ -98,11 +105,14 @@ class Server(Agent):
             utils.upload(utils.get_blob(CFG.name), f"{CFG.weights_path}")
             print("Step 8 - Reset")
 
+            del self.agent
+            self.agent = A2C.load(CFG.weights_path[:-4], env=self.get_env())
+            tracker.print_diff()
+
 
     def evaluate(self) -> float:
 
-        # TODO Add env in CFG directly
-        env, _ = make_sb3_env("sfiii3n", CFG.eval_settings, CFG.wrappers_settings)
+        env = self.get_env(eval=True)
 
         rew = [0 for _ in range(CFG.eval_rounds)]
         for eval_round in range(CFG.eval_rounds):
@@ -114,4 +124,5 @@ class Server(Agent):
                 if done:
                     break
         env.close()
+        del env
         return sum(rew) / len(rew)
