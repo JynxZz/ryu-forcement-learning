@@ -16,18 +16,18 @@ CFG.init(args.name)
 import tracemalloc
 tracemalloc.start(10)
 
-try:
-    if CFG.server:
-        server = agent.Server()
-        server.run()
-    else:
-        client = agent.Client()
-        client.run()
-except:
-    snapshot = tracemalloc.take_snapshot()
-    statistics = snapshot.statistics('lineno')
-    print("[ Top 10 ]")
-    for stat in statistics[:10]:
-        print(stat)
+
+if CFG.server:
+    server = agent.Server()
+    server.run()
+else:
+    client = agent.Client()
+    client.run()
+
+snapshot = tracemalloc.take_snapshot()
+statistics = snapshot.statistics('lineno')
+print("[ Top 10 ]")
+for stat in statistics[:10]:
+    print(stat)
 
 

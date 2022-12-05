@@ -1,6 +1,5 @@
 import pickle
 import time
-from pympler.tracker import SummaryTracker
 
 from multiprocessing import Pool
 
@@ -10,8 +9,6 @@ from stable_baselines3.common.logger import configure
 
 import utils
 from config import CFG
-
-tracker = SummaryTracker()
 
 class Agent:
     def __init__(self):
@@ -57,7 +54,6 @@ class Client(Agent):
 
             self.agent = A2C.load(CFG.weights_path[:-4], env=self.get_env())
             print("Step 8 -- reset")
-            tracker.print_diff()
 
 
 
@@ -109,7 +105,6 @@ class Server(Agent):
 
             del self.agent
             self.agent = A2C.load(CFG.weights_path[:-4], env=self.get_env())
-            tracker.print_diff()
 
 
     def evaluate(self) -> float:
