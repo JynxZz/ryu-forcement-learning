@@ -12,7 +12,8 @@ from config import CFG
 
 class Agent:
     def __init__(self):
-        self.agent = A2C("MultiInputPolicy", self.get_env(), n_steps=CFG.buffer_size)
+        self.env = self.get_env()
+        self.agent = A2C("MultiInputPolicy", self.env, n_steps=CFG.buffer_size)
         self.timestamp = time.time()
 
     def get_env(self, eval=False):
@@ -39,9 +40,7 @@ class Client(Agent):
             with open(CFG.buffer_path, "wb") as f:
                 pickle.dump(buffer, f)
             # Trying to reset buffers
-            print("RESET BUFFER AND ENV")
             self.agent.rollout_buffer.reset()
-            del self.agent
 
             print("Step 4 -- go upload buffer")
             # Upload buffer to bucket
@@ -53,7 +52,7 @@ class Client(Agent):
             self.timestamp = time.time()
             print("Step 7 -- load new weights and env")
 
-            self.agent = A2C.load(CFG.weights_path[:-4], env=self.get_env())
+            self.agent = A2C.load(CFG.weights_path[:-4], env=self.env)
             print("Step 8 -- reset")
 
 
@@ -104,9 +103,8 @@ class Server(Agent):
             self.agent.save(CFG.weights_path)
             utils.upload(utils.get_blob(CFG.name), f"{CFG.weights_path}")
             print("Step 8 - Reset")
-
-            del self.agent
-            self.agent = A2C.load(CFG.weights_path[:-4], env=self.get_env())
+            self.agent.rollout_buffer.reset()
+            # self.agent = A2C.load(CFG.weights_path[:-4], env=self.env())
 
 
     def evaluate(self) -> float:
