@@ -46,16 +46,16 @@ install:
 #--------------------------------------
 
 gouki:
-    while true; do diambra run python3 scripts/main.py gouki; done
+	while true; do diambra run python3 scripts/main.py gouki; done
 
 ryu:
-    while true; do diambra run python3 scripts/main.py ryu; done
+  while true; do diambra run python3 scripts/main.py ryu; done
 
 ken:
-    while true; do diambra run python3 scripts/main.py ken; done
+  while true; do diambra run python3 scripts/main.py ken; done
 
 osu:
-    while true; do diambra run python3 scripts/main.py osu; done
+  while true; do diambra run python3 scripts/main.py osu; done
 
 fight_classic:
 	@diambra run python3 scripts/main.py
