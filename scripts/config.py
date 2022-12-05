@@ -15,7 +15,7 @@ class Configuration:
         # self.name = None
 
         # Evaluation
-        self.eval_rounds = 3
+        self.eval_rounds = 1
         self.wait_time = 1
 
         self.server_name = "gouki"
