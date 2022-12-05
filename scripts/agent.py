@@ -43,8 +43,9 @@ class Client(Agent):
             print("Step 6 -- new timestamp")
             self.timestamp = time.time()
             print("Step 7 -- load new weights")
-            self.agent = A2C.load(CFG.weights_path[:-4])
+            self.agent = A2C.load(CFG.weights_path[:-4], env=self.env)
             print("Step 8 -- reset")
+
 
 
 class Server(Agent):
@@ -61,22 +62,24 @@ class Server(Agent):
         while True:
 
             # Evaluate the agent and save results
-            # score = self.evaluate()
-            # with open("reward.txt", "a") as file:
-            #     file.write(f"{score}\n")
+            print("Step 1 - evaluate")
+            score = self.evaluate()
+            with open("reward.txt", "a") as file:
+                file.write(f"{score}\n")
 
             # Wait for agent observations and load them
             # with Pool(3) as pool:
             #     buffers = pool.map(self.get_agent_obs, CFG.clients)
-
+            print("Step 2 -- WAIT")
             buffers = [self.get_agent_obs(client) for client in CFG.clients_name]
             self.timestamp = time.time()
-
+            print("Step 3 - reset timestamp")
             print("HEHEHEHEHE")
             print(len(buffers))
 
 
             # Concatenate and load replay buffer
+            print("Step 4 - Concat")
             buffer = utils.concat_buffers(buffers)
             self.agent.rollout_buffer = utils.load_buffer(buffer, self.agent.rollout_buffer)
 

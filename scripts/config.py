@@ -15,12 +15,12 @@ class Configuration:
         # self.name = None
 
         # Evaluation
-        self.eval_rounds = 3
+        self.eval_rounds = 1
         self.wait_time = 1
 
         self.server_name = "gouki"
         self.clients_name = ["ryu", "ken", "osu"]
-        # self.clients_name = ["ryu", "ryu", "ryu"]
+        # self.clients_name = ["ryu"]
 
         # Environment settings
         self.env_settings = {
