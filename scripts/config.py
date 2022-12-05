@@ -15,7 +15,7 @@ class Configuration:
         # self.name = None
 
         # Evaluation
-        self.eval_rounds = 1
+        self.eval_rounds = 3
         self.wait_time = 1
 
         self.server_name = "gouki"
@@ -88,7 +88,7 @@ class Configuration:
 
         self.client = not self.server
 
-        self.buffer_size = 64 # 2 ** 14
+        self.buffer_size = 2 ** 14
         if self.server:
             self.buffer_size *= 3
 

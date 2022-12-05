@@ -81,6 +81,7 @@ class Server(Agent):
             # Concatenate and load replay buffer
             print("Step 4 - Concat")
             buffer = utils.concat_buffers(buffers)
+            print("Step 5 - Load buffer")
             self.agent.rollout_buffer = utils.load_buffer(buffer, self.agent.rollout_buffer)
 
             # Prepare buffer logging for some reason
@@ -88,11 +89,14 @@ class Server(Agent):
             self.agent.set_logger(logg)
 
             # Learn from loaded observations
+            print("Step 6 - train")
             self.agent.train()
 
             # Save neural network weights and upload them on the bucket
+            print("Step 7 - Save")
             self.agent.save(CFG.weights_path)
             utils.upload(utils.get_blob(CFG.name), f"{CFG.weights_path}")
+            print("Step 8 - Reset")
 
 
     def evaluate(self) -> float:

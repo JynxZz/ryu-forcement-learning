@@ -65,3 +65,4 @@ dmypy.json
 data
 *.pickle
 *.zip
+reward.txt
