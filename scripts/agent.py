@@ -30,7 +30,8 @@ class Client(Agent):
 
     def run(self):
 
-        while True:
+        # while True:
+        for _ in range(3):
             print("Step 1 -- go learn")
             # Fill up replay buffer
             self.agent.learn(total_timesteps=CFG.buffer_size)
@@ -69,7 +70,8 @@ class Server(Agent):
 
     def run(self):
 
-        while True:
+        # while True:
+        for _ in range(3):
 
             # Evaluate the agent and save results
             print("Step 1 - evaluate")
