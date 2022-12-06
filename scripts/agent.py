@@ -92,7 +92,7 @@ class Server(Agent):
             # Save neural network weights and upload them on the bucket
             print("Step 7 - Save")
             self.agent.save(CFG.weights_path)
-            utils.upload(utils.get_blob(CFG.name), f"{CFG.weights_path}")
+            utils.upload(utils.get_blob(CFG.name), CFG.weights_path)
 
             print("Step 8 - Reset")
             self.agent.rollout_buffer.reset()

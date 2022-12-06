@@ -1,14 +1,14 @@
 import time
 
-import google.cloud.storage
-import stable_baselines3.common.buffers
+import numpy as np
 from google.cloud import storage
+from google.cloud.storage import Blob
+from stable_baselines3.common.buffers import RolloutBuffer
 
 from config import CFG
-import numpy as np
 
 
-def get_blob(name: str) -> google.cloud.storage.Blob:
+def get_blob(name: str) -> Blob:
     client = storage.Client(CFG.project)
     bucket = client.bucket(CFG.bucket_path)
     if name == CFG.server_name:
@@ -19,7 +19,7 @@ def get_blob(name: str) -> google.cloud.storage.Blob:
     return blob
 
 
-def get_timestamp(blob: google.cloud.storage.Blob) -> float:
+def get_timestamp(blob: Blob) -> float:
     blob.reload()
     return blob.time_created.timestamp()
 
@@ -39,15 +39,15 @@ def get_file_async(name: str, file_path: str, timestamp: float) -> None:
             return
 
 
-def download(blob: google.cloud.storage.Blob, file: str) -> None:
+def download(blob: Blob, file: str) -> None:
     blob.download_to_filename(file)
 
 
-def upload(blob: google.cloud.storage.Blob, file: str) -> None:
+def upload(blob: Blob, file: str) -> None:
     blob.upload_from_filename(file)
 
 
-def extract_buffer(buffer: stable_baselines3.common.buffers.RolloutBuffer) -> tuple:
+def extract_buffer(buffer: RolloutBuffer) -> tuple:
 
     return (
         buffer.observations,
@@ -84,7 +84,7 @@ def concat_buffers(buffers) -> tuple:
     return a, b, c, d, e, f, g, h
 
 
-def load_buffer(data, buffer):
+def load_buffer(data: tuple, buffer):
     (
         observations,
         actions,
@@ -112,7 +112,3 @@ def load_buffer(data, buffer):
     buffer.full = True
 
     return buffer
-
-
-if __name__ == "__main__":
-    pass
