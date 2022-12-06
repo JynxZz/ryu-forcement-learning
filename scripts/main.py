@@ -14,8 +14,6 @@ args = parser.parse_args()
 
 CFG.init(args.name)
 
-import tracemalloc
-tracemalloc.start(10)
 
 
 if CFG.server:
@@ -24,9 +22,3 @@ if CFG.server:
 else:
     client = agent.Client()
     client.run()
-
-snapshot = tracemalloc.take_snapshot()
-statistics = snapshot.statistics('lineno')
-print("[ Top 10 ]")
-for stat in statistics[:10]:
-    print(stat)

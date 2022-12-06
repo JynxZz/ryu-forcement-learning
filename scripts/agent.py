@@ -49,6 +49,7 @@ class Client(Agent):
             self.timestamp = time.time()
 
             print("Step 7 -- load new weights and env")
+            time.sleep(CFG.wait_time)
             self.agent = A2C.load("weights", env=self.env)
             print("Step 8 -- reset")
 
@@ -62,41 +63,41 @@ class Server(Agent):
 
     def run(self):
 
-        for _ in range(3):
-            # Evaluate the agent and save results
-            print("Step 1 - evaluate")
-            score = self.evaluate()
-            with open("reward.txt", "a") as file:
-                file.write(f"{score}\n")
+        # for _ in range(3):
+        # Evaluate the agent and save results
+        print("Step 1 - evaluate")
+        score = self.evaluate()
+        with open("reward.txt", "a") as file:
+            file.write(f"{score}\n")
 
-            # Wait for agent observations and load them
-            print("Step 2 -- WAIT")
-            buffers = [self.get_agent_obs(client) for client in CFG.clients_name]
-            self.timestamp = time.time()
-            print("Step 3 - reset timestamp")
+        # Wait for agent observations and load them
+        print("Step 2 -- WAIT")
+        buffers = [self.get_agent_obs(client) for client in CFG.clients_name]
+        self.timestamp = time.time()
+        print("Step 3 - reset timestamp")
 
-            # Concatenate and load replay buffer
-            print("Step 4 - Concat")
-            buffer = utils.concat_buffers(buffers)
+        # Concatenate and load replay buffer
+        print("Step 4 - Concat")
+        buffer = utils.concat_buffers(buffers)
 
-            print("Step 5 - Load buffer")
-            self.agent.rollout_buffer = utils.load_buffer(buffer, self.agent.rollout_buffer)
+        print("Step 5 - Load buffer")
+        self.agent.rollout_buffer = utils.load_buffer(buffer, self.agent.rollout_buffer)
 
-            # Prepare buffer logging
-            logg = configure(folder="/tmp/")
-            self.agent.set_logger(logg)
+        # Prepare buffer logging
+        logg = configure(folder="/tmp/")
+        self.agent.set_logger(logg)
 
-            # Learn from loaded observations
-            print("Step 6 - train")
-            self.agent.train()
+        # Learn from loaded observations
+        print("Step 6 - train")
+        self.agent.train()
 
-            # Save neural network weights and upload them on the bucket
-            print("Step 7 - Save")
-            self.agent.save(CFG.weights_path)
-            utils.upload(utils.get_blob(CFG.name), CFG.weights_path)
+        # Save neural network weights and upload them on the bucket
+        print("Step 7 - Save")
+        self.agent.save(CFG.weights_path)
+        utils.upload(utils.get_blob(CFG.name), CFG.weights_path)
 
-            print("Step 8 - Reset")
-            self.agent.rollout_buffer.reset()
+        print("Step 8 - Reset")
+        self.agent.rollout_buffer.reset()
 
     def evaluate(self) -> float:
 

@@ -1,4 +1,4 @@
-
+import random
 class Configuration:
 
     def __init__(self):
@@ -7,8 +7,8 @@ class Configuration:
         self.bucket_path = "chun-li"
 
         # Evaluation
-        self.eval_rounds = 1
-        self.wait_time = 1
+        self.eval_rounds = 2
+        self.wait_time = random.random() * 6
 
         self.server_name = "gouki"
         self.clients_name = ["ryu", "ken", "osu", "honda", "guile", "blanka"]
@@ -22,7 +22,7 @@ class Configuration:
             'step_ratio': 6,  # Number of steps performed by the game # for every environment step, bounds: [1, 6]
             'difficulty': 8,
             'characters': [["Ryu"], ["Random"]],
-            'frame_shape': [128, 128, 0],  # Native frame resize operation & 1=B&W
+            'frame_shape': [128, 128, 1],  # Native frame resize operation & 1=B&W
             'action_space': 'multi_discrete',  # 'multi_discrete'
             'attack_but_combination': True,
             'super_art': [0, 0],
