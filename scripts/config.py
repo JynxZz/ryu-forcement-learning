@@ -22,7 +22,7 @@ class Configuration:
             'step_ratio': 6,  # Number of steps performed by the game # for every environment step, bounds: [1, 6]
             'difficulty': 8,
             'characters': [["Ryu"], ["Random"]],
-            'frame_shape': [128, 128, 0],  # Native frame resize operation & 1=B&W
+            'frame_shape': [100, 100, 0],  # Native frame resize operation & 1=B&W
             'action_space': 'multi_discrete',  # 'multi_discrete'
             'attack_but_combination': True,
             'super_art': [0, 0],
@@ -39,7 +39,7 @@ class Configuration:
             'step_ratio': 6,  # Number of steps performed by the game # for every environment step, bounds: [1, 6]
             'difficulty': 8,
             'characters': [["Ryu"], ["Random"]],
-            'frame_shape': [128, 128, 0],  # Native frame resize operation & 1=B&W
+            'frame_shape': [100, 100, 0],  # Native frame resize operation & 1=B&W
             'action_space': 'multi_discrete',  # 'multi_discrete'
             'attack_but_combination': True,
             'super_art': [0, 0],
