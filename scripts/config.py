@@ -1,18 +1,10 @@
 
 class Configuration:
-    """
-    This configuration class is extremely flexible due to a two-step init process. We only instanciate a single instance of it (at the bottom if this file) so that all modules can import this singleton at load time. The second initialization (which happens in main.py) allows the user to input custom parameters of the config class at execution time.
-    """
 
     def __init__(self):
-        """
-        Declare types but do not instanciate anything
-        """
 
-        self.project = "ryu-forcement-learning"
+        self.project = "nice-psyche-370808"
         self.bucket_path = "chun-li"
-
-        # self.name = None
 
         # Evaluation
         self.eval_rounds = 1
