@@ -13,11 +13,11 @@ class Agent:
     def __init__(self):
         self.env, _ = make_sb3_env("sfiii3n", CFG.env_settings, CFG.wrappers_settings)
         self.timestamp = time.time()
-        # try :
-        utils.download(utils.get_blob(CFG.server_name), CFG.weights_path)
-        self.agent = A2C.load("weights", env=self.env)
-        # except FileNotFoundError:
-            # self.agent = A2C("MultiInputPolicy", self.env, n_steps=CFG.buffer_size)
+        try :
+            utils.download(utils.get_blob(CFG.server_name), CFG.weights_path)
+            self.agent = A2C.load("weights", env=self.env)
+        except FileNotFoundError:
+            self.agent = A2C("MultiInputPolicy", self.env, n_steps=CFG.buffer_size)
 
 
 class Client(Agent):

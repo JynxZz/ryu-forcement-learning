@@ -2,9 +2,6 @@
 class Configuration:
 
     def __init__(self):
-        """
-        Declare types but do not instanciate anything
-        """
 
         self.project = "nice-psyche-370808"
         self.bucket_path = "chun-li"
