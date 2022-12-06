@@ -57,6 +57,15 @@ ken:
 osu:
 	@while true; do diambra run python3 scripts/main.py osu; done
 
+honda:
+	@while true; do diambra run python3 scripts/main.py honda; done
+
+guile:
+	@while true; do diambra run python3 scripts/main.py guile; done
+
+blanka:
+	@while true; do diambra run python3 scripts/main.py blanka; done
+
 fight_classic:
 	@diambra run python3 scripts/main.py
 

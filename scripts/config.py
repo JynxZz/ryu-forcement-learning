@@ -19,7 +19,7 @@ class Configuration:
         self.wait_time = 1
 
         self.server_name = "gouki"
-        self.clients_name = ["ryu", "ken", "osu"]
+        self.clients_name = ["ryu", "ken", "osu", "honda", "guile", "blanka"]
         # self.clients_name = ["ryu"]
 
         # Environment settings
@@ -88,9 +88,9 @@ class Configuration:
 
         self.client = not self.server
 
-        self.buffer_size = 2 ** 11
+        self.buffer_size = 2 ** 12
         if self.server:
-            self.buffer_size *= 3
+            self.buffer_size *= 6
 
         self.buffer_path = f"{self.name}_obs.pickle"
         self.weights_path = "weights.zip"

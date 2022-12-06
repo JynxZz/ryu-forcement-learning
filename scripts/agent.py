@@ -4,6 +4,7 @@ import time
 from diambra.arena.stable_baselines3.make_sb3_env import make_sb3_env
 from stable_baselines3 import A2C
 from stable_baselines3.common.logger import configure
+from google.api_core.exceptions import NotFound
 
 import utils
 from config import CFG
@@ -13,11 +14,11 @@ class Agent:
     def __init__(self):
         self.env, _ = make_sb3_env("sfiii3n", CFG.env_settings, CFG.wrappers_settings)
         self.timestamp = time.time()
-        # try :
-        utils.download(utils.get_blob(CFG.server_name), CFG.weights_path)
-        self.agent = A2C.load("weights", env=self.env)
-        # except FileNotFoundError:
-            # self.agent = A2C("MultiInputPolicy", self.env, n_steps=CFG.buffer_size)
+        try :
+            utils.download(utils.get_blob(CFG.server_name), CFG.weights_path)
+            self.agent = A2C.load("weights", env=self.env)
+        except (FileNotFoundError, NotFound):
+            self.agent = A2C("MultiInputPolicy", self.env, n_steps=CFG.buffer_size)
 
 
 class Client(Agent):
