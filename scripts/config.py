@@ -3,13 +3,11 @@ class Configuration:
 
     def __init__(self):
 
-        self.project = "nice-psyche-370808"
-        self.bucket_path = "chun-li"
-
-        # Evaluation
+        self.name = ""
+        self.server = False
+        self.client = False
         self.eval_rounds = 1
-        self.wait_time = 1
-
+        self.buffer_size = 2 ** 11
         self.server_name = "gouki"
         self.clients_name = ["ryu", "ken", "osu"]
 
@@ -67,25 +65,14 @@ class Configuration:
         }
 
     def init(self, name, **kwargs):
-        """
-        User-defined configuration init. Mandatory to properly set all configuration parameters.
-        """
 
         self.name = name
 
-        self.server = False
         if self.name == "gouki":
             self.server = True
-
-        self.client = not self.server
-
-        self.buffer_size = 2 ** 11
-        if self.server:
             self.buffer_size *= 3
 
-        self.buffer_path = f"{self.name}_obs.pickle"
-        self.weights_path = "weights.zip"
-        self.blob_path = f"{self.name}/{self.name}/"
+        self.client = not self.server
 
         self.__dict__.update(kwargs)
 

@@ -1,27 +1,9 @@
 import time
 
 import numpy as np
-from google.cloud import storage
-from google.cloud.storage import Blob
 from stable_baselines3.common.buffers import RolloutBuffer
 
 from config import CFG
-
-
-def get_blob(name: str) -> Blob:
-    client = storage.Client(CFG.project)
-    bucket = client.bucket(CFG.bucket_path)
-    if name == CFG.server_name:
-        blob = bucket.blob(f"{CFG.weights_path}")
-    else:
-        blob = bucket.blob(f"{name}_obs.pickle")
-        # blob = bucket.blob(f"{CFG.buffer_path}")
-    return blob
-
-
-def get_timestamp(blob: Blob) -> float:
-    blob.reload()
-    return blob.time_created.timestamp()
 
 
 def get_file_async(name: str, file_path: str, timestamp: float) -> None:
@@ -37,15 +19,6 @@ def get_file_async(name: str, file_path: str, timestamp: float) -> None:
         if timestamp < blob_time:
             download(get_blob(name), file_path)
             return
-
-
-def download(blob: Blob, file: str) -> None:
-    blob.download_to_filename(file)
-
-
-def upload(blob: Blob, file: str) -> None:
-    blob.upload_from_filename(file)
-
 
 def extract_buffer(buffer: RolloutBuffer) -> tuple:
 
