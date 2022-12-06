@@ -104,7 +104,7 @@ newgrp docker
 Don't forget to clean
 
 ```bash
-clean
+clear
 exec bash
 ```
 
@@ -140,7 +140,7 @@ To be sure, reset VM before the next step.
 # Ryu Forcement Learning
 
 ```bash
-curl https://raw.githubusercontent.com/JynxZz/ryu-forcement-learning/master/dotfiles/.setup_rl.sh | sh && exec zsh
+curl https://raw.githubusercontent.com/JynxZz/ryu-forcement-learning/master/dotfiles/.setup_rl.sh | sh && exec bash
 ```
 
 Make sure the repo is on the good path
