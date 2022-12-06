@@ -80,7 +80,7 @@ class Configuration:
 
         self.client = not self.server
 
-        self.buffer_size = 2 ** 12
+        self.buffer_size = 2 ** 11
         if self.server:
             self.buffer_size *= 6
 

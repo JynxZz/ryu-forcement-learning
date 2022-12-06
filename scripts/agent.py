@@ -114,4 +114,5 @@ class Server(Agent):
                     break
         env.close()
         agent.rollout_buffer.reset()
+        del agent, env, _
         return sum(rew) / len(rew)
