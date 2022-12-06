@@ -3,7 +3,6 @@ import diambra.arena
 import pandas as pd
 from random import randrange
 
-
 env_settings = {
     'player': 'P1',
     'continue_game': 1.0,
@@ -11,8 +10,8 @@ env_settings = {
     'step_ratio': 6,  # Number of steps performed by the game # for every environment step, bounds: [1, 6]
     'difficulty': 8,
     'characters': [["Ryu"], ["Random"]],
-    'frame_shape': [128, 128, 0],  # Native frame resize operation & 1=B&W
-    'action_space': 'multi_discrete',  # 'multi_discrete'
+    'frame_shape': [512, 512, 0],  # Native frame resize operation & 1=B&W
+    'action_space': 'discrete',  # 'multi_discrete'
     'attack_but_combination': True,
     'super_art': [0, 0],
     'hardcore': False,  # If to use hardcore mode in which observations are only made of game frame
@@ -20,7 +19,6 @@ env_settings = {
     'seed': -1,  # ???
     'grpc_timeout': 60  # ???
 }
-
 
 wrappers_settings = {
             "no_op_max": 0,  # Number of no-Op actions to be executed # at the beginning of the episode (0 by default)
@@ -39,7 +37,6 @@ wrappers_settings = {
             # "filter_keys": ["stage", "P1_ownSide", "P1_oppSide","P1_ownHealth", "P1_oppChar", "P1_actions_move", "P1_actions_attack"] # a sub-set of the RAM states
         }
 
-
 # Environment set and observation reset
 env = diambra.arena.make("sfiii3n", env_settings=env_settings,wrappers_settings=wrappers_settings)
 observation = env.reset()
@@ -48,69 +45,45 @@ reward_all=[]
 done_all=[]
 info_all=[]
 
+Hadouken_right=[7,6,5,9]
+Hadouken_left=[7,8,1,10]
+Tatsumaki_right=[7,6,5,13]
+Tatsumaki_left=[7,8,1,13]
+Sliding_high_kick_right=[1,8,7,6,5,13]
+Sliding_high_kick_left=[5,6,7,8,1,14]
+Super_fireball_right=[7,6,5,7,6,5,9]
+Super_fireball_left=[7,8,1,7,8,1,10]
 
-# Agent-Environment interaction loop
-while  len(reward_all) <= 1000:
+while True:
 
-    # Environment rendering --> mode = "human","rgb_array"
-    env.render(mode="human")
+    for loop in range(0,5):
 
-    # Action random sampling // to-do plug l'AGENT
-    actions= randrange(9,15)
+        for step in Tatsumaki_right:
+            # Environment rendering --> mode = "human","rgb_array"
+            env.render(mode="human")
 
-    # Environment stepping
-    observation, reward, done, info = env.step(actions)
+            # Environment stepping
+            observation, reward, done, info = env.step(step)
+        for step in Tatsumaki_left:
+            # Environment rendering --> mode = "human","rgb_array"
+            env.render(mode="human")
 
-  """   # Environment visualization
-    print("-----observation-----")
-    print(observation)
-    print("-----reward----------")
-    print(reward)
-    print("-----done------------")
-    print(done)
-    print("-----info------------")
-    print(info)
-    print("-----step------------")
-    print(len(reward_all)+1)
+            # Environment stepping
+            observation, reward, done, info = env.step(step)
 
-    # Environment manual recording
-    observation_all.append(observation)
-    reward_all.append(reward)
-    done_all.append(done)
-    info_all.append(info)
-
-    # In case, Ryu wins the game --> restart a tournament without braking
-    if done:
-        env = diambra.arena.make("sfiii3n", env_settings=env_settings,wrappers_settings=wrappers_settings)
+    for step in Super_fireball_right:
+        # Environment rendering --> mode = "human","rgb_array"
         env.render(mode="human")
-        actions= randrange(9,11)
-        observation, reward, done, info = env.step(actions)
 
-            # Environment visualization
-        print("-----observation-----")
-        print(observation)
-        print("-----reward----------")
-        print(reward)
-        print("-----done------------")
-        print(done)
-        print("-----info------------")
-        print(info)
-        print("-----step------------")
-        print(len(reward_all)+1)
+        # Environment stepping
+        observation, reward, done, info = env.step(step)
+    for step in Super_fireball_left:
+        # Environment rendering --> mode = "human","rgb_array"
+        env.render(mode="human")
 
-        # Environment manual recording
-        observation_all.append(observation)
-        reward_all.append(reward)
-        done_all.append(done)
-        info_all.append(info)
+        # Environment stepping
+        observation, reward, done, info = env.step(step)
 
-# Save and csv
-outputs=pd.DataFrame({
-    "observation":observation_all,
-    "reward":reward_all,
-    "done":done_all,
-    "info":info_all})
-outputs.to_csv('outputs.csv') """
 
 # Environment close
 env.close()
