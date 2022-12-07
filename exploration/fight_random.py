@@ -11,7 +11,7 @@ env_settings = {
     'difficulty': 8,
     'characters': [["Ryu"], ["Random"]],
     'frame_shape': [512, 512, 0],  # Native frame resize operation & 1=B&W
-    'action_space': 'discrete',  # 'multi_discrete'
+    'action_space': 'multi_discrete',  # 'multi_discrete'
     'attack_but_combination': True,
     'super_art': [0, 0],
     'hardcore': False,  # If to use hardcore mode in which observations are only made of game frame
@@ -43,57 +43,20 @@ observation = env.reset()
 observation_all=[]
 reward_all=[]
 
-# Liste des combos
-Hadouken_right=[7,6,5,10]
-Hadouken_left=[7,8,1,10]
-Tatsumaki_right=[7,6,5,13]
-Tatsumaki_left=[7,8,1,13]
-Sliding_high_kick_left=[1,8,7,6,5,13]
-Sliding_high_kick_right=[5,6,7,8,1,14]
-Super_fireball_right=[7,6,5,7,6,5,9]
-Super_fireball_=[7,8,1,7,8,1,10]
-Shoryuken_right=[5,6,7,10]
-Shoryuken_left=[1,8,7,10]
 
 done = False
 
 while  len(reward_all) <= 10000000:
 
-    if observation["P1_ownSide"] == 0:
+    # Environment rendering --> mode = "human","rgb_array"
+    env.render(mode="human")
 
-        for step in Shoryuken_right:
-            env.render(mode="human")
-            if not done:
-                observation, reward, done, info = env.step(step)
-                reward_all.append(reward)
-            else:
-                pass
+    # Action random sampling // to-do plug l'AGENT
+    actions= [randrange(0,9),randrange(0,7)]
 
-        for step in Sliding_high_kick_right:
-            env.render(mode="human")
-            if not done:
-                observation, reward, done, info = env.step(step)
-                reward_all.append(reward)
-            else:
-                pass
-
-    else:
-
-        for step in Shoryuken_left:
-            env.render(mode="human")
-            if not done:
-                observation, reward, done, info = env.step(step)
-                reward_all.append(reward)
-            else:
-                pass
-
-        for step in Sliding_high_kick_left:
-            env.render(mode="human")
-            if not done:
-                observation, reward, done, info = env.step(step)
-                reward_all.append(reward)
-            else:
-                pass
+    # Environment stepping
+    observation, reward, done, info = env.step(actions)
+    reward_all.append(reward)
 
     if done:
         break
