@@ -107,16 +107,15 @@ class Server(Agent):
         env, _ = make_sb3_env("sfiii3n", CFG.eval_settings, CFG.wrappers_settings)
         agent = A2C.load("weights", env=env)
 
-        rew = [0 for _ in range(CFG.eval_rounds)]
-        for eval_round in range(CFG.eval_rounds):
-            obs = env.reset()
-            while True:
-                action, _ = agent.predict(obs, deterministic=False)
-                obs, reward, done, info = env.step(action)
-                rew[eval_round] += reward[0]
-                if done:
-                    break
+        rew = []
+        obs = env.reset()
+        while True:
+            action, _ = agent.predict(obs, deterministic=False)
+            obs, reward, done, _ = env.step(action)
+            rew.append(reward[0])
+            if done:
+                break
         env.close()
         agent.rollout_buffer.reset()
         del agent, env, _
-        return sum(rew) / len(rew)
+        return f"{sum(rew)} \t {len(rew)}"
