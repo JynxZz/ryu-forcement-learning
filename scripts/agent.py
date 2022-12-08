@@ -111,7 +111,7 @@ class Server(Agent):
         for eval_round in range(CFG.eval_rounds):
             obs = env.reset()
             while True:
-                action, _ = agent.predict(obs, deterministic=True)
+                action, _ = agent.predict(obs, deterministic=False)
                 obs, reward, done, info = env.step(action)
                 rew[eval_round] += reward[0]
                 if done:
