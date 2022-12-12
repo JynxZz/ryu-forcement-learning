@@ -7,7 +7,7 @@ env_settings = {
     'player': 'P1',
     'continue_game': 0.0,
     'show_final': True,  # If to show game final when game is completed
-    'step_ratio': 6,  # Number of steps performed by the game # for every environment step, bounds: [1, 6]
+    'step_ratio': 1,  # Number of steps performed by the game # for every environment step, bounds: [1, 6]
     'difficulty': 8,
     'characters': [["Ryu"], ["Random"]],
     'frame_shape': [512, 512, 0],  # Native frame resize operation & 1=B&W
@@ -61,7 +61,7 @@ while  len(reward_all) <= 10000000:
 
     if observation["P1_ownSide"] == 0:
 
-        for step in Sliding_high_kick_right:
+        for step in Hadouken_right:
             env.render(mode="human")
             if not done:
                 observation, reward, done, info = env.step(step)
@@ -71,7 +71,7 @@ while  len(reward_all) <= 10000000:
 
     else:
 
-        for step in Sliding_high_kick_left:
+        for step in Hadouken_left:
             env.render(mode="human")
             if not done:
                 observation, reward, done, info = env.step(step)
